@@ -26,5 +26,6 @@ int vitesse(Combattant equipe1[SIZE], Combattant equipe2[SIZE], Combattant Comba
 
 
 
-    }while(equipe1[1]<100 ||equipe1[2]<100 || equipe1[3]<100);
+
+    }while(equipe1[0].vit<100 ||equipe1[1].vit<100 || equipe1[2].vit<100);
 }
