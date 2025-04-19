@@ -1,5 +1,11 @@
 modification a apporter :
-
+cahier des charges : 
+- voir sélection capacité (maxime)
+- choix cible (ibra)
+- fiche perso (max)
+- ordre des choses a faire : système de combat , puis système capacités, puis systme 3v3 cible / mono cible.
+- faire un tri sur l'ordre d'atk sur la vitesse
+- utilisation d'une boucle pour le process du tour par tour
 
 
 
