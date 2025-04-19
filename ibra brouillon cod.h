@@ -22,10 +22,47 @@ int fincombat(Combattant Combattant1, Combattant Combattant2, Combattant Combatt
 }
 //qui attaque en premier ?
 int vitesse(Combattant equipe1[SIZE], Combattant equipe2[SIZE], Combattant Combattant1, Combattant Combattant2, Combattant Combattant3, Combattant Combattant4, Combattant Combattant5, Combattant Combattant6) {
+    for(int i=0; i<SIZE; i++) {
+        if(equipe1[i].vit>=100) {
+            equipe1[i].vit=equipe1[i].vit-100;
+        }
+        if(equipe2[i].vit>=100) {
+            equipe2[i].vit=equipe1[i].vit-100;
+        }
+    }
     do {
+        Combattant1.vit= Combattan1.vit+ ID1.vit/10;
+        Combattant2.vit= Combattan2.vit+ ID2.vit/10;
+        Combattant3.vit= Combattan3.vit+ ID3.vit/10;
+        Combattant4.vit= Combattan4.vit+ ID4.vit/10;
+        Combattant5.vit= Combattan5.vit+ ID5.vit/10;
+        Combattant6.vit= Combattan6.vit+ ID6.vit/10;
 
+    }while(equipe1[0].vit<100 ||equipe1[1].vit<100 || equipe1[2].vit<100 || equipe2[0].vit<100 ||equipe2[1].vit<100 || equipe2[2].vit<100);
+    return 1;
+}
+//permet d'attaquer quand la jauge de vitesse est pleine
+void attack(Combattant equipe1[SIZE], Combattant equipe2[SIZE], Combattant Combattant1, Combattant Combattant2, Combattant Combattant3, Combattant Combattant4, Combattant Combattant5, Combattant Combattant6) {
+    if(vitesse(equipe1[SIZE], equipe2[SIZE], combattant, Combattant, Combattant3, Combattant, Combattant, Combattant )==1  ) {
+        for(int i=0; i<SIZE; i++) {
+            if(equipe1[i].vit>=100){
+                choixcapacite(equipe1[SIZE], equipe2[SIZE], Combattant1, Combattant2, Combattant3, Combattant4, Combattant5, Combattant6);
+            }
 
+        }
+    }
+}
 
+//permet de choisir une capacité
+void choixcapacite(Combattant equipe1[SIZE], Combattant equipe2[SIZE], Combattant Combattant1, Combattant Combattant2, Combattant Combattant3, Combattant Combattant4, Combattant Combattant5, Combattant Combattant6) {
+    int i;
+    int choix;
+    printf("veuillez choisir une capacité : \n");
+}
 
-    }while(equipe1[0].vit<100 ||equipe1[1].vit<100 || equipe1[2].vit<100);
+void choixcible(Combattant equipe1[SIZE], Combattant equipe2[SIZE], Combattant Combattant1, Combattant Combattant2, Combattant Combattant3, Combattant Combattant4, Combattant Combattant5, Combattant Combattant6) {
+    int i;
+    int choix;
+    printf("veuillez choisir une cible : \n");
+    scanf("%d", %choix);
 }
