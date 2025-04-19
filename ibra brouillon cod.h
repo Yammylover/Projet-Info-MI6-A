@@ -39,6 +39,8 @@ int vitesse(Combattant equipe1[SIZE], Combattant equipe2[SIZE], Combattant Comba
         Combattant6.vit= Combattan6.vit+ ID6.vit/10;
 
     }while(equipe1[0].vit<100 ||equipe1[1].vit<100 || equipe1[2].vit<100 || equipe2[0].vit<100 ||equipe2[1].vit<100 || equipe2[2].vit<100);
+    Combattant tabvit[6];
+    trivit(equipe1[SIZE], equipe2[SIZE], tabvit[6]);
     return 1;
 }
 //permet d'attaquer quand la jauge de vitesse est pleine
@@ -60,9 +62,28 @@ void choixcapacite(Combattant equipe1[SIZE], Combattant equipe2[SIZE], Combattan
     printf("veuillez choisir une capacité : \n");
 }
 
-void choixcible(Combattant equipe1[SIZE], Combattant equipe2[SIZE], Combattant Combattant1, Combattant Combattant2, Combattant Combattant3, Combattant Combattant4, Combattant Combattant5, Combattant Combattant6) {
-    int i;
-    int choix;
+int choixcible(Combattant equipe1[SIZE], Combattant equipe2[SIZE], Combattant Combattant1, Combattant Combattant2, Combattant Combattant3, Combattant Combattant4, Combattant Combattant5, Combattant Combattant6) {
+    int choix=-1;
     printf("veuillez choisir une cible : \n");
+    printf("veuillez entrer 0 pour choisir %s, 1 pour %s, 2 pour %s", equipe1[0].IDpeso.nom, equipe1[1].IDperso.nom, equipe1[2].IDperso.nom);
     scanf("%d", %choix);
+    return choix;
+}
+//permet de ranger le tableau de vitesse dans l'ordre décroissant grace à un tri par selection
+void trivit(Combattant equipe1[SIZE], Combattant equipe2[SIZE], tab[6] ) {
+    for(int i=0; i<SIZE; i++) {
+        tab[i]=equipe1[i];
+    }
+    for (int i=0; i<SIZE; i++) {
+        tab[i+3]=equipe2[i];
+    }
+    for(int i=0; i<SIZE*2; i++) {
+        for(int j=i+1; j<SIZE*2; j++) {
+            if(tab[i].vit<tab[j].vit) {
+                Combattant temp=tab[i];
+                tab[i]=tb[j];
+                tab[j]=temp;
+            }
+        }
+    }
 }
