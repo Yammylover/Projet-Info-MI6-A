@@ -39,6 +39,7 @@ int vitesse(Combattant equipe1[SIZE], Combattant equipe2[SIZE], Combattant Comba
         Combattant6.vit= Combattan6.vit+ ID6.vit/10;
 
     }while(equipe1[0].vit<100 ||equipe1[1].vit<100 || equipe1[2].vit<100 || equipe2[0].vit<100 ||equipe2[1].vit<100 || equipe2[2].vit<100);
+    // on tri le tableau qui contient les combattants ranger selon leur vitesse
     Combattant tabvit[6];
     trivit(equipe1[SIZE], equipe2[SIZE], tabvit[6]);
     return 1;
