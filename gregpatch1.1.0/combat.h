@@ -11,7 +11,7 @@ void attaque(Combattant* tab, int IDatk, int IDdef, int matk, int mdex){
 	printf("%s attaque %s !\n",tab[IDatk].base.nom,tab[IDdef].base.nom);
 	int dg;
 	int def=tab[IDdef].def;
-	int atk=tab[IDdef].atk;
+	int atk=tab[IDatk].atk;
 	dg=atk*(100-def)/100;
 	printf("%s subit %d dégâts!\n",tab[IDdef].base.nom,dg);
 }
