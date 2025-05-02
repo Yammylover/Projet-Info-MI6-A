@@ -7,7 +7,7 @@
 
 
 typedef struct {
-    int id; //ID de la capacité
+    int id; //ID de la capacité, ELLES COMMENCENT A 5001.
     int cib1[2]; //premier ID de ciblage, et quantité de cible (a ne pas definir)
     int ef1; //effet appliqué au 1er ciblage
     int cd; //temps de refroidissement (cooldown) à ne pas modifier
@@ -15,7 +15,8 @@ typedef struct {
     int cde;
 } Capacite; //structure définissant les caractéristiques d'une capacité
 
-typedef struct {
+typedef struct{
+    int petid; // ID du personnage pour remplacer le nom, COMMENCE A 1001.
     char* nom; //nom du personnage qui set à identifier son fichier
     int pv; //base de PV
     int atk; //base d'atk
