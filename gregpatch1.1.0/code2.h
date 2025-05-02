@@ -4,16 +4,31 @@
 #include <string.h>
 #include <math.h>
 
-int IDmax(int* tab,int taille){
+int max(int* tab,int taille){
     int max=0;
-    int id;
     for (int i=0; i<taille; i++){
         if (tab[i]>max){
             max=tab[i];
-            id=i;
         }
     }
-    return id;
+    return max;
+}
+
+int* findID(int* tab,int taille, int statID, int value,int* pnbsel){		//ne pas oublier de FREE!!!!!
+    	int j=0;
+    	int* tabreturn=calloc(taille, sizeof(int));
+   	switch(statID){
+    		case 7:		//act
+    			for(int i=0; i<taille; i++){
+    				if(tab[i]==value){
+    					tabreturn[j]=i;
+    					j++;
+    				}
+    			}
+    		break;
+    		*pnbsel=j;
+    	}
+    	return 	tabreturn;
 }
 
 int selection(int* tab,int size, char* phrase){
@@ -28,7 +43,7 @@ int selection(int* tab,int size, char* phrase){
 		scanf("%d",&a);
 		for(int  i=0; i<size; i++){
 			if(a==tab[i]){
-				b==1;
+				b=1;
 			}
 		}
 	} while(b!=1);

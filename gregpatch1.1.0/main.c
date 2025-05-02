@@ -31,7 +31,7 @@ int main(void)
     char word[11]="Flan";
     n2.nom=word;
     //strcpy(n1.nom,"Phan");
-    n2.pv=150;
+    n2.pv=200;
     n2.atk=30;
     n2.def=50;
     n2.vit=32;
@@ -47,8 +47,6 @@ int main(void)
     
     equipe1[0]=phan;
     equipe2[0]=flan;
-    displayfighter(equipe1[0]);
-    displayfighter(equipe2[0]);
     //attribution des ID
     for(int i=0; i<t1; i++){
         equipe1[i].ID=i;

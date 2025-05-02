@@ -1,6 +1,7 @@
 #include "code.h"
 
 typedef struct {
+    int ID;
     int cib1[2]; //premier ID de ciblage, et quantité de cibles
     int cib2[2]; //2ème ID de ciblage, et quantité de cibles
     int ef1; //effet appliqué au 1er ciblage
