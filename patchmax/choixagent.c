@@ -10,6 +10,7 @@ Combattant stats(int i){
         printf("Lamda a ete selectionne\n");
 
         // valeur de IDperso
+        n.base.nom='Lamda';
         n.base.pv=100;
         n.base.atk=20;
         n.base.def=20;
@@ -17,9 +18,10 @@ Combattant stats(int i){
         n.base.agl=10;
         n.base.dex=5;
         n.base.ndc=3;
-        n.base.capa[0].id=1;
-        n.base.capa[1].id=2;
-        n.base.capa[2].id=3;
+        n.base.petid=1001;
+        n.base.capa[0].id=50001;
+        n.base.capa[1].id=50002;
+        n.base.capa[2].id=50003;
 
 
         // valeur de Combattant
@@ -34,6 +36,7 @@ Combattant stats(int i){
     }
     else if(nb==2) {
         printf("Delta a ete choisi !\n");
+        n.base.nom='Delta';
         n.base.pv=80;
         n.base.atk=40;
         n.base.def=10;
@@ -41,9 +44,10 @@ Combattant stats(int i){
         n.base.agl=30;
         n.base.dex=10;
         n.base.ndc=3;
-        n.base.capa[0].id=4;
-        n.base.capa[1].id=5;
-        n.base.capa[2].id=6;
+        n.base.petid=1002;
+        n.base.capa[0].id=5004;
+        n.base.capa[1].id=5005;
+        n.base.capa[2].id=5006;
 
 
         n.ID=i+1;
@@ -58,6 +62,7 @@ Combattant stats(int i){
     }
     else if(nb==3) {
         printf("Omega a ete choisi !\n");
+        n.base.nom='Omega';
         n.base.pv=150;
         n.base.atk=10;
         n.base.def=40;
@@ -65,9 +70,10 @@ Combattant stats(int i){
         n.base.agl=0;
         n.base.dex=1;
         n.base.ndc=3;
-        n.base.capa[0].id=7;
-        n.base.capa[1].id=8;
-        n.base.capa[2].id=9;
+        n.base.petid=1003;
+        n.base.capa[0].id=5007;
+        n.base.capa[1].id=5008;
+        n.base.capa[2].id=5009;
 
         n.ID=i+1;
         n.pv=150;
