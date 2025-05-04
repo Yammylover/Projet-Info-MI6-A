@@ -12,7 +12,7 @@ int choixcapa(Combattant perso, Combattant equipe1[3], Combattant equipe2[3] ){
         n=n+6;
     }
     switch (n) {
-        case 1;
+        case '1':
         if (perso.ID == 1001) {
             if(coldown(perso)==0){{
                 perso.vit=perso.vit-15;
@@ -27,7 +27,7 @@ int choixcapa(Combattant perso, Combattant equipe1[3], Combattant equipe2[3] ){
             }
         }
 
-        case 2;
+        case '2':
         if (perso.ID == 1001) {
             if(coldown(perso)==0){
                 if (perso.ID == 1001){
@@ -42,11 +42,11 @@ int choixcapa(Combattant perso, Combattant equipe1[3], Combattant equipe2[3] ){
                 return choixcapa(perso);
             }
         }
-        case 3;
+        case '3':
         if (perso.ID == 1001) {
             if(coldown(perso)==0){
-                perso.atk= perso.atk*120 + perso.atk*(rand()%21)
-                int h=choixcible(Combattant equipe1[3], Combattant equipe2[3]);
+                perso.atk= perso.atk*120 + perso.atk*(rand()%21);
+                int h=choixcible(equipe1[3], equipe2[3]);
             }
             return 5003;
             if(cooldown(perso)!=0){
@@ -54,30 +54,30 @@ int choixcapa(Combattant perso, Combattant equipe1[3], Combattant equipe2[3] ){
                 return choixcapa(perso);
             }
         }
-        case 4;
+        case '4':
         if (perso.ID == 1002) {
             if(coldown(perso)==0){
                 if (perso.ID == 1001){
-                    int k=choixcible(Combattant equipe1[3], Combattant equipe2[3]);
+                    int k=choixcible(equipe1[3], equipe2[3]);
                     if (k==equipe1[0].ID){
                         equipe1[0].pv= equipe1[0].pv+ 50;
                     }
-                     else if (k==equipe1[1].ID){
+                    else if (k==equipe1[1].ID){
                         equipe1[1].pv= equipe1[1].pv+ 50;
                     }
-                     else if (k==equipe1[2].ID){
+                    else if (k==equipe1[2].ID){
                         equipe1[2].pv= equipe1[2].pv+ 50;
                     }
 
                     if (k==equipe2[0].ID){
                         equipe2[0].pv= equipe2[0].pv+ 50;
                     }
-                     else if (k==equipe1[1].ID){
-                         equipe2[1].pv= equipe2[1].pv+ 50;
-                     }
-                      else if (k==equipe1[2].ID){
+                    else if (k==equipe1[1].ID){
+                        equipe2[1].pv= equipe2[1].pv+ 50;
+                    }
+                    else if (k==equipe1[2].ID){
                         equipe2[2].pv= equipe1[2].pv+ 50;
-                     }
+                    }
                 }
                 return 5004;
             }
@@ -86,7 +86,7 @@ int choixcapa(Combattant perso, Combattant equipe1[3], Combattant equipe2[3] ){
                 return choixcapa(perso);
             }
         }
-        case 5;
+        case '5':
         if (perso.ID == 1002) {
             if(coldown(perso)==0){
                 for (int i=0; i<3; i++) {
@@ -111,10 +111,10 @@ int choixcapa(Combattant perso, Combattant equipe1[3], Combattant equipe2[3] ){
                 return choixcapa(perso);
             }
         }
-        case 6;
+        case '6':
         if (perso.ID == 1002) {
             if(coldown(perso)==0) {
-                int m =choixcible(Combattant equipe1[3], Combattant equipe2[3]);
+                int m =choixcible(equipe1[3], equipe2[3]);
                 for (int i=0; i<3; i++) {
                     if(m == equipe1[i].ID) {
                         equipe1[i].atk= equipe1[i].atk*0.80;
@@ -135,7 +135,7 @@ int choixcapa(Combattant perso, Combattant equipe1[3], Combattant equipe2[3] ){
                 return choixcapa(perso);
             }
         }
-        case7;
+        case'7':
         if (perso.ID == 1003) {
             if(coldown(perso)==0){
                 perso.pv= perso.pv+30;
@@ -146,12 +146,12 @@ int choixcapa(Combattant perso, Combattant equipe1[3], Combattant equipe2[3] ){
                 return choixcapa(perso);
             }
         }
-        case8;
+        case'8':
         if (perso.ID == 1003) {
-            if(coldown(perso)==0){
+            if(coldown(perso)==0) {
                 printf("veuillez entrer 1 pour selectionner le mode defensif, 2 pour selectionner le mode offensif");
                 int position;
-                scanf(%d", &position);
+                scanf("%d", &position);
                 if(position==1){
                     perso.def=perso.def*1.2;
                     perso.atk=perso.atk*0.8;
@@ -160,16 +160,15 @@ int choixcapa(Combattant perso, Combattant equipe1[3], Combattant equipe2[3] ){
                     perso.atk=perso.atk*1.2;
                     perso.def=perso.def*0.8;
                 }
-            }
             return 5008;
+            }
             if(cooldown(perso)!=0){
                 printf("cette capacites ne peux pas etre utilisé");
                 return choixcapa(perso);
             }
         }
-
     }
-    int choixcible(Combattant equipe1[3], Combattant equipe2[3]){
+    int choixcible(Combattant equipe1[3], Combattant equipe2[3]) {
         int choix=-1;
         int tab[6] ;
         for(int i=0; 3; i++) {
@@ -194,3 +193,5 @@ int choixcapa(Combattant perso, Combattant equipe1[3], Combattant equipe2[3] ){
                 scanf("%d", %choix);
                 return equipe[choix].ID;
             }
+        }
+    }
