@@ -54,7 +54,7 @@ void attaque(Combattant* tab, int IDatk, int IDdef, int matk, int mdex){
 	if (rd1<=tab[IDdef].agl){
 		printf("%s évite l'attaque !\n",tab[IDdef].base.nom);
 	} else if(rd2<=tab[IDatk].dex){
-		printf("C'est un coup critique!");
+		printf("C'est un coup critique!\n");
 		dg=(atk*(100-def)/100)*150/100;		//coup critique
 	} else {
 		dg=atk*(100-def)/100;
