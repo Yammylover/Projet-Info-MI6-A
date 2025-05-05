@@ -1,80 +1,199 @@
 #include "struct.h"
 
 int choixcapa(Combattant perso, Combattant equipe1[3], Combattant equipe2[3] ){
-	int n=0;
-	printf(" veuillez selectionner une des 3 capacites");
-	scanf("%d",&n);
-	srand(TIME(NULL));
-	switch (n)
-		case 1;
-			if (perso.ID == 1001){
-				if(coldown(perso)!=0){{
-					perso.vit=perso.vit-15;	
-					perso.agl=parso.agl*1.15
-					perso.def=perso.def*1.5	
-				}
-				return 5001;
-			}
-			else{
-				printf("cette capacites ne peux pas etre utilisé");
-				return choixcapa(perso);
-			}
-			
-		case 2;
-			if(coldown(perso)!=0){
-				if (perso.ID == 1001){
-				perso.atk=perso.atk*1.25
-				perso.dex=perso.dex*1.25
-				perso.vit=perso.vit*1.25
-				}
-				return 5002;
-			}
-			else{
-				printf("cette capacites ne peux pas etre utilisé");
-				return choixcapa(perso);
-			}
-		case 3;
-			if(coldown(perso)!=0){
-				if (perso.ID == 1001){
-				perso.atk= perso.atk*120 + perso.atk*(rand()%21)
-				int n=choixcible(Combattant equipe1[3], Combattant equipe2[3]);
-				}
-				effet(Combattant);
-				return 5003;
-			}
-			else{
-				printf("cette capacites ne peux pas etre utilisé");
-				return choixcapa(perso);
-			}
-			
-}
-int choixcible(Combattant equipe1[3], Combattant equipe2[3]) {
-    int choix=-1;
-    int tab[6]
-    for(int i=0; 3; i++) {
-        tab[i]=equipe1[i];
+    int n=0;
+    do {
+        printf(" veuillez selectionner une des 3 capacites");
+        scanf("%d",&n);
+    }while(n<1 || n>3);
+    srand(TIME(NULL));
+    if (perso.ID== 1002) {
+        n=n+3;
     }
-    for (int i=0; i<3; i++) {
-        tab[i+3]=equipe2[i];
+    if (perso.ID== 1003) {
+        n=n+6;
     }
-    
-    for (int i=0; i<0; i++){
-    	if(IDmax(tab[6], 6)==equipe1[i]){
-    	
-    	printf("veuillez choisir une cible : \n");
-    	printf("veuillez entrer 0 pour choisir %s, 1 pour %s, 2 pour %s", equipe1[0].IDpeso.nom, equipe1[1].IDperso.nom, equipe1[2].IDperso.nom);
-    	scanf("%d", %choix);
-    	return equipe[choix].ID;
-    	}
-    else if(IDmax(tab[6], 6)==equipe2[i]){
-    	
-    	printf("veuillez choisir une cible : \n");
-    	printf("veuillez entrer 0 pour choisir %s, 1 pour %s, 2 pour %s", equipe1[0].IDpeso.nom, equipe1[1].IDperso.nom, equipe1[2].IDperso.nom);
-    	scanf("%d", %choix);
-    	return equipe[choix].ID;
-    	}
+    switch (n) {
+        case '1':
+        if (perso.ID == 1001) {
+            if(coldown(perso)==0){{
+                perso.vit=perso.vit-15;
+                perso.agl=parso.agl*1.15;
+                perso.def=perso.def*1.5;
+            }
+                return 5001;
+            }
+            if (cooldown(perso)!=0){
+                printf("cette capacites ne peux pas etre utilisé");
+                return choixcapa(perso);
+            }
+        }
+
+        case '2':
+        if (perso.ID == 1001) {
+            if(coldown(perso)==0){
+                if (perso.ID == 1001){
+                    perso.atk=perso.atk*1.25;
+                    perso.dex=perso.dex*1.25;
+                    perso.vit=perso.vit*1.25;
+                }
+                return 5002;
+            }
+            if(cooldown(perso)==1){
+                printf("cette capacites ne peux pas etre utilisé");
+                return choixcapa(perso);
+            }
+        }
+        case '3':
+        if (perso.ID == 1001) {
+            if(coldown(perso)==0){
+                perso.atk= perso.atk*120 + perso.atk*(rand()%21);
+                int h=choixcible(equipe1[3], equipe2[3]);
+            }
+            return 5003;
+            if(cooldown(perso)!=0){
+                printf("cette capacites ne peux pas etre utilisé");
+                return choixcapa(perso);
+            }
+        }
+        case '4':
+        if (perso.ID == 1002) {
+            if(coldown(perso)==0){
+                if (perso.ID == 1001){
+                    int k=choixcible(equipe1[3], equipe2[3]);
+                    if (k==equipe1[0].ID){
+                        equipe1[0].pv= equipe1[0].pv+ 50;
+                    }
+                    else if (k==equipe1[1].ID){
+                        equipe1[1].pv= equipe1[1].pv+ 50;
+                    }
+                    else if (k==equipe1[2].ID){
+                        equipe1[2].pv= equipe1[2].pv+ 50;
+                    }
+
+                    if (k==equipe2[0].ID){
+                        equipe2[0].pv= equipe2[0].pv+ 50;
+                    }
+                    else if (k==equipe1[1].ID){
+                        equipe2[1].pv= equipe2[1].pv+ 50;
+                    }
+                    else if (k==equipe1[2].ID){
+                        equipe2[2].pv= equipe1[2].pv+ 50;
+                    }
+                }
+                return 5004;
+            }
+            if(cooldown(perso)!=0){
+                printf("cette capacites ne peux pas etre utilisé");
+                return choixcapa(perso);
+            }
+        }
+        case '5':
+        if (perso.ID == 1002) {
+            if(coldown(perso)==0){
+                for (int i=0; i<3; i++) {
+                    if(perso.ID == equipe1[i].ID) {
+                        for (int j=0; j<3; j++) {
+                            equipe1[j].def= equipe1[j].def*1.60+equipe1[j].def*0.1*(rand()%11);
+                        }
+                    }
+                }
+                for (int i=0; i<3; i++) {
+                    if(perso.ID == equipe2[i].ID) {
+                        for (int j=0; j<3; j++) {
+                            equipe2[j].def= equipe2[j].def*1.60+equipe2[j].def*0.1*(rand()%11);
+                        }
+                    }
+                }
+
+            }
+            return 5005;
+            if(cooldown(perso)!=0){
+                printf("cette capacites ne peux pas etre utilisé");
+                return choixcapa(perso);
+            }
+        }
+        case '6':
+        if (perso.ID == 1002) {
+            if(coldown(perso)==0) {
+                int m =choixcible(equipe1[3], equipe2[3]);
+                for (int i=0; i<3; i++) {
+                    if(m == equipe1[i].ID) {
+                        equipe1[i].atk= equipe1[i].atk*0.80;
+                        equipe1[i].vit= equipe1[i].vit*0.80;
+                    }
+                }
+                for (int i=0; i<3; i++) {
+                    if(m == equipe2[i].ID) {
+                        equipe2[i].atk= equipe2[i].atk*0.80;
+                        equipe2[i].vit= equipe2[i].vit*0.80;
+                    }
+                }
+                return 5006;
+            }
+
+            if(cooldown(perso)!=0){
+                printf("cette capacites ne peux pas etre utilisé");
+                return choixcapa(perso);
+            }
+        }
+        case'7':
+        if (perso.ID == 1003) {
+            if(coldown(perso)==0){
+                perso.pv= perso.pv+30;
+            }
+            return 5007;
+            if(cooldown(perso)!=0){
+                printf("cette capacites ne peux pas etre utilisé");
+                return choixcapa(perso);
+            }
+        }
+        case'8':
+        if (perso.ID == 1003) {
+            if(coldown(perso)==0) {
+                printf("veuillez entrer 1 pour selectionner le mode defensif, 2 pour selectionner le mode offensif");
+                int position;
+                scanf("%d", &position);
+                if(position==1){
+                    perso.def=perso.def*1.2;
+                    perso.atk=perso.atk*0.8;
+                }
+                else if(position==2){
+                    perso.atk=perso.atk*1.2;
+                    perso.def=perso.def*0.8;
+                }
+            return 5008;
+            }
+            if(cooldown(perso)!=0){
+                printf("cette capacites ne peux pas etre utilisé");
+                return choixcapa(perso);
+            }
+        }
     }
-}
+    int choixcible(Combattant equipe1[3], Combattant equipe2[3]) {
+        int choix=-1;
+        int tab[6] ;
+        for(int i=0; 3; i++) {
+            tab[i]=equipe1[i];
+        }
+        for (int i=0; i<3; i++) {
+            tab[i+3]=equipe2[i];
+        }
 
+        for (int i=0; i<0; i++){
+            if(IDmax(tab[6], 6)==equipe1[i]){
 
+                printf("veuillez choisir une cible : \n");
+                printf("veuillez entrer 0 pour choisir %s, 1 pour %s, 2 pour %s \n", equipe1[0].IDpeso.nom, equipe1[1].IDperso.nom, equipe1[2].IDperso.nom);
+                scanf("%d", %choix);
+                return equipe[choix].ID;
+            }
+            else if(IDmax(tab[6], 6)==equipe2[i]){
 
+                printf("veuillez choisir une cible : \n");
+                printf("veuillez entrer 0 pour choisir %s, 1 pour %s, 2 pour %s \n", equipe1[0].IDpeso.nom, equipe1[1].IDperso.nom, equipe1[2].IDperso.nom);
+                scanf("%d", %choix);
+                return equipe[choix].ID;
+            }
+        }
+    }
