@@ -183,7 +183,7 @@ int choixcapa(Combattant perso, Combattant* equipe1, Combattant* equipe2,int t1,
         }
 
         for (int i=0; i<0; i++){
-            if(IDmax(tab[t1+t2], (t1+t2))<3){s
+            if(IDmax(tab[t1+t2], (t1+t2))<3){
 
                 printf("veuillez choisir une cible : \n");
                 printf("veuillez entrer 0 pour choisir %s, 1 pour %s, 2 pour %s \n", equipe1[0].base.nom, equipe1[1].base.nom, equipe1[2].base.nom);
