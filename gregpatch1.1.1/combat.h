@@ -46,14 +46,15 @@ void attaque(Combattant* tab, int IDatk, int IDdef, int matk, int mdex){
 	printf("%s attaque %s !\n",tab[IDatk].base.nom,tab[IDdef].base.nom);
 	int dg=0;
 	int rd1=0,rd2=0;
-	int atk=tab[IDatk].atk;
+	int atk=tab[IDatk].atk*matk/100;
 	int def=tab[IDdef].def;
+	int crit=tab[IDatk].dex*mdex/100;
 	rd1=rand()%101;
 	rd2=rand()%101;
 	printf("rd1=%d rd2=%d\n",rd1,rd2);
 	if (rd1<=tab[IDdef].agl){
 		printf("%s évite l'attaque !\n",tab[IDdef].base.nom);
-	} else if(rd2<=tab[IDatk].dex){
+	} else if(rd2<=crit){
 		printf("C'est un coup critique!\n");
 		dg=(atk*(100-def)/100)*150/100;		//coup critique
 	} else {
@@ -76,7 +77,7 @@ void action(Combattant* tab, int aID, int* tmax, int* t1, int* t2){
         min=*t1;
         max=*tmax-1;
     	cible=rand()%(max-min+1)+min;
-    	attaque(tab,aID,cible,100,0);
+    	attaque(tab,aID,cible,100,100);
     } else if(aID>=*t1){
         min=0;
         max=*t1-1;
