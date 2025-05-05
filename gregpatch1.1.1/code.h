@@ -4,6 +4,7 @@
 #include <string.h>
 #include <math.h>
 #include <unistd.h>
+#include <windows.h>
 
 int IDmax(int* tab,int taille){
     int max=0;
