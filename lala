@@ -2,8 +2,8 @@
 
 int choixcapa(Combattant perso, Combattant* equipe1, Combattant* equipe2,int t1,int t2) {
     int n=0;
-    equipe1 = malloc(t1*(sizeof(Combattant))
-    equipe2 = malloc(t2*(sizeof(Combattant))
+    equipe1 = malloc(t1*(sizeof(Combattant));
+    equipe2 = malloc(t2*(sizeof(Combattant));
     do {
         printf(" veuillez selectionner une des 3 capacites");
         scanf("%d",&n);
