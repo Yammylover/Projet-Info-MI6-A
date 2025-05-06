@@ -22,7 +22,7 @@ int selection(int* tab,int size, char* phrase){
 		printf("ERREUR FONCTION SELECTION");
 	}
 	//process
-	int a,b;
+	int a=0,b=0;
 	do{
 		printf("%s",phrase);
 		scanf("%d",&a);
