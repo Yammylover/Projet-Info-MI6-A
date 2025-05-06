@@ -43,18 +43,6 @@ typedef struct {
 
 typedef struct {
     char* nom;
-    int pv;
-    int atk;
-    int def;
-    int vit;
-    int agl;
-    int dex;
-    int ndc;
-    Capacite *capa;
-}Lamda;
-
-typedef struct {
-    char* nom;
     int cib1[2];
     int ef1;
     int cd;
