@@ -75,7 +75,7 @@ Combattant stats(int i, int tmax){
         	n.agl=n.base.agl;
         	n.dex=n.base.dex;
         	n.act=0;
-        	printf("%d %d %d\n",n.base.capa[0],n.base.capa[1],n.base.capa[2].id);
+        	printf("%d %d %d\n",n.base.capa[0].id,n.base.capa[1].id,n.base.capa[2].id);
         	printf("Id=%d\n",n.base.pid);
         	displayfighter(n);
         	fclose(fichier);
