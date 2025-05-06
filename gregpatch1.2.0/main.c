@@ -46,7 +46,7 @@ Combattant stats(int i, int tmax){
         	}
         	strcpy(n.base.nom,name);		//attribution nom
         	printf("%s\n",n.base.nom);
-        	fscanf(fichier,"%d",&(n.base.pid));	//à unifier?
+        	fscanf(fichier,"%d",&(n.base.pid));	//Attribution des valeurs	//à unifier?
         	fscanf(fichier,"%d",&(n.base.pv));
         	fscanf(fichier,"%d",&(n.base.atk));
         	fscanf(fichier,"%d",&(n.base.def));
@@ -54,14 +54,17 @@ Combattant stats(int i, int tmax){
         	fscanf(fichier,"%d",&(n.base.agl));
         	fscanf(fichier,"%d",&(n.base.dex));
         	fscanf(fichier,"%d",&(n.base.ndc));
+        	printf("ndc=%d\n",n.base.ndc);
         	n.base.capa=malloc(sizeof(Capacite)*n.base.ndc);
         	if(n.base.capa==NULL){
         		printf("Erreur malloc capacité\n");
         	}
         	for (int j=0; j<n.base.ndc; j++){
         		printf("%d\n",j);
-        		fscanf(fichier,"%d",&(n.base.capa[j]));
-        		printf("%d\n",n.base.capa[j]);
+        		if(fscanf(fichier,"%d",&(n.base.capa[j].id))!=1){
+        			printf("ERreur scanf\n");
+        		}
+        		printf("%d\n",n.base.capa[j].id);
         	}
         	// valeur de Combattant
         	n.ID=i;
@@ -72,7 +75,7 @@ Combattant stats(int i, int tmax){
         	n.agl=n.base.agl;
         	n.dex=n.base.dex;
         	n.act=0;
-        	printf("%d %d %d\n",n.base.capa[0],n.base.capa[1],n.base.capa[2]);
+        	printf("%d %d %d\n",n.base.capa[0],n.base.capa[1],n.base.capa[2].id);
         	printf("Id=%d\n",n.base.pid);
         	displayfighter(n);
         	fclose(fichier);
@@ -83,35 +86,27 @@ Combattant stats(int i, int tmax){
 
 int main(){
 // équipe 1
-    int t1=3;
+    int t1=5;
     Combattant equipe1[t1];
 // équipe 2
-    int t2=3;
+    int t2=10;
     Combattant equipe2[t2];
 
     printf("Selection des champions de l'equipe 1\n\n");
-    for(int i=0;i<3;i++) {
+    for(int i=0;i<t1;i++) {
         equipe1[i]=stats(i,t1+t2);
         equipe1[i].ID=i;
     }
 
     printf("Selection des champions de l'equipe 2\n\n");
-    for(int i=0;i<3;i++) {
+    for(int i=0;i<t2;i++) {
 
         equipe2[i]=stats(i,t1+t2);
         equipe2[i].ID=i+t1;
     }
 
-
-
-    printf("%d\n",equipe1[0].ID);
-    printf("%d\n",equipe1[1].ID);
-    printf("%d\n",equipe1[2].ID);
-    printf("%d\n",equipe2[0].ID);
-    printf("%d\n",equipe2[1].ID);
-    printf("%d\n\n",equipe2[2].ID);
     
-    combat(equipe1,equipe2,3,3);
+    combat(equipe1,equipe2,t1,t2);
 
 
     return 0;
