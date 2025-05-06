@@ -86,10 +86,10 @@ Combattant stats(int i, int tmax){
 
 int main(){
 // équipe 1
-    int t1=5;
+    int t1=3;
     Combattant equipe1[t1];
 // équipe 2
-    int t2=10;
+    int t2=3;
     Combattant equipe2[t2];
 
     printf("Selection des champions de l'equipe 1\n\n");
