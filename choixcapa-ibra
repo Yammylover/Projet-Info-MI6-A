@@ -32,7 +32,7 @@ int choixcapa(Combattant perso, Combattant equipe1[3], Combattant equipe2[3] ){
         case '2':
         if (perso.ID == 1001) {
             if(coldown(perso)==0){
-                if (perso.ID == 1001){
+                if (perso.ID == 1002){
                     perso.atk=perso.atk*1.25;
                     perso.dex=perso.dex*1.25;
                     perso.vit=perso.vit*1.25;
