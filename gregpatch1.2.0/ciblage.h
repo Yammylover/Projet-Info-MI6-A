@@ -18,7 +18,7 @@ int cible(Combattant* tab,int t1, int tmax, int ID, int ecible, int typecible);/
 		exit(1);
 	}
 	//locals
-	int a=0;
+	int a=0,b=0;
 	srand(time(NULL));
 	if(ID<t1){
 		a=1;
@@ -29,7 +29,9 @@ int cible(Combattant* tab,int t1, int tmax, int ID, int ecible, int typecible);/
 		case 1:		//combattant appartient à l'équipe 1
 			switch(typecible){
 				case 1:		//sélection aléatoire
-					return rando(t1,tmax-1);
+					do{
+						b=rando(t1,tmax-1);
+					}while(tab[b].pv<=0);
 				break;
 				case 2:		//a finir
 				break;
