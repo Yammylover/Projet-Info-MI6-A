@@ -1,3 +1,5 @@
+#include"choixcapasanseffet.h"
+
 int choixcapa(Combattant perso) {
     int n=0;
   
