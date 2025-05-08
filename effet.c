@@ -4,17 +4,17 @@ void effet (Combattant patk, Combattant *equipe1, Combattant *equipe2,Combattant
     int n=0;
     equipe1 = malloc(t1*(sizeof(Combattant)));
     equipe2 = malloc(t2*(sizeof(Combattant)));
-    if (choixcapa( patk, equipe1, equipe2, t1, t2) == 5001 ){
+    if (choixcapa( patk) == 5001 ){
         patk.effet[4].[0]=-15;
         patk.effet[5][1]=patk.agl*0.15;
         patk.effet[3][1]=patk.def*0.5;
     }
-    else if (choixcapa( patk, equipe1, equipe2, t1, t2) == 5002 ){
+    else if (choixcapa( patk) == 5002 ){
         patk.effet[1].[1]=patk.atk*0.25;
         patk.effet[3].[1]=patk.vit*0.25;
         patk.effet[5].[1]=patk.dext*0.25;
     }
-    else if (choixcapa( patk, equipe1, equipe2, t1, t2) == 5003 ) {
+    else if (choixcapa( patk) == 5003 ) {
         int n=0;
         patk.effet[1][1]=patk.atk*1.2 + patk.atk*(rand()%21);
         if(IDmax(tab[6], 6)<3) {
@@ -27,7 +27,7 @@ void effet (Combattant patk, Combattant *equipe1, Combattant *equipe2,Combattant
 
         }
     }
-    if (choixcapa( patk, equipe1, equipe2, t1, t2) == 5004) {
+    if (choixcapa( patk) == 5004) {
         int k=0;
         if(IDmax(tab[6], 6)>=3) {
             k = cible(tab, t1, tmax, patk,?, ? );
@@ -39,7 +39,7 @@ void effet (Combattant patk, Combattant *equipe1, Combattant *equipe2,Combattant
         }
 
     }
-    else if (choixcapa( patk, equipe1, equipe2, t1, t2) == 5005) {
+    else if (choixcapa( patk) == 5005) {
         if(IDmax(tab[6], 6)>=3) {
             for(int i=t1,i< tmax; i++) {
                 tab[i].effet[2][1]=tab[i].def*0.6+tab[i].def*0.1*(rand()%11);
@@ -51,7 +51,7 @@ void effet (Combattant patk, Combattant *equipe1, Combattant *equipe2,Combattant
             }
         }
     }
-    else if (choixcapa( patk, equipe1, equipe2, t1, t2) == 5006) {
+    else if (choixcapa( patk) == 5006) {
         int c=0;
         if(IDmax(tab[6], 6)<3) {
             c = cible(tab, t1, tmax, patk,?, ? );
@@ -64,10 +64,10 @@ void effet (Combattant patk, Combattant *equipe1, Combattant *equipe2,Combattant
             tab[c].effet[3][0]=-(tab[c].vit*0.2);
         }
     }
-    if (choixcapa( patk, equipe1, equipe2, t1, t2) == 5007)  {
+    if (choixcapa( patk) == 5007)  {
         patk.effet[0][1]=30;
     }
-    else if (choixcapa( patk, equipe1, equipe2, t1, t2) == 5008) {
+    else if (choixcapa( patk) == 5008) {
         int position;
         printf("veuillez entrer 1 pour selectionner le mode defensif, 2 pour selectionner le mode offensif");
         scanf("%d", &position);
