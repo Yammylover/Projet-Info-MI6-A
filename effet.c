@@ -1,10 +1,10 @@
-#include "structures.h"
+#include "effet.h"
 
 void effet (Combattant patk, Combattant *tab, int t1, int tmax) {
 
     if (choixcapa( patk) == 5001 ){
         int k=0;
-        for (int i=0; i<=2; i++) {
+        for (int i=0; i<5; i++) {
             if(patk.efet[i][3]==0 && i<5) {
                 patk.effet[i][0]=4;
                 patk.effet[i][1]=-15;
@@ -30,13 +30,13 @@ void effet (Combattant patk, Combattant *tab, int t1, int tmax) {
                 }
             }
             if (k==3) {
-                exit(0);
+                i=5;
             }
         }
     }
     else if (choixcapa( patk) == 5002 ) {
         int k=0;
-        for (int i=0; i<=2; i++) {
+        for (int i=0; i<5; i++) {
             if(patk.efet[i][3]==0) {
                 patk.effet[i][0]=2;
                 patk.effet[i][1]=patk.atk*0.25;
@@ -61,7 +61,7 @@ void effet (Combattant patk, Combattant *tab, int t1, int tmax) {
                         k=k+1;
                     }
                     if (k==3) {
-                        exit(0);
+                        i=5;
                     }
                 }
             }
@@ -90,8 +90,7 @@ void effet (Combattant patk, Combattant *tab, int t1, int tmax) {
                    tab[n].effet[i][0]=4;
                    tab[n].effet[i][1]=-20;
                    tab[n].effet[i][2]=1;
-                   j=j+1;
-                   exit(0);
+                   i=5;
                 }
             }
         }
@@ -103,7 +102,7 @@ void effet (Combattant patk, Combattant *tab, int t1, int tmax) {
                     tab[n].effet[i][0]=4;
                     tab[n].effet[i][1]=-20;
                     tab[n].effet[i][2]=1;
-                    exit(0);
+                    i=5;
                 }
             }
         }
@@ -116,7 +115,7 @@ void effet (Combattant patk, Combattant *tab, int t1, int tmax) {
                     tab[n].effet[i][0]=1;
                     tab[n].effet[i][1]=50;
                     tab[n].effet[i][2]=1;
-                    exit(0);
+                    i=5;
                 }
             }
         }
@@ -127,12 +126,13 @@ void effet (Combattant patk, Combattant *tab, int t1, int tmax) {
                     tab[n].effet[i][0]=1;
                     tab[n].effet[i][1]=50;
                     tab[n].effet[i][2]=1;
-                    exit(0);
+                    i=5;
                 }
             }
         }
     }
     else if (choixcapa( patk) == 5005) {
+        int k=0;
         if(IDmax(tab[6], 6)>=3) {
             if(IDmax(tab[6], 6)<3) {
                 for(int j=0;j<t1;j++){
@@ -141,7 +141,11 @@ void effet (Combattant patk, Combattant *tab, int t1, int tmax) {
                             tab[j].effet[i][0]=3;
                             tab[j].effet[i][1]=tab[j].def*0.6+tab[j].def*0.1*(rand()%11);
                             tab[j].effet[i][2]=2;
-                            exit(0);
+                            i=5;
+                            k=k+1;
+                        }
+                        if(k===3) {
+                            i=5;
                         }
                     }
                 }
@@ -153,7 +157,7 @@ void effet (Combattant patk, Combattant *tab, int t1, int tmax) {
                         tab[n].effet[i][0]=3;
                         tab[n].effet[i][1]=tab[j].def*0.6+tab[j].def*0.1*(rand()%11);
                         tab[n].effet[i][2]=2;
-                        exit(0);
+                        i=5;
                     }
                 }
             }
@@ -180,7 +184,7 @@ void effet (Combattant patk, Combattant *tab, int t1, int tmax) {
                         m=m+1;
                     }
                     if (m==2) {
-                        exit(0);
+                       i=5;
                     }
                 }
             }
@@ -204,7 +208,7 @@ void effet (Combattant patk, Combattant *tab, int t1, int tmax) {
                         m=m+1;
                     }
                     if (m==2) {
-                        exit(0);
+                        i=5;
                     }
                 }
             }
@@ -220,7 +224,7 @@ void effet (Combattant patk, Combattant *tab, int t1, int tmax) {
                 k=k+1;
             }
             if(k==1) {
-                exit(0);
+                i=5;
             }
         }
     }
@@ -244,6 +248,9 @@ void effet (Combattant patk, Combattant *tab, int t1, int tmax) {
                         patk.effet[h][2]=3;
                         k=k+1;
                     }
+                    if(k==2) {
+                        i=5;
+                    }
                 }
             }
         }
@@ -262,6 +269,9 @@ void effet (Combattant patk, Combattant *tab, int t1, int tmax) {
                         patk.effet[h][1]=patk.atk*0.2;
                         patk.effet[h][2]=3;
                         k=k+1;
+                    }
+                    if (k==2) {
+                        i=5;
                     }
                 }
             }
