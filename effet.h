@@ -1,2 +1,2 @@
 #include"choixcapasanseffet"
-void effet (Combattant patk, Combattant *equipe1, Combattant *equipe2,Combattant *tab, int t1, int t2, int tmax) ;
+void effet (Combattant patk, Combattant *tab, int t1, int tmax) ;
