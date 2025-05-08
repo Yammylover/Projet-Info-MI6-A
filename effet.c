@@ -18,11 +18,11 @@ void effet (Combattant patk, Combattant *equipe1, Combattant *equipe2,Combattant
         int n=0;
         patk.effet[1][1]=patk.atk*1.2 + patk.atk*(rand()%21);
         if(IDmax(tab[6], 6)<3) {
-            n = cible(tab, t1, tmax, patk,equipe2, ? );
+            n = cible(tab, t1, tmax, patk,?, ? );
             tab[n].effet[3][0]=-20;
         }
         else if(IDmax(tab[6], 6)>=3) {
-            n = cible(tab, t1, tmax, patk,equipe1, ? );
+            n = cible(tab, t1, tmax, patk,?, ? );
             tab[n].effet[3][0]=-20;
 
         }
@@ -30,11 +30,11 @@ void effet (Combattant patk, Combattant *equipe1, Combattant *equipe2,Combattant
     if (choixcapa( patk, equipe1, equipe2, t1, t2) == 5004) {
         int k=0;
         if(IDmax(tab[6], 6)>=3) {
-            k = cible(tab, t1, tmax, patk,equipe2, ? );
+            k = cible(tab, t1, tmax, patk,?, ? );
             tab[k].effet[0][1]=50;
         }
         else if(IDmax(tab[6], 6)<3) {
-            k = cible(tab, t1, tmax, patk,equipe1, ? );
+            k = cible(tab, t1, tmax, patk,?, ? );
             tab[k].effet[0][1]=50;
         }
 
@@ -54,12 +54,12 @@ void effet (Combattant patk, Combattant *equipe1, Combattant *equipe2,Combattant
     else if (choixcapa( patk, equipe1, equipe2, t1, t2) == 5006) {
         int c=0;
         if(IDmax(tab[6], 6)<3) {
-            c = cible(tab, t1, tmax, patk,equipe2, ? );
+            c = cible(tab, t1, tmax, patk,?, ? );
             tab[c].effet[1][0]=-(tab[c].atk*0.2);
             tab[c].effet[1][0]=-(tab[c].vit*0.2);
         }
         else if(IDmax(tab[6], 6)>=3) {
-            c = cible(tab, t1, tmax, patk,equipe1, ? );
+            c = cible(tab, t1, tmax, patk,?, ? );
             tab[c].effet[3][0]=-(tab[c].atk*0.2);
             tab[c].effet[3][0]=-(tab[c].vit*0.2);
         }
