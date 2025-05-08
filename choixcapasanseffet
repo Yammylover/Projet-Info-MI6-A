@@ -5,14 +5,14 @@ int choixcapa(Combattant perso, Combattant* equipe1, Combattant* equipe2,int t1,
     do {
         printf(" veuillez selectionner une des 3 capacites");
         if(perso.base.petid== 1001) {
-        	printf("1. Repos : Récupère 30Pv; Cd = 4 tours.\n 2. Position : choisi entre 2 mode pour un nombre de 3 tours : mode offensive ou mode défensif; ayant un cooldown de 5 tours. le mode offensif confèrera 20% d'atk en plus et - 20% de défense, inversement pour le mode défensif.")
+        	printf("1. Repos : Récupère 30Pv; Cd = 4 tours.\n 2. Position : choisi entre 2 mode pour un nombre de 3 tours : mode offensive ou mode défensif; ayant un cooldown de 5 tours. le mode offensif confèrera 20% d'atk en plus et - 20% de défense, inversement pour le mode défensif.");
         	}
         	else if(perso.base.petid== 1002) {
-        	printf("1. Etirement : -15 vit, + 15% d'agi, +50% def, pendant 3 tours. Cd = 5.\n 2. Aiguisage : atk, dext, vit + 25% pendant 3 tours. Cd = 5.\n 3. Pointe déchirante : cible unique qui subit entre 120 et 140% de l'atk du lanceur et perd 20 de vitesse. Cd = 6.")
+        	printf("1. Etirement : -15 vit, + 15% d'agi, +50% def, pendant 3 tours. Cd = 5.\n 2. Aiguisage : atk, dext, vit + 25% pendant 3 tours. Cd = 5.\n 3. Pointe déchirante : cible unique qui subit entre 120 et 140% de l'atk du lanceur et perd 20 de vitesse. Cd = 6.");
         	
         }
         else if(perso.base.petid== 1003) {
-        	printf("1. Soin : allié unique + 50PV. CD =4.\n 2. Mur défensif : cible tous les alliés, + 60~70% de def en plus pendant 2 tours. CD = 4.\n 3. Emprisonnement : cible unique qui perd -20% vit , - 20% d'atk pendant 3 tours. CD = 5.")
+        	printf("1. Soin : allié unique + 50PV. CD =4.\n 2. Mur défensif : cible tous les alliés, + 60~70% de def en plus pendant 2 tours. CD = 4.\n 3. Emprisonnement : cible unique qui perd -20% vit , - 20% d'atk pendant 3 tours. CD = 5.");
         	
         }
         
