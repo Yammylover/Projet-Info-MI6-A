@@ -20,7 +20,6 @@ int cible(Combattant* tab, int t1, int tmax, int ID, int ecible, int tcible){	//
 	//locals
 	int a=0,b=0,c=0;
 	int array[tmax-1];
-	srand(time(NULL));
 	switch(ecible){
 		case 1:		//combattant vise l'équipe 1
 			switch(tcible){
@@ -33,11 +32,11 @@ int cible(Combattant* tab, int t1, int tmax, int ID, int ecible, int tcible){	//
 				    for(int i=0;i<t1;i++){
 				        if(tab[i].pv>0){
 				            a++;
-				            array[c]=i;
+				            array[c]=i+1;
 				            c++;
 				        }
 				    }
-				    b=selection(array,a,"Rentrez un ID de cible valide:\n");
+				    b=selection(array,a,"Rentrez un ID de cible valide:\n")-1;
 				break;
 			}
 		break;
@@ -48,15 +47,16 @@ int cible(Combattant* tab, int t1, int tmax, int ID, int ecible, int tcible){	//
 		                b=rando(t1,tmax-1);
 					}while(tab[b].pv<=0 || b<0 || b>=tmax);
 					break;
+					
 					case 2: //sélection manuelle
 					for(int i=t1;i<tmax;i++){
 				        if(tab[i].pv>0){
 				            a++;
-				            array[c]=i;
+				            array[c]=i+1;
 				            c++;
 				        }
 				    }
-				    b=selection(array,a,"Rentrez un ID de cible valide:\n");
+				    b=selection(array,a,"Rentrez un ID de cible valide:\n")-1;
 					break;
 		        }
 		break;
