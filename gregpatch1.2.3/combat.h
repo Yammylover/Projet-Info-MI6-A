@@ -34,6 +34,10 @@ void deathmodif(Combattant* tab, int ID, int* t1, int* t2, int* tmax){
     
     
 int deathcheck(Combattant* tab, int ID){
+    if(tab==NULL || ID<0){
+        printf("Erreur deathcheck\n");
+        exit(8);
+    }
     if(tab[ID].pv<=0){
         tab[ID].pv=0;
         return 1;
@@ -41,31 +45,52 @@ int deathcheck(Combattant* tab, int ID){
     return 0;
 }
 
-void attaque(Combattant* tab, int IDatk, int IDdef, int matk, int mdex){
+void appliquedegats(Combattant* tab, int ID, int dg, int*t1, int* t2, int* tmax){
+    if(tab==NULL || ID<0 || ID>=*tmax || dg<0){
+        printf("Erreur application des dégâts\n");
+        exit(3);
+    }
+    printf("%s subit %d dégâts!\n",tab[ID].base.nom,dg);
+	tab[ID].pv-=dg;
+    if(deathcheck(tab,ID)){
+		printf("%s est mort!\n", tab[ID].base.nom);
+		deathmodif(tab,ID,t1,t2,tmax);
+	}
+}
+
+int calcdegats(Combattant* tab, int IDatk, int IDdef,int matk){
+    if(tab==NULL || IDatk<0 || IDdef<0 || matk<0){
+        printf("Erreur calcul de dégâts\n");
+        exit(78);
+    }
+    int atk=tab[IDatk].atk*matk/100;
+    int def=tab[IDdef].def;
+    int dg=(atk*(100-def)/100);
+    return dg;
+}
+
+int attaque(Combattant* tab, int IDatk, int IDdef, int mdex){
 	//vérification
-	if(tab==NULL || IDatk<0 || IDdef<0 || matk<0 || mdex <0){
+	if(tab==NULL || IDatk<0 || IDdef<0 || mdex <0){
 		printf("erreur opérandes f° attaque\n");
 		exit(1);
 	}
 	printf("%s attaque %s !\n",tab[IDatk].base.nom,tab[IDdef].base.nom);
-	int dg=0;
 	int rd1=0,rd2=0;
-	int atk=tab[IDatk].atk*matk/100;
-	int def=tab[IDdef].def;
 	int crit=tab[IDatk].dex+mdex;
 	rd1=rand()%101;
 	rd2=rand()%101;
 	printf("rd1=%d rd2=%d\n",rd1,rd2);
 	if (rd1<=tab[IDdef].agl){
 		printf("%s évite l'attaque !\n",tab[IDdef].base.nom);
+		return 0;
 	} else if(rd2<=crit){
 		printf("C'est un coup critique!\n");
-		dg=(atk*(100-def)/100)*150/100;		//coup critique
+		return 2;
 	} else {
-		dg=atk*(100-def)/100;
+		return 1;
 	}
-	printf("%s subit %d dégâts!\n",tab[IDdef].base.nom,dg);
-	tab[IDdef].pv-=dg;
+	return -1;
 }
 
 void action(Combattant* tab, int aID, int* tmax, int* t1, int* t2){
@@ -76,18 +101,24 @@ void action(Combattant* tab, int aID, int* tmax, int* t1, int* t2){
     }
     //début fonction
     printf("C'est le tour de %s! (ID=%d)\n",tab[aID].base.nom,tab[aID].ID);
-    int cib,min,max;
+    int cib,min,max,r;
     if(aID<*t1){    //combattant appatient à l'équipe 1
     	cib=cible(tab,*t1,*tmax,aID,2,2);   //2 car cible l'équipe 2
-    	attaque(tab,aID,cib,100,100);
     } else if(aID>=*t1){    //combattant appartient à l'équipe 2
         cib=cible(tab,*t1,*tmax,aID,1,2);   //1 car attaque l'équipe 1
-        attaque(tab,aID,cib,100,0);
     }
-    if(deathcheck(tab,cib)){
-		printf("%s est mort!\n", tab[cib].base.nom);
-		deathmodif(tab,cib,t1,t2,tmax);
-	}
+    r=attaque(tab,aID,cib,0);
+    switch (r){
+        case 1:
+            appliquedegats(tab,cib,calcdegats(tab,aID,cib,100),t1,t2,tmax);    //dégâts standards
+        break;
+        case 2:
+            appliquedegats(tab,cib,calcdegats(tab,aID,cib,150),t1,t2,tmax);    //coup critique
+        break;
+        case -1:
+            printf("Erreur fonction attaque\n");
+            exit(5);
+    }
 }
 
 void combat(Combattant* e1, Combattant* e2,int t1, int t2){
