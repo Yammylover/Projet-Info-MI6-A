@@ -1,7 +1,6 @@
-int choixcapa(Combattant perso, Combattant* equipe1, Combattant* equipe2,int t1,int t2) {
+int choixcapa(Combattant perso) {
     int n=0;
-    equipe1 = malloc(t1*(sizeof(Combattant)));
-    equipe2 = malloc(t2*(sizeof(Combattant)));
+  
     do {
         printf(" veuillez selectionner une des 3 capacites");
         if(perso.base.petid== 1001) {
@@ -34,7 +33,7 @@ int choixcapa(Combattant perso, Combattant* equipe1, Combattant* equipe2,int t1,
             }
             	else if (perso.capa[0].bl!=0){
             	    printf("cette capacites ne peux pas etre utilisé");
-            	    return choixcapa(perso, equipe1, equipe2, t1, t2);
+            	    return choixcapa(perso);
             	}
             	else{
             	printf("erreur 1");
@@ -49,7 +48,7 @@ int choixcapa(Combattant perso, Combattant* equipe1, Combattant* equipe2,int t1,
             }
             	else if(perso.capa[1].bl!=0){
                 	printf("cette capacites ne peux pas etre utilisé");
-                	return choixcapa(perso, equipe1, equipe2, t1, t2);
+                	return choixcapa(perso);
             	}
             	else{
             	printf("erreur 2");
@@ -63,7 +62,7 @@ int choixcapa(Combattant perso, Combattant* equipe1, Combattant* equipe2,int t1,
             }
             	else if(perso.capa[2].bl=0){
             	    printf("cette capacites ne peux pas etre utilisé");
-            	    return choixcapa(perso, equipe1, equipe2, t1, t2);
+            	    return choixcapa(perso);
             	}
             	else{
             	printf("erreur 3");
@@ -77,7 +76,7 @@ int choixcapa(Combattant perso, Combattant* equipe1, Combattant* equipe2,int t1,
             }
             	else if(perso.capa[0].bl!=0){
                 	printf("cette capacites ne peux pas etre utilisé");
-                	return choixcapa(perso, equipe1, equipe2, t1, t2);
+                	return choixcapa(perso);
             	}
             	else{
             	printf("erreur 4");
@@ -91,7 +90,7 @@ int choixcapa(Combattant perso, Combattant* equipe1, Combattant* equipe2,int t1,
             }
             	else if(perso.capa[1].bl=0){
             	    printf("cette capacites ne peux pas etre utilisé");
-            	    return choixcapa(perso, equipe1, equipe2, t1, t2);
+            	    return choixcapa(perso);
             	}
             else{
             	printf("erreur 5");
@@ -106,7 +105,7 @@ int choixcapa(Combattant perso, Combattant* equipe1, Combattant* equipe2,int t1,
 
             	else if(perso.capa[2].bl!=0){
             	    printf("cette capacites ne peux pas etre utilisé");
-            	    return choixcapa(perso, equipe1, equipe2, t1, t2);
+            	    return choixcapa(perso);
             	}
             	else{
             	printf("erreur 6");
@@ -120,7 +119,7 @@ int choixcapa(Combattant perso, Combattant* equipe1, Combattant* equipe2,int t1,
             }
             	else if(perso.capa[0].bl!=0){
                 	printf("cette capacites ne peux pas etre utilisé");
-                	return choixcapa(perso, equipe1, equipe2, t1, t2);
+                	return choixcapa(perso);
             	}
             	else{
             	printf("erreur 7");
@@ -134,7 +133,7 @@ int choixcapa(Combattant perso, Combattant* equipe1, Combattant* equipe2,int t1,
             }
             	else if(perso.capa[1].bl!=0){
                 	printf("cette capacites ne peux pas etre utilisé");
-                	return choixcapa(perso, equipe1, equipe2, t1, t2);
+                	return choixcapa(perso);
             	}
             else{
             	printf("erreur 8");
