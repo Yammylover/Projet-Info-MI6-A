@@ -45,10 +45,10 @@ int choixcapa(Combattant perso) {
 
         case '2':
         if (perso.base.petid == 1002) {
-            if(perso.capa[1].bl==0){
+            if(perso.base.capa[1].bl==0){
                 return 5002;
             }
-            	else if(perso.capa[1].bl!=0){
+            	else if(perso.base.capa[1].bl!=0){
                 	printf("cette capacites ne peux pas etre utilisé");
                 	return choixcapa(perso);
             	}
@@ -59,10 +59,10 @@ int choixcapa(Combattant perso) {
         }
         case '3':
         if (perso.base.petid == 1002) {
-            if(perso.capa[2].bl==0){
+            if(perso.base.capa[2].bl==0){
             return 5003;
             }
-            	else if(perso.capa[2].bl=0){
+            	else if(perso.base.capa[2].bl=0){
             	    printf("cette capacites ne peux pas etre utilisé");
             	    return choixcapa(perso);
             	}
@@ -73,10 +73,10 @@ int choixcapa(Combattant perso) {
         }
         case '4':
         if (perso.base.petid == 1003) {
-            if(perso.capa[0].bl==0){
+            if(perso.base.capa[0].bl==0){
                 return 5004;
             }
-            	else if(perso.capa[0].bl!=0){
+            	else if(perso.base.capa[0].bl!=0){
                 	printf("cette capacites ne peux pas etre utilisé");
                 	return choixcapa(perso);
             	}
@@ -87,10 +87,10 @@ int choixcapa(Combattant perso) {
         }
         case '5':
         if (perso.base.petid == 1003) {
-            if(perso.capa[1].bl==0){
+            if(perso.base.capa[1].bl==0){
             return 5005;
             }
-            	else if(perso.capa[1].bl=0){
+            	else if(perso.base.capa[1].bl=0){
             	    printf("cette capacites ne peux pas etre utilisé");
             	    return choixcapa(perso);
             	}
@@ -101,7 +101,7 @@ int choixcapa(Combattant perso) {
         }
         case '6':
         if (perso.base.petid == 1003) {
-            if(perso.capa[2].bl==0) {
+            if(perso.base.capa[2].bl==0) {
                 return 5006;
             }
 
@@ -116,7 +116,7 @@ int choixcapa(Combattant perso) {
         }
         case'7':
         if (perso.base.petid == 1001) {
-            if(perso.capa[0].bl==0){
+            if(perso.base.capa[0].bl==0){
             return 5007;
             }
             	else if(perso.capa[0].bl!=0){
@@ -130,10 +130,10 @@ int choixcapa(Combattant perso) {
         }
         case'8':
         if (perso.base.petid == 1001) {
-            if(perso.capa[1].bl==0) {
+            if(perso.base.capa[1].bl==0) {
             return 5008;
             }
-            	else if(perso.capa[1].bl!=0){
+            	else if(perso.base.capa[1].bl!=0){
                 	printf("cette capacites ne peux pas etre utilisé");
                 	return choixcapa(perso);
             	}
