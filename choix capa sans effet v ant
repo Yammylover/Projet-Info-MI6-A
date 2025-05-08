@@ -1,0 +1,145 @@
+int choixcapa(Combattant perso, Combattant* equipe1, Combattant* equipe2,int t1,int t2) {
+    int n=0;
+    equipe1 = malloc(t1*(sizeof(Combattant)));
+    equipe2 = malloc(t2*(sizeof(Combattant)));
+    do {
+        printf(" veuillez selectionner une des 3 capacites");
+        if(perso.base.petid== 1001) {
+        	printf("1. Repos : Récupère 30Pv; Cd = 4 tours.\n 2. Position : choisi entre 2 mode pour un nombre de 3 tours : mode offensive ou mode défensif; ayant un cooldown de 5 tours. le mode offensif confèrera 20% d'atk en plus et - 20% de défense, inversement pour le mode défensif.");
+        	}
+        	else if(perso.base.petid== 1002) {
+        	printf("1. Etirement : -15 vit, + 15% d'agi, +50% def, pendant 3 tours. Cd = 5.\n 2. Aiguisage : atk, dext, vit + 25% pendant 3 tours. Cd = 5.\n 3. Pointe déchirante : cible unique qui subit entre 120 et 140% de l'atk du lanceur et perd 20 de vitesse. Cd = 6.");
+        	
+        }
+        else if(perso.base.petid== 1003) {
+        	printf("1. Soin : allié unique + 50PV. CD =4.\n 2. Mur défensif : cible tous les alliés, + 60~70% de def en plus pendant 2 tours. CD = 4.\n 3. Emprisonnement : cible unique qui perd -20% vit , - 20% d'atk pendant 3 tours. CD = 5.");
+        	
+        }
+        
+        scanf("%d",&n);
+    }while(n<1 || n>3);
+    srand(time(NULL));
+    if (perso.base.petid== 1003) {
+        n=n+3;
+    }
+    if (perso.base.petid== 1001) {
+        n=n+6;
+    }
+    switch (n) {
+        case '1':
+        if (perso.base.petid == 1002) {
+            if(perso.capa[0].bl==0){
+                
+                return 5001;
+            }
+            	else if (perso.capa[0].bl!=0){
+            	    printf("cette capacites ne peux pas etre utilisé");
+            	    return choixcapa(perso, equipe1, equipe2, t1, t2);
+            	}
+            	else{
+            	printf("erreur 1");
+            	return 0;
+            	}
+        }
+
+        case '2':
+        if (perso.base.petid == 1002) {
+            if(perso.capa[1].bl==0){
+                return 5002;
+            }
+            	else if(perso.capa[1].bl!=0){
+                	printf("cette capacites ne peux pas etre utilisé");
+                	return choixcapa(perso, equipe1, equipe2, t1, t2);
+            	}
+            	else{
+            	printf("erreur 2");
+            	return 0;
+            	}
+        }
+        case '3':
+        if (perso.base.petid == 1002) {
+            if(perso.capa[2].bl==0){
+            return 5003;
+            }
+            	else if(perso.capa[2].bl=0){
+            	    printf("cette capacites ne peux pas etre utilisé");
+            	    return choixcapa(perso, equipe1, equipe2, t1, t2);
+            	}
+            	else{
+            	printf("erreur 3");
+            	return 0;
+            	}
+        }
+        case '4':
+        if (perso.base.petid == 1003) {
+            if(perso.capa[0].bl==0){
+                return 5004;
+            }
+            	else if(perso.capa[0].bl!=0){
+                	printf("cette capacites ne peux pas etre utilisé");
+                	return choixcapa(perso, equipe1, equipe2, t1, t2);
+            	}
+            	else{
+            	printf("erreur 4");
+            	return 0;
+            	}
+        }
+        case '5':
+        if (perso.base.petid == 1003) {
+            if(perso.capa[1].bl==0){
+            return 5005;
+            }
+            	else if(perso.capa[1].bl=0){
+            	    printf("cette capacites ne peux pas etre utilisé");
+            	    return choixcapa(perso, equipe1, equipe2, t1, t2);
+            	}
+            else{
+            	printf("erreur 5");
+            	return 0;
+            	}
+        }
+        case '6':
+        if (perso.base.petid == 1003) {
+            if(perso.capa[2].bl==0) {
+                return 5006;
+            }
+
+            	else if(perso.capa[2].bl!=0){
+            	    printf("cette capacites ne peux pas etre utilisé");
+            	    return choixcapa(perso, equipe1, equipe2, t1, t2);
+            	}
+            	else{
+            	printf("erreur 6");
+            	return 0;
+            	}
+        }
+        case'7':
+        if (perso.base.petid == 1001) {
+            if(perso.capa[0].bl==0){
+            return 5007;
+            }
+            	else if(perso.capa[0].bl!=0){
+                	printf("cette capacites ne peux pas etre utilisé");
+                	return choixcapa(perso, equipe1, equipe2, t1, t2);
+            	}
+            	else{
+            	printf("erreur 7");
+            	return 0;
+            	}
+        }
+        case'8':
+        if (perso.base.petid == 1001) {
+            if(perso.capa[1].bl==0) {
+            return 5008;
+            }
+            	else if(perso.capa[1].bl!=0){
+                	printf("cette capacites ne peux pas etre utilisé");
+                	return choixcapa(perso, equipe1, equipe2, t1, t2);
+            	}
+            else{
+            	printf("erreur 8");
+            	return 0;
+            	}
+        }
+    }
+}
