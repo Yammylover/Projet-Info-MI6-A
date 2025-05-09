@@ -101,7 +101,12 @@ void action(Combattant* tab, int aID, int* tmax, int* t1, int* t2){
     }
     //début fonction
     printf("C'est le tour de %s! (ID=%d)\n",tab[aID].base.nom,tab[aID].ID);
-    int cib,min,max,r;
+    int cib,r;
+    int array[aID.base.ndc+1];
+    array[0]=1;
+    for(int i=0;i<aID.base.ndc;i++){
+    	if(aID.capa[i])
+    	
     if(aID<*t1){    //combattant appatient à l'équipe 1
     	cib=cible(tab,*t1,*tmax,aID,2,2);   //2 car cible l'équipe 2
     } else if(aID>=*t1){    //combattant appartient à l'équipe 2
@@ -142,7 +147,8 @@ void combat(Combattant* e1, Combattant* e2,int t1, int t2){
         ee[i+t1]=e2[i];
     }
     //répétition à chaque tours:
-    while(t1!=0 && t2!=0){
+    int a=0,b=0;	//a et b vont compter le nombre de morts dans chaque équipe. Lorsque l'une des deux équipes a autant de morts que de membres d'équipes, le combat s'arrête
+    while(a!=t1 && b!=t2){
     	//calcul des stats
     	for(int i=0; i<tmax; i++){
         	if(ee[i].pv>0){
@@ -172,6 +178,19 @@ void combat(Combattant* e1, Combattant* e2,int t1, int t2){
         	action(ee,j,&tmax,&t1,&t2);
     	}
         sleep(1);
+        a=0;
+        b=0;
+        for(int i=0;i<t1;i++){
+        	if(deathcheck(ee,i)){
+        		a++;
+        	}
+        }
+        for(int i=t1;i<tmax;i++){
+        	if(deathcheck(ee,i)){
+        		b++;
+        	}
+        }
+        
     }
 }
 #endif
