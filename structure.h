@@ -11,7 +11,7 @@
 typedef struct {    //structure contenant les effets spéciaux
     int type;
     int puissance;
-    int durée;
+    int duree;
 } Effet;
 
 typedef struct {
