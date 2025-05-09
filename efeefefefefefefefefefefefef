@@ -1,0 +1,277 @@
+void effet (Combattant patk, Combattant *tab, int t1, int tmax, int ne) {
+	
+    int tab2[tmax];
+    for(int i=0; i<tmax; i++){
+    	tab2[i]=i;
+    
+    }
+    if(tab== NULL){
+    printf("erreur rab");
+    exit(0);
+    }
+    patk.effet = (malloc(sizeof(Effet)*ne));
+    
+    if (choixcapa( patk) == 5004 ){
+        int k=0;
+        int i=0;
+        while(k!=3){
+        	if(patk.effet[i].durée==0) {
+        	       patk.effet[i].type=4;
+        	       patk.effet[i].puissance=-15;
+        	       patk.effet[i].durée=3;
+        	       i=i+1;
+        	       k=k+1;         
+    	     	       patk.effet[i].type=5;
+    	     	       patk.effet[i].puissance=patk.agl*0.15;
+    	     	       patk.effet[i].durée=3;
+    	     	       i=i+1;
+    	     	       patk.effet[i].type=3;
+    	     	       patk.effet[i].puissance=patk.def*0.5;
+    	     	       patk.effet[i].durée=3;
+    	     	       k=k+1;
+         	}
+         	else{
+         	i=i+1;
+         	} 
+         }	  
+    }
+    else if (choixcapa( patk) == 5005 ) {
+        int k=0;
+        int i=0;
+         while(k!=3){
+            if(patk.effet[i].durée==0) {
+                patk.effet[i].type=2;
+                patk.effet[i].puissance=patk.atk*0.25;
+                patk.effet[i].durée=3;
+                i=i+1;
+                k=k+1;
+                if(patk.effet[i].durée==0) {
+                	patk.effet[i].type=4;
+                	patk.effet[i].puissance=patk.vit*0.25;
+                	patk.effet[i].durée=3;
+                	i=i+1;
+                	k=k+1;
+                	}
+                	if(patk.effet[i].durée==0) {
+                	        patk.effet[i].type=6;
+                	        patk.effet[i].puissance=patk.dex*0.25;
+                	        patk.effet[i].durée=3;
+                	        i=i+1;
+                	        k=k+1;
+                	 }
+                }
+                else{
+                i=i+1;
+                }
+            }
+        }
+    else if (choixcapa( patk) == 5006 ) {
+        int n=0;
+        int k=0;
+        for (int i=0; i<5; i++) {
+            if(patk.effet[i].durée==0 && i<5){
+                patk.effet[i].type=2;
+                patk.effet[i].puissance=patk.atk*1.2 + patk.atk*(rand()%21);
+                patk.effet[i].durée=1;
+                k=k+1;
+                if (k==1) {
+                i=5;
+                }
+            }
+        }
+        if(IDmax(tab2, 6)<3) {
+           int n = cible(tab, t1, tmax, patk.ID,2, 2 )-1;
+            for (int i=0; i<5; i++) {
+                if(tab[n].effet[i].durée==0 && i<5){
+                   tab[n].effet[i].type=4;
+                   tab[n].effet[i].puissance=-20;
+                   tab[n].effet[i].durée=1;
+                   i=5;
+                }
+            }
+        }
+        else if(IDmax(tab2, 6)>=3) {
+            n = cible(tab, t1, tmax, patk.ID, 2, 1)-1;
+            for (int i=0; i<5; i++) {
+                if(tab[n].effet[i].durée==0 && i<5){
+                    tab[n].effet[i].type=4;
+                    tab[n].effet[i].puissance=-20;
+                    tab[n].effet[i].durée=1;
+                    i=5;
+                }
+            }
+        }
+    }
+    if (choixcapa( patk) == 5007) {
+        if(IDmax(tab2, 6)<3) {
+            int n = cible(tab, t1, tmax, patk.ID,2, 1 )-1;
+            for (int i=0; i<5; i++) {
+                if(tab[n].effet[i].durée==0 && i<5){
+                    tab[n].effet[i].type=1;
+                    tab[n].effet[i].puissance=50;
+                    tab[n].effet[i].durée=1;
+                    i=5;
+                }
+            }
+        }
+        else if(IDmax(tab2, 6)>=3) {
+            int n = cible(tab, t1, tmax, patk.ID, 2, 2)-1;
+            for (int i=0; i<5; i++) {
+                if(tab[n].effet[i].durée==0 && i<5){
+                    tab[n].effet[i].type=1;
+                    tab[n].effet[i].puissance=50;
+                    tab[n].effet[i].durée=1;
+                    i=5;
+                }
+            }
+        }
+    }
+    else if (choixcapa( patk) == 5008) {
+        int k=0;
+          if(IDmax(tab2, 6)<3) {
+                for(int i=0;i<t1;i++){
+                    for (int i=0; i<5; i++) {
+                        if(tab[i].effet[i].durée==0 && i<5){
+                            tab[i].effet[i].type=3;
+                            tab[i].effet[i].puissance=tab[i].def*0.6+tab[i].def*0.1*(rand()%11);
+                            tab[i].effet[i].durée=2;
+                            i=5;
+                            k=k+1;
+                        }
+                        if(k==3) {
+                            i=5;
+                        }
+                    }        
+                }
+            }
+            else if(IDmax(tab2, 6)>=3) {
+              for(int i=t1;i<tmax;i++){
+                for (int i=0; i<5; i++) {
+                    if(tab[i].effet[i].durée==0 && i<5){
+                        tab[i].effet[i].type=3;
+                        tab[i].effet[i].puissance=tab[i].def*0.6+tab[i].def*0.1*(rand()%11);
+                        tab[i].effet[i].durée=2;
+                        i=5;
+                    }
+                }
+              }    
+            }
+        }
+    else if (choixcapa( patk) == 5009) {
+        int c=0;
+        int m=0;
+        if(IDmax(tab2, 6)>=3) {
+            c = cible(tab, t1, tmax, patk.ID, 2, 1)-1;
+            for (int i=0; i<5; i++) {
+                if(tab[c].effet[i].durée==0 && i<5){
+                    tab[c].effet[i].type=4;
+                    tab[c].effet[i].puissance=-(tab[c].vit*0.2);
+                    tab[c].effet[i].durée=3;
+                    i=i+1;
+                    m=m+1;
+                }
+                for (int i=i; i<5; i++) {
+                    if(tab[c].effet[i].durée==0 && i<5){
+                        tab[c].effet[i].type=2;
+                        tab[c].effet[i].puissance=-(tab[c].atk*0.2);
+                        tab[c].effet[i].durée=3;
+                        m=m+1;
+                    }
+                    if (m==2) {
+                       i=5;
+                    }
+                }
+            }
+        }
+
+        else if(IDmax(tab2, 6)<3) {
+            int c = cible(tab, t1, tmax, patk.ID, 2, 2)-1;
+            for (int i=0; i<5; i++) {
+                if(tab[c].effet[i].durée==0 && i<5){
+                    tab[c].effet[i].type=4;
+                    tab[c].effet[i].puissance=-(tab[c].vit*0.2);
+                    tab[c].effet[i].durée=3;
+                    i=i+1;
+                    m=m+1;
+                }
+                for(int i=i; i<5; i++) {
+                    if(tab[c].effet[i].durée==0 && i<5){
+                        tab[c].effet[i].type=2;
+                        tab[c].effet[i].puissance=-(tab[c].atk*0.2);
+                        tab[c].effet[i].durée=3;
+                        m=m+1;
+                    }
+                    if (m==2) {
+                        i=5;
+                    }
+                }
+            }
+        }
+    }
+    if (choixcapa( patk) == 5001)  {
+    	int k=0;
+        for (int i=0; i<=2; i++) {
+            if(patk.effet[i].durée==0 && i<5) {
+                patk.effet[i].type=1;
+                patk.effet[i].puissance=30;
+                patk.effet[i].durée=1;
+                i=i+1;
+                k=k+1;
+            }
+            if(k==1) {
+                i=5;
+            }
+        }
+    }
+    else if (choixcapa( patk) == 5002) {
+        int position;
+        int k=0;
+        printf("veuillez entrer 1 pour selectionner le mode defensif, 2 pour selectionner le mode offensif");
+        scanf("%d", &position);
+        if(position==1) {
+            for (int i=0; i<5; i++) {
+                if(patk.effet[i].durée==0 && i<5) {
+                    patk.effet[i].type=3;
+                    patk.effet[i].puissance=patk.def*0.2;
+                    patk.effet[i].durée=3;
+                    i=i+1;
+                    k=k+1;
+                }
+                for (int h=i; h<5; h++) {
+                    if(patk.effet[h].durée==0 && h<5) {
+                        patk.effet[h].type=2;
+                        patk.effet[h].puissance=-(patk.atk*0.2);
+                        patk.effet[h].durée=3;
+                        k=k+1;
+                    }
+                    if(k==2) {
+                        i=5;
+                    }
+                }
+            }
+        }
+        else if(position==2) {
+        int k=0;
+            for (int i=0; i<5; i++) {
+                if(patk.effet[i].durée==0 && i<5) {
+                    patk.effet[i].type=3;
+                    patk.effet[i].puissance=-(patk.def*0.2);
+                    patk.effet[i].durée=3;
+                    i=i+1;
+                    k=k+1;
+                }
+                for (int h=i; h<5; h++) {
+                    if(patk.effet[h].durée==0 && h<5) {
+                        patk.effet[h].type=2;
+                        patk.effet[h].puissance=patk.atk*0.2;
+                        patk.effet[h].durée=3;
+                        k=k+1;
+                    }
+                    if (k==2) {
+                        i=5;
+                    }
+                }
+            }
+        }
+    }
+}
