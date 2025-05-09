@@ -24,7 +24,7 @@ int selection(int* tab,int size, char* phrase){
     if(tab==NULL){
         printf("ERREUR FONCTION SELECTION");
     }
-    /*for(int i=0;i<size;i++){
+    /*for(int i=0;i<size;i++){  //vérification des entrés dipsonibles
         printf("%d/",tab[i]);
     }*/
     //process
@@ -43,4 +43,3 @@ int selection(int* tab,int size, char* phrase){
     } while(b!=1);
     return a;
 }
-
