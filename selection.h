@@ -24,9 +24,9 @@ int selection(int* tab,int size, char* phrase){
     if(tab==NULL){
         printf("ERREUR FONCTION SELECTION");
     }
-    for(int i=0;i<size;i++){
+    /*for(int i=0;i<size;i++){
         printf("%d/",tab[i]);
-    }
+    }*/
     //process
     int a=0,b=0;
     do{
