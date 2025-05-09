@@ -24,7 +24,7 @@ for(int j=0;j<tmax;j++) {
 
 //mise en place du calcul pour la mise en echelle de l'action
    for(int j=0;j<tmax;j++) {
-        indice[j]=(equipe[j].act)*10/100;
+        indiceact[j]=(equipe[j].act)*10/100;
         for(int i=0;i<10;i++) {
             if(i<indiceact[j]) {
                 actaffichage[j][i]='>';
