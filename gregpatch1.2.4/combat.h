@@ -102,11 +102,6 @@ void action(Combattant* tab, int aID, int* tmax, int* t1, int* t2){
     //début fonction
     printf("C'est le tour de %s! (ID=%d)\n",tab[aID].base.nom,tab[aID].ID);
     int cib,r;
-    int array[aID.base.ndc+1];
-    array[0]=1;
-    for(int i=0;i<aID.base.ndc;i++){
-    	if(aID.capa[i])
-    	
     if(aID<*t1){    //combattant appatient à l'équipe 1
     	cib=cible(tab,*t1,*tmax,aID,2,2);   //2 car cible l'équipe 2
     } else if(aID>=*t1){    //combattant appartient à l'équipe 2
