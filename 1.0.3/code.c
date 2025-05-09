@@ -6,6 +6,7 @@ void affichage(Combattant* equipe,int tmax,int t1,int t2) {
     char pvaffichage[6][10];
     int indice[6];//tableau d'indice pour les combattants
     int str;
+    int indiceact[6];
     char actaffichage[6][10];//meme chose que les pv mais pour l'action
 
 //debut du code pour l'affichage utilisateur, ici on print sur une echelle de 0 à 10 les pv des champions
