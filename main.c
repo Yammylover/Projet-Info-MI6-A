@@ -8,7 +8,7 @@
 #if OS==WINDOWS
 #include "windows.h"
 #endif*/
-#define NBFIGHTERS 3    //à augmenter avec d'autres combattants
+#define NBFIGHTERS 6    //à augmenter avec d'autres combattants
 
 Combattant stat1(int i){
     Combattant n; //variable utilisé pour ecrire les valeurs de chacuns des combattans
@@ -19,65 +19,66 @@ Combattant stat1(int i){
     printf("┌─[Selection personnage]─────────────────┒\n"
                  "│                                        │\n"
                  "│ Lamda│1│    Delta│2│    Omega│3│       │\n"
-                 "│ Poly        Dealer      Tank           │\n"
+                 "│ Polyvalent  Attaquant   Soutien        │\n"
                  "│                                        │\n"
                  "│ Epsilon|4|  Alpha|5|    Beta|6|        │\n"
-                 "│ Buffer                                 │\n"
+                 "│ Soutien     Attaquant   Brute          │\n"
                  "│                                        │\n"
                  "└────────────────────────────────────────┘\n"); //tableau affichant les possibilités d'agents
     printf("Entre le numero correspondant au champion : ");
     scanf("%d",&nb);
-    if(nb>4) {
+    if(nb>NBFIGHTERS) {
         printf("Agent inconnu");
         exit(1);
     } //verification, si le nombre choisi depasse le nombre d'agent disponible, exit du code
 
 
-    if(nb==1) {
+    switch(nb) {
+    case 1:
         printf("Lamda a ete selectionne\n");
         printf(     "┌─[Lamda]────────────────────────────────────┒\n"
                           "│                                            │\n"
-                          "│  Pv:100 Atk:20 Def:20 Vit:45 Agi:10 Dex:5  │\n"
+                          "│  Pv:100 Atk:30 Def:20 Vit:35 Agi:10 Dex:10 │\n"
                           "│  Compétences :                             │\n"
-                          "│       -blabla                              │\n"
-                          "│       -ceci                                │\n"
-                          "│       -cela                                │\n"
+                          "│       -Pose offensive                      │\n"
+                          "│       -Pose deffensive                     │\n"
+                          "│       -Repos                               │\n"
                           "│                                            │\n"
                           "└────────────────────────────────────────────┘\n"); //tableau pour afficher les stats de l'agent choisi
 
         // valeur de IDperso
         n.base.nom="Lambda";
         n.base.pv=100;
-        n.base.atk=20;
+        n.base.atk=30;
         n.base.def=20;
-        n.base.vit=45;
+        n.base.vit=35;
         n.base.agl=10;
-        n.base.dex=5;
+        n.base.dex=10;
         n.base.ndc=3;
         n.base.pid=1001;
-        n.base.capa[0].id=50001;
-        n.base.capa[1].id=50002;
-        n.base.capa[2].id=50003;
+        n.base.capa[0].id=5001;
+        n.base.capa[1].id=5002;
+        n.base.capa[2].id=5003;
 
 
         // valeur de Combattant
-        n.ID=i+1;
+        n.ID=i;
         n.pv=50;
-        n.atk=20;
+        n.atk=30;
         n.def=20;
-        n.vit=45;
+        n.vit=35;
         n.agl=10;
-        n.dex=5;
-        n.act=6;
-    }
-    else if(nb==2) {
+        n.dex=10;
+        n.act=0;
+    break;
+    case 2:
         printf("Delta a ete choisi !\n");
         n.base.nom="Delta";
         n.base.pv=80;
         n.base.atk=40;
         n.base.def=10;
-        n.base.vit=49;
-        n.base.agl=30;
+        n.base.vit=42;
+        n.base.agl=20;
         n.base.dex=10;
         n.base.ndc=3;
         n.base.pid=1002;
@@ -86,23 +87,23 @@ Combattant stat1(int i){
         n.base.capa[2].id=5006;
 
 
-        n.ID=i+1;
+        n.ID=i;
         n.pv=0;
         n.atk=40;
         n.def=10;
-        n.vit=49;
-        n.agl=30;
+        n.vit=42;
+        n.agl=20;
         n.dex=10;
-        n.act=1;
+        n.act=0;
 
-    }
-    else if(nb==3) {
+    break;
+    case 3:
         printf("Omega a ete choisi !\n");
         n.base.nom="Omega";
         n.base.pv=150;
-        n.base.atk=10;
+        n.base.atk=20;
         n.base.def=40;
-        n.base.vit=32;
+        n.base.vit=20;
         n.base.agl=0;
         n.base.dex=1;
         n.base.ndc=3;
@@ -111,40 +112,88 @@ Combattant stat1(int i){
         n.base.capa[1].id=5008;
         n.base.capa[2].id=5009;
 
-        n.ID=i+1;
+        n.ID=i;
         n.pv=150;
-        n.atk=10;
+        n.atk=20;
         n.def=40;
-        n.vit=32;
+        n.vit=20;
         n.agl=0;
         n.dex=1;
-        n.act=9;
+        n.act=0;
 
-    }
-    else if(nb==4) {
+    break;
+    case 4:
         printf("Epsilon a ete choisi !\n");
         n.base.nom="Epsilon";
         n.base.pv=120;
-        n.base.atk=28;
+        n.base.atk=20;
         n.base.def=20;
-        n.base.vit=36;
-        n.base.agl=12;
-        n.base.dex=12;
+        n.base.vit=43;
+        n.base.agl=15;
+        n.base.dex=15;
         n.base.ndc=3;
         n.base.pid=1004;
         n.base.capa[0].id=5010;
         n.base.capa[1].id=5011;
         n.base.capa[2].id=5012;
 
-        n.ID=i+1;
+        n.ID=i;
         n.pv=120;
-        n.atk=28;
+        n.atk=20;
         n.def=20;
-        n.vit=36;
-        n.agl=12;
-        n.dex=12;
-        n.act=4;
+        n.vit=43;
+        n.agl=15;
+        n.dex=15;
+        n.act=0;
+    break;
+    case 5:
+    printf("Alpha a ete choisi !\n");
+        n.base.nom="Alpha";
+        n.base.pv=100;
+        n.base.atk=50;
+        n.base.def=7;
+        n.base.vit=30;
+        n.base.agl=5;
+        n.base.dex=20;
+        n.base.ndc=3;
+        n.base.pid=1005;
+        n.base.capa[0].id=5013;
+        n.base.capa[1].id=5014;
+        n.base.capa[2].id=5015;
 
+        n.ID=i;
+        n.pv=n.base.pv;
+        n.atk=n.base.atk;
+        n.def=n.base.def;
+        n.vit=n.base.vit;
+        n.agl=n.base.agl;
+        n.dex=n.base.dex;
+        n.act=0;
+    break;
+    case 6:
+    printf("Beta a ete choisi !\n");
+        n.base.nom="Beta";
+        n.base.pv=200;
+        n.base.atk=50;
+        n.base.def=0;
+        n.base.vit=18;
+        n.base.agl=0;
+        n.base.dex=10;
+        n.base.ndc=3;
+        n.base.pid=1006;
+        n.base.capa[0].id=5016;
+        n.base.capa[1].id=5017;
+        n.base.capa[2].id=5018;
+
+        n.ID=i;
+        n.pv=n.base.pv;
+        n.atk=n.base.atk;
+        n.def=n.base.def;
+        n.vit=n.base.vit;
+        n.agl=n.base.agl;
+        n.dex=n.base.dex;
+        n.act=0;
+    break;
     }
     for(int j=0; j<n.ne;j++){
         n.base.capa[j].cd=3;
@@ -167,7 +216,16 @@ Combattant stat2(int i, int tmax){
         tab[i]=i+1;
     }
     FILE* fichier=NULL;
-    nb=selection(tab,NBFIGHTERS,"Entrez le numero du champion voulu : \n1 pour Lamda  \n2 pour Delta \n3 pour Omega:\n ");
+    printf("┌─[Selection personnage]─────────────────┒\n"
+                 "│                                        │\n"
+                 "│ Lamda│1│    Delta│2│    Omega│3│       │\n"
+                 "│ Polyvalent  Attaquant   Soutien        │\n"
+                 "│                                        │\n"
+                 "│ Epsilon|4|  Alpha|5|    Beta|6|        │\n"
+                 "│ Soutien     Attaquant   Brute          │\n"
+                 "│                                        │\n"
+                 "└────────────────────────────────────────┘\n"); //tableau affichant les possibilités d'agents
+    nb=selection(tab,NBFIGHTERS,"Entrez le numero du champion voulu :\n ");
 
     switch(nb){
         case 1:
@@ -184,6 +242,21 @@ Combattant stat2(int i, int tmax){
         	printf("Omega a ete selectionne\n");
 
 		fichier=fopen("Omega","r");
+	break;
+	case 4:
+        	printf("Epsilon a ete selectionne\n");
+
+		fichier=fopen("Epsilon","r");
+	break;
+	case 5:
+        	printf("Alpha a ete selectionne\n");
+
+		fichier=fopen("Alpha","r");
+	break;
+	case 6:
+        	printf("Beta a ete selectionne\n");
+
+		fichier=fopen("Beta","r");
 	break;
 	default:
 	    printf("Erreur de saisie de caractère\n");
@@ -266,7 +339,7 @@ int main(){
         equipe2[i]=stat2(i,t1+t2);
         equipe2[i].ID=i+t1;
     }
-
+    
     combat(equipe1,equipe2,t1,t2);
 
 
