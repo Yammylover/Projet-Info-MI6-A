@@ -1,6 +1,11 @@
 
 #include "structure.h"
+#define WINDOWS 1
+#define LINUX 2
+#define OS LINUX //WINDOWS
+#if OS==WINDOWS
 #include "windows.h"
+#endif
 #define NBFIGHTERS 3    //à augmenter avec d'autres combattants
 
 Combattant stats(int i, int tmax){
@@ -91,7 +96,7 @@ Combattant stats(int i, int tmax){
 
 
 int main(){
-	SetConsoleOutputCP(CP_UTF8); //ligne de code permettant l'utilisation de caractere unicode
+	//SetConsoleOutputCP(CP_UTF8); //ligne de code permettant l'utilisation de caractere unicode
 // équipe 1
     int t1=3;
     Combattant equipe1[t1];
