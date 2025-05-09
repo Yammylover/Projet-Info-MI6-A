@@ -19,10 +19,10 @@ Combattant stat1(int i){
     printf("┌─[Selection personnage]─────────────────┒\n"
                  "│                                        │\n"
                  "│ Lamda│1│    Delta│2│    Omega│3│       │\n"
-                 "│ Polyvalent  Attaquant   Soutien        │\n"
+                 "│ Poly        Dealer      Tank           │\n"
                  "│                                        │\n"
                  "│ Epsilon|4|  Alpha|5|    Beta|6|        │\n"
-                 "│ Soutien     Attaquant   Brute          │\n"
+                 "│ Buffer                                 │\n"
                  "│                                        │\n"
                  "└────────────────────────────────────────┘\n"); //tableau affichant les possibilités d'agents
     printf("Entre le numero correspondant au champion : ");
@@ -146,9 +146,9 @@ Combattant stat1(int i){
         n.act=4;
 
     }
-    for(int j=0; j<n.nde;j++){
-        n.capa[j].cd=3;
-        n.capa[j].bl=0;
+    for(int j=0; j<n.ne;j++){
+        n.base.capa[j].cd=3;
+        n.base.capa[j].bl=0;
     }
     return n;
 }
@@ -233,9 +233,9 @@ Combattant stat2(int i, int tmax){
         	n.dex=n.base.dex;
         	n.act=0;
         	n.ne=0;
-        	for(int j=0; j<n.nde;j++){
-        	    n.capa[j].cd=3;
-        	    n.capa[j].bl=0;
+        	for(int j=0; j<n.ne;j++){
+        	    n.base.capa[j].cd=3;
+        	    n.base.capa[j].bl=0;
         	}
         	//printf("%d %d %d\n",n.base.capa[0].id,n.base.capa[1].id,n.base.capa[2].id);
         	//printf("Id=%d\n",n.base.pid);
