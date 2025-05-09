@@ -20,7 +20,7 @@ Lambda :
 -Agl=10
 -Dex=10
 
-5001 - position offensive: +100% atk (+30) pendant 6 tours. CD=3
+5001- position offensive: +100% atk (+30) pendant 6 tours. CD=3
 5002- position deffensive: +100% def (+20) pendant 6 tours. CD=3
 5003- Repos : Se soigne de 50 PV ; Cd = 3 tours.
 
@@ -68,9 +68,9 @@ Oméga :
 - agi : 5 
 - dext : 20
     - Capacités:
-5013 - Vampire: Attaque et soigne 100% des dégâts infligés. CD=2
+5013 - Vampire: Attaque et soigne 100% des dégâts infligés. CD=3
 5014 - Commandement : Tous les autres alliés ont +50% atk pendant 5 tours. CD=3
-5015 - Inspiration: +100 vit, +100 agl, +100 dex pendant 1 tour. CD=5
+5015 - Inspiration: +100 vit, +100 agl, +100 dex pendant 1 tour. CD=3
 
   Beta
 - Pv : 200
