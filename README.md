@@ -14,38 +14,62 @@ cahier des charges :
 liste du descriptif des personnages :
 
 
-Lamba : 
-- Pv ; 100
-- Atk : 20
-- Def : 20
-- vit : 45
-- Agi : 10
-- dext : 5
-  - Capacités : 
-  - position : choisi entre 2 mode pour un nombre de 3 tours : mode offensive ou mode défensif; ayant un cooldown de 5 tours.
-              le mode offensif confèrera 20% d'atk en plus et - 20% de défense, inversement pour le mode défensif.
-  - Repos : Récupère 30Pv; Cd = 4 tours.
+Lambda : 
+PV=100
+Atk=30
+Def=20
+Vit=35
+Agl=10
+Dex=10
+
+  - position offensive: +100% atk (+30) pendant 6 tours. CD=3
+  - position deffensive: +100% def (+20) pendant 6 tours. CD=3
+  - Repos : Se soigne de 50 PV ; Cd = 3 tours.
 
 Delta : 
 - Pv : 80
 - Atk : 40
 - def : 10
-- vit : 49
-- agl : 30
+- vit : 42
+- agl : 20
 - dext : 10
   - Capacités : 
-  - Ulti : Pointe déchirante : cible unique qui subit entre 120 et 140% de l'atk du lanceur et perd 20 de vitesse. Cd = 6.
-  - Aiguisage : atk, dext, vit + 25% pendant 3 tours. Cd = 5.
-  - étirement : -15 vit, + 15% d'agi, +50% def, pendant 3 tours. Cd = 5.
+  - Percée: Attaque avec +20% de chances de critiques. Vide la jauge d'action de la cible. CD=3
+  - Aiguisage : +25% atk (+10), +100% dex (+5) pendant 6 tours. CD=3
+  - Etirement : +50% vit (+21) +100% agl (+20), pendant 3 tours. Cd = 3.
 
 Oméga : 
 - Pv : 150
-- atk : 10
+- atk : 20
 - def : 40
-- vit : 32
+- vit : 20
 - agi : 0 
 - dext : 1
   - Capacités : 
-  - Ulti : emprisonnement :  cible unique qui perd -20% vit , - 20% d'atk pendant 3 tours. CD = 5.
-  - Mur défensif : cible tous les alliés, + 60~70% de def en plus pendant 2 tours. CD = 4.
-  - Soin : allié unique + 50PV. CD =4.
+  - Affaiblissement : Un ennemi perd 50% atk pendant 6 tours. CD = 3.
+  - Bouclier : +200% def à un membre de l'équipe pendant 3 tours. CD = 3.
+  - Soin groupé : Toute l'équipe se soigne de 20 PV. CD=3
+ 
+  Epsilon
+- Pv : 120
+- atk : 20
+- def : 20
+- vit : 43
+- agi : 15 
+- dext : 15
+  - Capacités:
+  - Elan : +100% vit à un autre allié pendant 3 tours. CD=3
+  - Soin : Soigne 40 PV à un autre allié. CD=3
+  - Ralentissement : -50% vit à un ennemi pendant 3 tours. CD=3
+
+  Alpha
+- Pv : 100
+- atk : 50
+- def : 7
+- vit : 30
+- agi : 5 
+- dext : 20
+    - Capacités:
+    - Vampire: Attaque et soigne 100% des dégâts infligés. CD=2
+    - Commandement : Tous les autres alliés ont +50% atk pendant 5 tours. CD=3
+    - Inspiration: +100 vit, +100 agl, +100 dex pendant 1 tour. CD=5
