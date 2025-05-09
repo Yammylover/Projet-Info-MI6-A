@@ -2,7 +2,76 @@
 #include "structure.h"
 #include "ciblage.h"
 
-
+void updeffect(Combattant* tab, int ID){
+    //check params
+    if(tab==NULL || ID<0){
+        printf("Erreur updeffect...What have you done?\n");
+        exit(6);
+    }
+    //nettoyage du tableau
+    //locals
+    Effet* temp;
+    int size=0,c=0;
+    //taille du nv tableau et creation temp
+    for(int i=0; i<tab[ID].ne;i++){
+        if(tab[ID].effets[i].duree==0){
+            size++;
+        }
+    }
+    temp=malloc(sizeof(Effet)*size);
+    if(temp==NULL){
+        printf("Erreur malloc effect\n");
+        exit(90);
+    }
+    //copie ancien tab dans temp
+    for(int i=0; i<tab[ID].ne;i++){
+        if(tab[ID].effets[i].duree!=0){
+            temp[c]=tab[ID].effets[i];
+            c++;
+        }
+    }
+    //copie et nettoyage des tableaux
+    free(tab[ID].effets);
+    tab[ID].effets=temp;
+    tab[ID].ne=c;
+    //application des effets
+    tab[ID].atk=tab[ID].base.atk;   //réinitialisation des stats
+    tab[ID].def=tab[ID].base.def;
+    tab[ID].vit=tab[ID].base.vit;
+    tab[ID].dex=tab[ID].base.dex;
+    tab[ID].agl=tab[ID].base.agl;
+    for(int i=0;i<tab[ID].ne;i++){   //modification des stats
+        switch(tab[ID].effets[i].type){
+            case 1 :
+            case -1 :
+                tab[ID].pv+=tab[ID].effets[i].puissance;
+            break;
+            case 2 :
+            case -2 :
+                tab[ID].atk+=tab[ID].effets[i].puissance;
+            break;
+            case 3 :
+            case -3 :
+                tab[ID].def+=tab[ID].effets[i].puissance;
+            break;
+            case 4 :
+            case -4 :
+                tab[ID].vit+=tab[ID].effets[i].puissance;
+            break;
+            case 5 :
+            case -5 :
+                tab[ID].agl+=tab[ID].effets[i].puissance;
+            break;
+            case 6 :
+            case -6 :
+                tab[ID].dex+=tab[ID].effets[i].puissance;
+            break;
+        }
+        //décompte
+        tab[ID].effets[i].duree--;
+    }
+    
+}
 
 /*void deathmodif(Combattant* tab, int ID, int* t1, int* t2, int* tmax){
     //verification
@@ -32,7 +101,7 @@
 }*/
 
 void capacite(Combattant* tab, int n, int c){
-    
+    printf("Mais rien ne se passe! (pour l'instant)\n");
 }
 
 int deathcheck(Combattant* tab, int ID){
@@ -85,7 +154,7 @@ int attaque(Combattant* tab, int IDatk, int IDdef, int mdex){
 	int crit=tab[IDatk].dex+mdex;
 	rd1=rand()%101;
 	rd2=rand()%101;
-	printf("rd1=%d rd2=%d\n",rd1,rd2);
+	//printf("rd1=%d rd2=%d\n",rd1,rd2);
 	if (rd1<=tab[IDdef].agl){
 		printf("%s évite l'attaque !\n",tab[IDdef].base.nom);
 		return 0;
@@ -107,7 +176,7 @@ void action(Combattant* tab, int aID, int* tmax, int* t1, int* t2){
     //début fonction
     //affichage(tab,*tmax,*t1,*t2);
     printf("C'est le tour de %s! (ID=%d)\n",tab[aID].base.nom,tab[aID].ID);
-    int cib,r,m=0,c=0;
+    int cib,r,m=1,c=0;
     int array[tab[aID].base.ndc+1];
     array[0]=0;
     for(int i=0;i<tab[aID].base.ndc;i++){
@@ -174,28 +243,35 @@ void combat(Combattant* e1, Combattant* e2,int t1, int t2){
     while(a!=t1 && b!=t2){
     	//calcul des stats
     	for(int i=0; i<tmax; i++){
-        	if(ee[i].pv>0){
-        		ee[i].atk=ee[i].base.atk;
-        		ee[i].def=ee[i].base.def;   // ajouter: modifs de stats
-        		ee[i].vit=ee[i].base.vit;
-        		ee[i].dex=ee[i].base.dex;
-        		ee[i].agl=ee[i].base.agl;
-        		for(int j=0;j<ee[i].base.ndc;j++){
-        		    if(ee[i].base.capa[j].bl>0){
-        		        ee[i].base.capa[j].bl--;
-        		    }
-        		}
-        		affichage(ee,tmax,t1,t2);
+        	if(ee[i].pv>0 && ee[i].ne>0){
+                updeffect(ee,i);
         	}
-    	}
+        	for(int j=0;j<ee[i].base.ndc;j++){
+        	    if(ee[i].base.capa[j].bl>0){
+    		        ee[i].base.capa[j].bl--;
+    		    }
+            }
+        	affichage(ee,tmax,t1,t2);
+        }
     	//régulation des actions
     	int tabact[tmax]; //contient les jauges d'actions de tous les combattants
     	for(int i=0; i<tmax; i++){
         	if(ee[i].pv>0){
         		ee[i].act+=ee[i].vit;
         	}
-        	if(ee[i].pv==0){
+        	if(ee[i].pv<=0){
+        	    ee[i].pv=0;
         		ee[i].act=0;
+        		ee[i].atk=0;
+        	    ee[i].base.atk=0;
+                ee[i].def=0;
+                ee[i].base.def=0;
+                ee[i].vit=0;
+                ee[i].base.vit=0;
+                ee[i].dex=0;
+                ee[i].base.dex=0;
+                ee[i].agl=0;
+                ee[i].base.agl=0;
         	}
         	tabact[i]=ee[i].act;
     	}
