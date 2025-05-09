@@ -1,11 +1,9 @@
 modification a apporter :
 cahier des charges : 
-- voir sélection capacité (maxime)
-- choix cible (ibra)
-- fiche perso (max)
-- ordre des choses a faire : système de combat , puis système capacités, puis systme 3v3 cible / mono cible.
-- faire un tri sur l'ordre d'atk sur la vitesse
-- utilisation d'une boucle pour le process du tour par tour
+- gestion des effets
+- gestion des cooldown
+- code des capacités
+
 
 
 
@@ -73,3 +71,15 @@ Oméga :
     - Vampire: Attaque et soigne 100% des dégâts infligés. CD=2
     - Commandement : Tous les autres alliés ont +50% atk pendant 5 tours. CD=3
     - Inspiration: +100 vit, +100 agl, +100 dex pendant 1 tour. CD=5
+
+  Beta
+- Pv : 200
+- atk : 50
+- def : 0
+- vit : 18
+- agi : 0 
+- dext : 10
+    - Capacités:
+    - Coup violent: Attaque avec 120% atk. CD=3
+    - Barricade : Soigne 30 PV et gagne 50 def pendant 2 tours. CD=3
+    - Trépignement : Attaque 2 ennemis aléatoire avec 80% atk. CD=3
