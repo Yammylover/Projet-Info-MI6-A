@@ -1,8 +1,5 @@
 
 #include "structure.h"
-#include "combat.h"
-#include "code.h"
-#include "af2.h"
 /*#define WINDOWS 1
 #define LINUX 2
 #define OS LINUX //WINDOWS
