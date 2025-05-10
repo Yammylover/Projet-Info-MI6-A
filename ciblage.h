@@ -1,6 +1,4 @@
-#ifndef CIBLE_C
-#define CIBLE_C
-#include "selection.h"
+#include "structure.h"
 
 int rando(int min, int max){
     if (min>max){
