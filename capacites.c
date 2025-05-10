@@ -1,6 +1,4 @@
 #include "structure.h"
-#include "ciblage.h"
-#include "combat.h"
 
 void soin(Combattant* tab, int ID, int soin){
     //check params
