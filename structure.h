@@ -64,9 +64,9 @@ void capacite(Combattant* tab, int n, int c, int t1, int t2, int tmax);
 int IDmax(int* tab,int taille);
 int selection(int* tab,int size, char* phrase);
 void updeffect(Combattant* tab, int ID);
-
-
-
+int IDmax(int* tab,int taille);
 int selection(int* tab,int size, char* phrase);
+int rando(int min, int max);
+int cible(Combattant* tab, int t1, int tmax, int ID, int ecible, int tcible);
 
 #endif
