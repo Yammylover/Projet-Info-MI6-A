@@ -53,8 +53,8 @@ typedef struct {
 
 void affichage(Combattant* equipe,int tmax,int t1,int t2);
 int deathcheck(Combattant* tab, int ID);
-void appliquedegats(Combattant* tab, int ID, int dg, int*t1, int* t2, int* tmax);
-int calcdegats(Combattant* tab, int IDatk, int IDdef,int matk);
+void appliquedegats(Combattant* tab, int ID, int dg, int t1, int t2, int tmax);
+int calcdegats(int atk, int def,int matk);
 int attaque(Combattant* tab, int IDatk, int IDdef, int mdex);
 void action(Combattant* tab, int aID, int* tmax, int* t1, int* t2);
 void combat(Combattant* e1, Combattant* e2,int t1, int t2);
