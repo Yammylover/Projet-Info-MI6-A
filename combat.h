@@ -94,7 +94,7 @@ void updeffect(Combattant* tab, int ID){
             break;
             break;
         }
-        displayfighter(tab[ID]);
+        //displayfighter(tab[ID]);
         //décompte
         tab[ID].effets[i].duree--;
     }
@@ -223,7 +223,7 @@ void action(Combattant* tab, int aID, int* tmax, int* t1, int* t2){
                 cib=cible(tab,*t1,*tmax,aID,1,2);   //1 car attaque l'équipe 1
             }
             r=attaque(tab,aID,cib,0);
-            printf("r=%d\n",r);
+            //printf("r=%d\n",r);
             switch (r){
                 case 1:
                     appliquedegats(tab,cib,calcdegats(tab[aID].atk,tab[cib].def,100),*t1,*t2,*tmax);    //dégâts standards
