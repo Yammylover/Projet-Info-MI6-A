@@ -1,4 +1,5 @@
-
+#ifndef CIBLE_C
+#define CIBLE_C
 #include "selection.h"
 
 int rando(int min, int max){
@@ -65,3 +66,4 @@ int cible(Combattant* tab, int t1, int tmax, int ID, int ecible, int tcible){	//
         return b;
     }
 }
+#endif
