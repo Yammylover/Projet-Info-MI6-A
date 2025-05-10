@@ -1,4 +1,5 @@
-
+#ifndef SEL_H
+#define SEL_H
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -43,3 +44,4 @@ int selection(int* tab,int size, char* phrase){
     } while(b!=1);
     return a;
 }
+#endif
