@@ -58,6 +58,13 @@ int calcdegats(int atk, int def,int matk);
 int attaque(Combattant* tab, int IDatk, int IDdef, int mdex);
 void action(Combattant* tab, int aID, int* tmax, int* t1, int* t2);
 int combat(Combattant* e1, Combattant* e2,int t1, int t2);
+void soin(Combattant* tab, int ID, int soin);
+void addeffect(Effet e, Combattant* tab, int ID);
+void capacite(Combattant* tab, int n, int c, int t1, int t2, int tmax);
+int IDmax(int* tab,int taille);
+int selection(int* tab,int size, char* phrase);
+void updeffect(Combattant* tab, int ID);
+
 
 
 int selection(int* tab,int size, char* phrase);
