@@ -299,7 +299,7 @@ int combat(Combattant* e1, Combattant* e2,int t1, int t2){
                 ee[i].base.agl=0;
         	}
         	tabact[i]=ee[i].act;
-        	displayfighter(ee[i]);
+        	//displayfighter(ee[i]);
     	}
     	affichage(ee,tmax,t1,t2);
     	int j=IDmax(tabact,tmax);
