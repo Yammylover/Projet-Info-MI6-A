@@ -74,8 +74,7 @@ void affichage(Combattant* equipe,int tmax,int t1,int t2,int aID) {
     printf("│   ");
     for(int j=0;j<t1;j++) {
         if(equipe[j].ne==0) {
-            printf("                                                                       │\n");
-            printf("│                                                                          │\n");
+            printf("                    ");
         }
         else{
         for(int i=0;i<equipe[j].ne;i++) {
@@ -116,52 +115,58 @@ void affichage(Combattant* equipe,int tmax,int t1,int t2,int aID) {
         }
     }
 
-        if(j!=3-1){
-            printf("  ");
+        if(j!=4-1){
+            printf("   ");
         }
 
      }
     printf("  │\n");
     printf("│   ");
     for(int j=0;j<t1;j++) {
-        for(int i=0;i<equipe[j].ne;i++){
-            if(i*4<=20) {
-                switch(equipe[j].effets[i].type) {
-                    case -1:
-                        printf("(💜)");
-                    break;
-                    case -2:
-                        printf("(🗡)");
-                    break;
-                    case -3:
-                        printf("(💔)");
-                    break;
-                    case -4:
-                        printf("(⛓)");
-                    break;
-                    case -5:
-                        printf("(🦴)");
-                    break;
-                    case -6:
-                        printf("(🪨)");
-                    break;
-                }
-                espace=20-(equipe[j].ne*4);
-                if(espace>0) {
-                    for(int k=0;k<espace;k++) {
-                        printf(" ");
+        if(equipe[j].ne==0) {
+            printf("                    ");
+        }
+        else {
+            for(int i=0;i<equipe[j].ne;i++){
+                if(i*4<=20) {
+                    switch(equipe[j].effets[i].type) {
+                        case -1:
+                            printf("(💜)");
+                        break;
+                        case -2:
+                            printf("(🗡)");
+                        break;
+                        case -3:
+                            printf("(💔)");
+                        break;
+                        case -4:
+                            printf("(⛓)");
+                        break;
+                        case -5:
+                            printf("(🦴)");
+                        break;
+                        case -6:
+                            printf("(🪨)");
+                        break;
+                    }
+                    espace=20-(equipe[j].ne*4);
+                    if(espace>0) {
+                        for(int k=0;k<espace;k++) {
+                            printf(" ");
+                        }
+                    }
+                    else {
+                        printf("");
                     }
                 }
                 else {
                     printf("");
                 }
             }
-            else {
-                printf("");
-            }
+
         }
-        if(j!=3-1){
-            printf("  ");
+        if(j!=4-1){
+            printf("   ");
         }
     }
     printf("  │\n");
@@ -418,88 +423,98 @@ switch(equipe[aID].base.pid) {
     printf("   │\n");
         printf("│   ");
     for(int j=0;j<t1;j++) {
-        for(int i=0;i<equipe[j].ne;i++){
-            if(i*4<=20) {
-                switch(equipe[j].effets[i].type) {
-                    case 1:
-                        printf("(♥)");
-                    break;
-                    case 2:
-                        printf("(⚔)");
-                    break;
-                    case 3:
-                        printf("(🛡)");
-                    break;
-                    case 4:
-                        printf("(⚡)");
-                    break;
-                    case 5:
-                        printf("(👟)");
-                    break;
-                    case 6:
-                        printf("🧤");
-                    break;
-                }
+        if(equipe[j].ne==0) {
+            printf("                    ");
+        }
+        else {
+            for(int i=0;i<equipe[j].ne;i++) {
+                if(i*4<=20) {
+                    switch(equipe[j].effets[i].type) {
+                        case 1:
+                            printf("(♥)");
+                        break;
+                        case 2:
+                            printf("(⚔)");
+                        break;
+                        case 3:
+                            printf("(🛡)");
+                        break;
+                        case 4:
+                            printf("(⚡)");
+                        break;
+                        case 5:
+                            printf("(👟)");
+                        break;
+                        case 6:
+                            printf("🧤");
+                        break;
+                    }
 
-                espace=20-(equipe[j].ne*4);
-                if(espace>0) {
-                    for(int k=0;k<espace;k++) {
-                        printf(" ");
+                    espace=20-(equipe[j].ne*4);
+                    if(espace>0) {
+                        for(int k=0;k<espace;k++) {
+                            printf(" ");
+                        }
+                    }
+                    else {
+                        printf("");
                     }
                 }
                 else {
                     printf("");
                 }
             }
-            else {
-                printf("");
-            }
-    }
-        if(j!=3-1){
-            printf("  ");
+        }
+        if(j!=4-1){
+            printf("   ");
         }
 }
     printf("  │\n");
     printf("│   ");
     for(int j=0;j<t1;j++) {
-        for(int i=0;i<equipe[j].ne;i++){
-            if(i*4<=20) {
-                switch(equipe[j].effets[i].type) {
-                    case -1:
-                        printf("(💜)");
-                    break;
-                    case -2:
-                        printf("(🗡)");
-                    break;
-                    case -3:
-                        printf("(💔)");
-                    break;
-                    case -4:
-                        printf("(⛓)");
-                    break;
-                    case -5:
-                        printf("(🦴)");
-                    break;
-                    case -6:
-                        printf("(🪨)");
-                    break;
-                }
-                espace=20-(equipe[j].ne*4);
-                if(espace>0) {
-                    for(int k=0;k<espace;k++) {
-                        printf(" ");
+        if(equipe[j].ne==0) {
+            printf("                    ");
+        }
+        else {
+            for(int i=0;i<equipe[j].ne;i++){
+                if(i*4<=20) {
+                    switch(equipe[j].effets[i].type) {
+                        case -1:
+                            printf("(💜)");
+                        break;
+                        case -2:
+                            printf("(🗡)");
+                        break;
+                        case -3:
+                            printf("(💔)");
+                        break;
+                        case -4:
+                            printf("(⛓)");
+                        break;
+                        case -5:
+                            printf("(🦴)");
+                        break;
+                        case -6:
+                            printf("(🪨)");
+                        break;
+                    }
+                    espace=20-(equipe[j].ne*4);
+                    if(espace>0) {
+                        for(int k=0;k<espace;k++) {
+                            printf(" ");
+                        }
+                    }
+                    else {
+                        printf("");
                     }
                 }
                 else {
                     printf("");
                 }
             }
-            else {
-                printf("");
-            }
         }
-        if(j!=3-1){
-            printf("  ");
+        if(j!=4-1){
+            printf("   ");
         }
     }
     printf("  │\n");
@@ -615,88 +630,98 @@ void affichage2(Combattant* equipe,int tmax,int t1,int t2,int aID) {
     printf("   │\n");
         printf("│   ");
     for(int j=0;j<t1;j++) {
-        for(int i=0;i<equipe[j].ne;i++){
-            if(i*4<=20) {
-                switch(equipe[j].effets[i].type) {
-                    case 1:
-                        printf("(♥)");
-                    break;
-                    case 2:
-                        printf("(⚔)");
-                    break;
-                    case 3:
-                        printf("(🛡)");
-                    break;
-                    case 4:
-                        printf("(⚡)");
-                    break;
-                    case 5:
-                        printf("(👟)");
-                    break;
-                    case 6:
-                        printf("🧤");
-                    break;
-                }
+        if(equipe[j].ne==0) {
+            printf("                    ");
+        }
+        else {
+            for(int i=0;i<equipe[j].ne;i++){
+                if(i*4<=20) {
+                    switch(equipe[j].effets[i].type) {
+                        case 1:
+                            printf("(♥)");
+                        break;
+                        case 2:
+                            printf("(⚔)");
+                        break;
+                        case 3:
+                            printf("(🛡)");
+                        break;
+                        case 4:
+                            printf("(⚡)");
+                        break;
+                        case 5:
+                            printf("(👟)");
+                        break;
+                        case 6:
+                            printf("🧤");
+                        break;
+                    }
 
-                espace=20-(equipe[j].ne*4);
-                if(espace>0) {
-                    for(int k=0;k<espace;k++) {
-                        printf(" ");
+                    espace=20-(equipe[j].ne*4);
+                    if(espace>0) {
+                        for(int k=0;k<espace;k++) {
+                            printf(" ");
+                        }
+                    }
+                    else {
+                        printf("");
                     }
                 }
                 else {
                     printf("");
                 }
             }
-            else {
-                printf("");
-            }
-    }
-        if(j!=3-1){
-            printf("  ");
+        }
+        if(j!=4-1){
+            printf("   ");
         }
 }
     printf("  │\n");
     printf("│   ");
     for(int j=0;j<t1;j++) {
-        for(int i=0;i<equipe[j].ne;i++){
-            if(i*4<=20) {
-                switch(equipe[j].effets[i].type) {
-                    case -1:
-                        printf("(💜)");
-                    break;
-                    case -2:
-                        printf("(🗡)");
-                    break;
-                    case -3:
-                        printf("(💔)");
-                    break;
-                    case -4:
-                        printf("(⛓)");
-                    break;
-                    case -5:
-                        printf("(🦴)");
-                    break;
-                    case -6:
-                        printf("(🪨)");
-                    break;
-                }
-                espace=20-(equipe[j].ne*4);
-                if(espace>0) {
-                    for(int k=0;k<espace;k++) {
-                        printf(" ");
+        if(equipe[j].ne==0) {
+            printf("                    ");
+        }
+        else {
+            for(int i=0;i<equipe[j].ne;i++){
+                if(i*4<=20) {
+                    switch(equipe[j].effets[i].type) {
+                        case -1:
+                            printf("(💜)");
+                        break;
+                        case -2:
+                            printf("(🗡)");
+                        break;
+                        case -3:
+                            printf("(💔)");
+                        break;
+                        case -4:
+                            printf("(⛓)");
+                        break;
+                        case -5:
+                            printf("(🦴)");
+                        break;
+                        case -6:
+                            printf("(🪨)");
+                        break;
+                    }
+                    espace=20-(equipe[j].ne*4);
+                    if(espace>0) {
+                        for(int k=0;k<espace;k++) {
+                            printf(" ");
+                        }
+                    }
+                    else {
+                        printf("");
                     }
                 }
                 else {
                     printf("");
                 }
             }
-            else {
-                printf("");
-            }
         }
-        if(j!=3-1){
-            printf("  ");
+        if(j!=4-1){
+            printf("   ");
         }
     }
     printf("  │\n");
@@ -772,88 +797,98 @@ void affichage2(Combattant* equipe,int tmax,int t1,int t2,int aID) {
     printf("   │\n");
         printf("│   ");
     for(int j=0;j<t1;j++) {
-        for(int i=0;i<equipe[j].ne;i++){
-            if(i*4<=20) {
-                switch(equipe[j].effets[i].type) {
-                    case 1:
-                        printf("(♥)");
-                    break;
-                    case 2:
-                        printf("(⚔)");
-                    break;
-                    case 3:
-                        printf("(🛡)");
-                    break;
-                    case 4:
-                        printf("(⚡)");
-                    break;
-                    case 5:
-                        printf("(👟)");
-                    break;
-                    case 6:
-                        printf("🧤");
-                    break;
-                }
+        if(equipe[j].ne==0) {
+            printf("                    ");
+        }
+        else {
+            for(int i=0;i<equipe[j].ne;i++){
+                if(i*4<=20) {
+                    switch(equipe[j].effets[i].type) {
+                        case 1:
+                            printf("(♥)");
+                        break;
+                        case 2:
+                            printf("(⚔)");
+                        break;
+                        case 3:
+                            printf("(🛡)");
+                        break;
+                        case 4:
+                            printf("(⚡)");
+                        break;
+                        case 5:
+                            printf("(👟)");
+                        break;
+                        case 6:
+                            printf("🧤");
+                        break;
+                    }
 
-                espace=20-(equipe[j].ne*4);
-                if(espace>0) {
-                    for(int k=0;k<espace;k++) {
-                        printf(" ");
+                    espace=20-(equipe[j].ne*4);
+                    if(espace>0) {
+                        for(int k=0;k<espace;k++) {
+                            printf(" ");
+                        }
+                    }
+                    else {
+                        printf("");
                     }
                 }
                 else {
                     printf("");
                 }
             }
-            else {
-                printf("");
-            }
-    }
-        if(j!=3-1){
-            printf("  ");
+        }
+        if(j!=4-1){
+            printf("   ");
         }
 }
     printf("  │\n");
     printf("│   ");
     for(int j=0;j<t1;j++) {
-        for(int i=0;i<equipe[j].ne;i++){
-            if(i*4<=20) {
-                switch(equipe[j].effets[i].type) {
-                    case -1:
-                        printf("(💜)");
-                    break;
-                    case -2:
-                        printf("(🗡)");
-                    break;
-                    case -3:
-                        printf("(💔)");
-                    break;
-                    case -4:
-                        printf("(⛓)");
-                    break;
-                    case -5:
-                        printf("(🦴)");
-                    break;
-                    case -6:
-                        printf("(🪨)");
-                    break;
-                }
-                espace=20-(equipe[j].ne*4);
-                if(espace>0) {
-                    for(int k=0;k<espace;k++) {
-                        printf(" ");
+        if(equipe[j].ne==0) {
+            printf("                    ");
+        }
+        else {
+            for(int i=0;i<equipe[j].ne;i++){
+                if(i*4<=20) {
+                    switch(equipe[j].effets[i].type) {
+                        case -1:
+                            printf("(💜)");
+                        break;
+                        case -2:
+                            printf("(🗡)");
+                        break;
+                        case -3:
+                            printf("(💔)");
+                        break;
+                        case -4:
+                            printf("(⛓)");
+                        break;
+                        case -5:
+                            printf("(🦴)");
+                        break;
+                        case -6:
+                            printf("(🪨)");
+                        break;
+                    }
+                    espace=20-(equipe[j].ne*4);
+                    if(espace>0) {
+                        for(int k=0;k<espace;k++) {
+                            printf(" ");
+                        }
+                    }
+                    else {
+                        printf("");
                     }
                 }
                 else {
                     printf("");
                 }
             }
-            else {
-                printf("");
-            }
         }
-        if(j!=3-1){
-            printf("  ");
+        if(j!=4-1){
+            printf("   ");
         }
     }
     printf("  │\n");
@@ -1138,7 +1173,11 @@ void affichagenormal(Combattant* equipe,int tmax,int t1,int t2,int aID) {
     printf("   │\n");
         printf("│   ");
     for(int j=0;j<t1;j++) {
-        for(int i=0;i<equipe[j].ne;i++){
+        if(equipe[j].ne==0) {
+            printf("                    ");
+        }
+        else {
+        for(int i=0;i<equipe[j].ne;i++) {
             if(i*4<=20) {
                 switch(equipe[j].effets[i].type) {
                     case 1:
@@ -1174,52 +1213,58 @@ void affichagenormal(Combattant* equipe,int tmax,int t1,int t2,int aID) {
             else {
                 printf("");
             }
+        }
     }
-        if(j!=3-1){
-            printf("  ");
+        if(j!=4-1){
+            printf("   ");
         }
 }
     printf("  │\n");
     printf("│   ");
     for(int j=0;j<t1;j++) {
-        for(int i=0;i<equipe[j].ne;i++){
-            if(i*4<=20) {
-                switch(equipe[j].effets[i].type) {
-                    case -1:
-                        printf("(💜)");
-                    break;
-                    case -2:
-                        printf("(🗡)");
-                    break;
-                    case -3:
-                        printf("(💔)");
-                    break;
-                    case -4:
-                        printf("(⛓)");
-                    break;
-                    case -5:
-                        printf("(🦴)");
-                    break;
-                    case -6:
-                        printf("(🪨)");
-                    break;
-                }
-                espace=20-(equipe[j].ne*4);
-                if(espace>0) {
-                    for(int k=0;k<espace;k++) {
-                        printf(" ");
+        if(equipe[j].ne==0) {
+            printf("                    ");
+        }
+        else {
+            for(int i=0;i<equipe[j].ne;i++){
+                if(i*4<=20) {
+                    switch(equipe[j].effets[i].type) {
+                        case -1:
+                            printf("(💜)");
+                        break;
+                        case -2:
+                            printf("(🗡)");
+                        break;
+                        case -3:
+                            printf("(💔)");
+                        break;
+                        case -4:
+                            printf("(⛓)");
+                        break;
+                        case -5:
+                            printf("(🦴)");
+                        break;
+                        case -6:
+                            printf("(🪨)");
+                        break;
+                    }
+                    espace=20-(equipe[j].ne*4);
+                    if(espace>0) {
+                        for(int k=0;k<espace;k++) {
+                            printf(" ");
+                        }
+                    }
+                    else {
+                        printf("");
                     }
                 }
                 else {
                     printf("");
                 }
             }
-            else {
-                printf("");
-            }
         }
-        if(j!=3-1){
-            printf("  ");
+        if(j!=4-1){
+            printf("   ");
         }
     }
     printf("  │\n");
@@ -1292,78 +1337,88 @@ void affichagenormal(Combattant* equipe,int tmax,int t1,int t2,int aID) {
     printf("   │\n");
         printf("│   ");
     for(int j=0;j<t1;j++) {
-        for(int i=0;i<equipe[j].ne;i++){
-            if(i*4<=20) {
-                switch(equipe[j].effets[i].type) {
-                    case 1:
-                        printf("(♥)");
-                    break;
-                    case 2:
-                        printf("(⚔)");
-                    break;
-                    case 3:
-                        printf("(🛡)");
-                    break;
-                    case 4:
-                        printf("(⚡)");
-                    break;
-                    case 5:
-                        printf("(👟)");
-                    break;
-                    case 6:
-                        printf("🧤");
-                    break;
-                }
+        if(equipe[j].ne==0) {
+            printf("                    ");
+        }
+        else {
+            for(int i=0;i<equipe[j].ne;i++){
+                if(i*4<=20) {
+                    switch(equipe[j].effets[i].type) {
+                        case 1:
+                            printf("(♥)");
+                        break;
+                        case 2:
+                            printf("(⚔)");
+                        break;
+                        case 3:
+                            printf("(🛡)");
+                        break;
+                        case 4:
+                            printf("(⚡)");
+                        break;
+                        case 5:
+                            printf("(👟)");
+                        break;
+                        case 6:
+                            printf("🧤");
+                        break;
+                    }
 
-                espace=20-(equipe[j].ne*4);
-                for(int k=0;k<espace;k++) {
-                    printf(" ");
+                    espace=20-(equipe[j].ne*4);
+                    for(int k=0;k<espace;k++) {
+                        printf(" ");
+                    }
+                }
+                else {
+                    printf("");
                 }
             }
-            else {
-                printf("");
-            }
-    }
-        if(j!=3-1){
-            printf("  ");
+        }
+        if(j!=4-1){
+            printf("   ");
         }
 }
     printf("  │\n");
     printf("│   ");
     for(int j=0;j<t1;j++) {
-        for(int i=0;i<equipe[j].ne;i++){
-            if(i*4<=20) {
-                switch(equipe[j].effets[i].type) {
-                    case -1:
-                        printf("(💜)");
-                    break;
-                    case -2:
-                        printf("(🗡)");
-                    break;
-                    case -3:
-                        printf("(💔)");
-                    break;
-                    case -4:
-                        printf("(⛓)");
-                    break;
-                    case -5:
-                        printf("(🦴)");
-                    break;
-                    case -6:
-                        printf("(🪨)");
-                    break;
+        if(equipe[j].ne==0) {
+            printf("                    ");
+        }
+        else {
+            for(int i=0;i<equipe[j].ne;i++){
+                if(i*4<=20) {
+                    switch(equipe[j].effets[i].type) {
+                        case -1:
+                            printf("(💜)");
+                        break;
+                        case -2:
+                            printf("(🗡)");
+                        break;
+                        case -3:
+                            printf("(💔)");
+                        break;
+                        case -4:
+                            printf("(⛓)");
+                        break;
+                        case -5:
+                            printf("(🦴)");
+                        break;
+                        case -6:
+                            printf("(🪨)");
+                        break;
+                    }
+                    espace=20-(equipe[j].ne*4);
+                    for(int k=0;k<espace;k++) {
+                        printf(" ");
+                    }
                 }
-                espace=20-(equipe[j].ne*4);
-                for(int k=0;k<espace;k++) {
-                    printf(" ");
+                else {
+                    printf("");
                 }
-            }
-            else {
-                printf("");
             }
         }
-        if(j!=3-1){
-            printf("  ");
+        if(j!=4-1){
+            printf("   ");
         }
     }
     printf("  │\n");
