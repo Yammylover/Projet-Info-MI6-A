@@ -1,6 +1,10 @@
-
+#ifndef C_H
+#define C_H
 #include "structure.h"
 #include "ciblage.h"
+#include "af2.h"
+#include "capacites.h"
+
 
 void updeffect(Combattant* tab, int ID){
     //check params
@@ -14,26 +18,30 @@ void updeffect(Combattant* tab, int ID){
     int size=0,c=0;
     //taille du nv tableau et creation temp
     for(int i=0; i<tab[ID].ne;i++){
-        if(tab[ID].effets[i].duree==0){
+        if(tab[ID].effets[i].duree>0){
             size++;
         }
     }
-    temp=malloc(sizeof(Effet)*size);
-    if(temp==NULL){
-        printf("Erreur malloc effect\n");
-        exit(90);
-    }
-    //copie ancien tab dans temp
-    for(int i=0; i<tab[ID].ne;i++){
-        if(tab[ID].effets[i].duree!=0){
-            temp[c]=tab[ID].effets[i];
-            c++;
+    if(size!=tab[ID].ne){
+        temp=malloc(sizeof(Effet)*size);
+        if(temp==NULL){
+            printf("Erreur malloc effect\n");
+            exit(90);
         }
+        //copie ancien tab dans temp
+        //printf("Effets subis par %s:\n",tab[ID].base.nom);
+        for(int i=0; i<tab[ID].ne;i++){
+            if(tab[ID].effets[i].duree!=0){
+                temp[c]=tab[ID].effets[i];
+                //printf("%d\n",tab[ID].effets[i].type);
+                c++;
+            }
+        }
+        //copie et nettoyage des tableaux
+        free(tab[ID].effets);
+        tab[ID].effets=temp;
+        tab[ID].ne=size;
     }
-    //copie et nettoyage des tableaux
-    free(tab[ID].effets);
-    tab[ID].effets=temp;
-    tab[ID].ne=c;
     //application des effets
     tab[ID].atk=tab[ID].base.atk;   //réinitialisation des stats
     tab[ID].def=tab[ID].base.def;
@@ -45,28 +53,48 @@ void updeffect(Combattant* tab, int ID){
             case 1 :
             case -1 :
                 tab[ID].pv+=tab[ID].effets[i].puissance;
+                if(tab[ID].pv<0){
+                    deathcheck(tab,ID);
+                }
             break;
             case 2 :
             case -2 :
                 tab[ID].atk+=tab[ID].effets[i].puissance;
+                if(tab[ID].atk<0){
+                    tab[ID].atk=1;
+                }
             break;
             case 3 :
             case -3 :
                 tab[ID].def+=tab[ID].effets[i].puissance;
             break;
+            break;
             case 4 :
             case -4 :
                 tab[ID].vit+=tab[ID].effets[i].puissance;
+                if(tab[ID].vit<=0){
+                    tab[ID].vit=1;
+                }
+            break;
             break;
             case 5 :
             case -5 :
                 tab[ID].agl+=tab[ID].effets[i].puissance;
+                if(tab[ID].agl<0){
+                    tab[ID].agl=0;
+                }
+            break;
             break;
             case 6 :
             case -6 :
                 tab[ID].dex+=tab[ID].effets[i].puissance;
+                if(tab[ID].dex<0){
+                    tab[ID].dex=0;
+                }
+            break;
             break;
         }
+        displayfighter(tab[ID]);
         //décompte
         tab[ID].effets[i].duree--;
     }
@@ -100,9 +128,7 @@ void updeffect(Combattant* tab, int ID){
     printf("tmax=%d\n",*tmax);
 }*/
 
-void capacite(Combattant* tab, int n, int c){
-    printf("Mais rien ne se passe! (pour l'instant)\n");
-}
+
 
 int deathcheck(Combattant* tab, int ID){
     if(tab==NULL || ID<0){
@@ -115,9 +141,8 @@ int deathcheck(Combattant* tab, int ID){
     }
     return 0;
 }
-
-void appliquedegats(Combattant* tab, int ID, int dg, int*t1, int* t2, int* tmax){
-    if(tab==NULL || ID<0 || ID>=*tmax || dg<0){
+void appliquedegats(Combattant* tab, int ID, int dg, int t1, int t2, int tmax){
+    if(tab==NULL || ID<0 || ID>=tmax || dg<0){
         printf("Erreur application des dégâts\n");
         exit(3);
     }
@@ -129,14 +154,13 @@ void appliquedegats(Combattant* tab, int ID, int dg, int*t1, int* t2, int* tmax)
 	}
 }
 
-int calcdegats(Combattant* tab, int IDatk, int IDdef,int matk){
-    if(tab==NULL || IDatk<0 || IDdef<0 || matk<0){
+int calcdegats(int atk, int def,int matk){
+    if(atk<0 || matk<0){
         printf("Erreur calcul de dégâts\n");
         exit(78);
     }
-    int atk=tab[IDatk].atk*matk/100;
-    int def=tab[IDdef].def;
-    int dg=(atk*(100-def)/100);
+    int at=atk*matk/100;
+    int dg=(at*(100-def)/100);
     if(dg<=0){
         dg=1;
     }
@@ -175,7 +199,7 @@ void action(Combattant* tab, int aID, int* tmax, int* t1, int* t2){
     }
     //début fonction
     //affichage(tab,*tmax,*t1,*t2);
-    printf("C'est le tour de %s! (ID=%d)\n",tab[aID].base.nom,tab[aID].ID);
+    printf("C'est le tour de %s! (ID=%d)\n",tab[aID].base.nom,tab[aID].ID+1);
     int cib,r,m=1,c=0;
     int array[tab[aID].base.ndc+1];
     array[0]=0;
@@ -194,12 +218,13 @@ void action(Combattant* tab, int aID, int* tmax, int* t1, int* t2){
                 cib=cible(tab,*t1,*tmax,aID,1,2);   //1 car attaque l'équipe 1
             }
             r=attaque(tab,aID,cib,0);
+            printf("r=%d\n",r);
             switch (r){
                 case 1:
-                    appliquedegats(tab,cib,calcdegats(tab,aID,cib,100),t1,t2,tmax);    //dégâts standards
+                    appliquedegats(tab,cib,calcdegats(tab[aID].atk,tab[cib].def,100),*t1,*t2,*tmax);    //dégâts standards
                 break;
                 case 2:
-                    appliquedegats(tab,cib,calcdegats(tab,aID,cib,150),t1,t2,tmax);    //coup critique
+                    appliquedegats(tab,cib,calcdegats(tab[aID].atk,tab[cib].def,150),*t1,*t2,*tmax);    //coup critique
                 break;
                 case -1:
                     printf("Erreur fonction attaque\n");
@@ -212,8 +237,14 @@ void action(Combattant* tab, int aID, int* tmax, int* t1, int* t2){
                 printf("Erreur selection action\n");
                 exit(6);
             }
-            capacite(tab,aID,tab[aID].base.capa[c].id);
+            capacite(tab,aID,tab[aID].base.capa[c-1].id,*t1,*t2,*tmax);
+            tab[aID].base.capa[c-1].bl=tab[aID].base.capa[c-1].cd;
         break;
+    }
+    for(int j=0;j<tab[aID].base.ndc;j++){   //diminution des cooldown
+        if(tab[aID].base.capa[j].bl>0){
+    	    tab[aID].base.capa[j].bl--;
+        }
     }
 }
 
@@ -240,21 +271,15 @@ void combat(Combattant* e1, Combattant* e2,int t1, int t2){
     }
     //répétition à chaque tours:
     int a=0,b=0;	//a et b vont compter le nombre de morts dans chaque équipe. Lorsque l'une des deux équipes a autant de morts que de membres d'équipes, le combat s'arrête
+    int tabact[tmax]; //contient les jauges d'actions de tous les combattants
     while(a!=t1 && b!=t2){
     	//calcul des stats
     	for(int i=0; i<tmax; i++){
         	if(ee[i].pv>0 && ee[i].ne>0){
                 updeffect(ee,i);
         	}
-        	for(int j=0;j<ee[i].base.ndc;j++){
-        	    if(ee[i].base.capa[j].bl>0){
-    		        ee[i].base.capa[j].bl--;
-    		    }
-            }
-        	affichage(ee,tmax,t1,t2);
         }
     	//régulation des actions
-    	int tabact[tmax]; //contient les jauges d'actions de tous les combattants
     	for(int i=0; i<tmax; i++){
         	if(ee[i].pv>0){
         		ee[i].act+=ee[i].vit;
@@ -274,8 +299,9 @@ void combat(Combattant* e1, Combattant* e2,int t1, int t2){
                 ee[i].base.agl=0;
         	}
         	tabact[i]=ee[i].act;
+        	displayfighter(ee[i]);
     	}
-    	
+    	affichage(ee,tmax,t1,t2);
     	int j=IDmax(tabact,tmax);
     	if(ee[j].act>=100){   //définition de la c° d'action
         	ee[j].act=0;
@@ -297,3 +323,4 @@ void combat(Combattant* e1, Combattant* e2,int t1, int t2){
 
     }
 }
+#endif
