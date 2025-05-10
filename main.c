@@ -344,8 +344,11 @@ int main(){
         equipe2[i].ID=i+t1;
     }
     
-    combat(equipe1,equipe2,t1,t2);
-
+    if(combat(equipe1,equipe2,t1,t2)==1){
+	    printf("Victoire de l'équipe 1!\n");
+    } else {
+	    printf("Victoire de l'équipe 2!\n");
+    }
 
     return 0;
 }
