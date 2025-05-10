@@ -2,6 +2,7 @@
 #include "structure.h"
 #include "combat.h"
 #include "code.h"
+#include "af2.h"
 /*#define WINDOWS 1
 #define LINUX 2
 #define OS LINUX //WINDOWS
@@ -195,7 +196,9 @@ Combattant stat1(int i){
         n.act=0;
     break;
     }
-    for(int j=0; j<n.ne;j++){
+    n.effets=NULL;
+    n.ne=0;
+    for(int j=0; j<n.base.ndc;j++){
         n.base.capa[j].cd=3;
         n.base.capa[j].bl=0;
     }
@@ -306,7 +309,8 @@ Combattant stat2(int i, int tmax){
         	n.dex=n.base.dex;
         	n.act=0;
         	n.ne=0;
-        	for(int j=0; j<n.ne;j++){
+        	n.effets=NULL;
+        	for(int j=0; j<n.base.ndc;j++){
         	    n.base.capa[j].cd=3;
         	    n.base.capa[j].bl=0;
         	}
