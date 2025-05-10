@@ -198,6 +198,11 @@ void action(Combattant* tab, int aID, int* tmax, int* t1, int* t2){
     	exit(1);
     }
     //début fonction
+    for(int j=0;j<tab[aID].base.ndc;j++){   //diminution des cooldown
+        if(tab[aID].base.capa[j].bl>0){
+    	    tab[aID].base.capa[j].bl--;
+        }
+    }
     //affichage(tab,*tmax,*t1,*t2);
     printf("C'est le tour de %s! (ID=%d)\n",tab[aID].base.nom,tab[aID].ID+1);
     int cib,r,m=1,c=0;
@@ -238,13 +243,8 @@ void action(Combattant* tab, int aID, int* tmax, int* t1, int* t2){
                 exit(6);
             }
             capacite(tab,aID,tab[aID].base.capa[c-1].id,*t1,*t2,*tmax);
-            tab[aID].base.capa[c-1].bl=tab[aID].base.capa[c-1].cd+1;
+            tab[aID].base.capa[c-1].bl=tab[aID].base.capa[c-1].cd;
         break;
-    }
-    for(int j=0;j<tab[aID].base.ndc;j++){   //diminution des cooldown
-        if(tab[aID].base.capa[j].bl>0){
-    	    tab[aID].base.capa[j].bl--;
-        }
     }
 }
 
