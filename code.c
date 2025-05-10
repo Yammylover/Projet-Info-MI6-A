@@ -96,23 +96,42 @@ void affichage(Combattant* equipe,int tmax,int t1,int t2,int aID) {
                         printf("(👟)");
                     break;
                     case 6:
-                        printf("🧤");
+                        printf("(🧤)");
+                    break;
+                    case -1:
+                        printf("(💜)");
+                    break;
+                    case -2:
+                        printf("(🗡)");
+                    break;
+                    case -3:
+                        printf("(💔)");
+                    break;
+                    case -4:
+                        printf("(⛓)");
+                    break;
+                    case -5:
+                        printf("(🦴)");
+                    break;
+                    case -6:
+                        printf("(🪨)");
                     break;
                 }
-                espace=20-(equipe[j].ne*4);
-                if(espace>0) {
-                    for(int k=0;k<espace;k++) {
-                        printf(" ");
-                    }
-                }
-                else {
-                    printf("");
-                }
+
             }
             else {
                 printf("");
             }
         }
+            espace=20-(equipe[j].ne*4);
+            if(espace>0) {
+                for(int k=0;k<espace;k++) {
+                    printf(" ");
+                }
+            }
+            else {
+                printf("");
+            }
     }
 
         if(j!=4-1){
@@ -120,55 +139,6 @@ void affichage(Combattant* equipe,int tmax,int t1,int t2,int aID) {
         }
 
      }
-    printf("  │\n");
-    printf("│   ");
-    for(int j=0;j<t1;j++) {
-        if(equipe[j].ne==0) {
-            printf("                    ");
-        }
-        else {
-            for(int i=0;i<equipe[j].ne;i++){
-                if(i*4<=20) {
-                    switch(equipe[j].effets[i].type) {
-                        case -1:
-                            printf("(💜)");
-                        break;
-                        case -2:
-                            printf("(🗡)");
-                        break;
-                        case -3:
-                            printf("(💔)");
-                        break;
-                        case -4:
-                            printf("(⛓)");
-                        break;
-                        case -5:
-                            printf("(🦴)");
-                        break;
-                        case -6:
-                            printf("(🪨)");
-                        break;
-                    }
-                    espace=20-(equipe[j].ne*4);
-                    if(espace>0) {
-                        for(int k=0;k<espace;k++) {
-                            printf(" ");
-                        }
-                    }
-                    else {
-                        printf("");
-                    }
-                }
-                else {
-                    printf("");
-                }
-            }
-
-        }
-        if(j!=4-1){
-            printf("   ");
-        }
-    }
     printf("  │\n");
 
     //5eme ligne avec les pv des agents
@@ -421,12 +391,12 @@ switch(equipe[aID].base.pid) {
         }
     }
     printf("   │\n");
-        printf("│   ");
-    for(int j=0;j<t1;j++) {
+    printf("│   ");
+    for(int j=t1;j<tmax;j++) {
         if(equipe[j].ne==0) {
             printf("                    ");
         }
-        else {
+        else{
             for(int i=0;i<equipe[j].ne;i++) {
                 if(i*4<=20) {
                     switch(equipe[j].effets[i].type) {
@@ -446,39 +416,8 @@ switch(equipe[aID].base.pid) {
                             printf("(👟)");
                         break;
                         case 6:
-                            printf("🧤");
+                            printf("(🧤)");
                         break;
-                    }
-
-                    espace=20-(equipe[j].ne*4);
-                    if(espace>0) {
-                        for(int k=0;k<espace;k++) {
-                            printf(" ");
-                        }
-                    }
-                    else {
-                        printf("");
-                    }
-                }
-                else {
-                    printf("");
-                }
-            }
-        }
-        if(j!=4-1){
-            printf("   ");
-        }
-}
-    printf("  │\n");
-    printf("│   ");
-    for(int j=0;j<t1;j++) {
-        if(equipe[j].ne==0) {
-            printf("                    ");
-        }
-        else {
-            for(int i=0;i<equipe[j].ne;i++){
-                if(i*4<=20) {
-                    switch(equipe[j].effets[i].type) {
                         case -1:
                             printf("(💜)");
                         break;
@@ -498,24 +437,27 @@ switch(equipe[aID].base.pid) {
                             printf("(🪨)");
                         break;
                     }
-                    espace=20-(equipe[j].ne*4);
-                    if(espace>0) {
-                        for(int k=0;k<espace;k++) {
-                            printf(" ");
-                        }
-                    }
-                    else {
-                        printf("");
-                    }
+
                 }
                 else {
                     printf("");
                 }
             }
+            espace=20-(equipe[j].ne*4);
+            if(espace>0) {
+                for(int k=0;k<espace;k++) {
+                    printf(" ");
+                }
+            }
+            else {
+                printf("");
+            }
         }
-        if(j!=4-1){
+
+        if(j!=7-1){
             printf("   ");
         }
+
     }
     printf("  │\n");
     //5eme ligne avec les pv des agents
@@ -628,13 +570,13 @@ void affichage2(Combattant* equipe,int tmax,int t1,int t2,int aID) {
         }
     }
     printf("   │\n");
-        printf("│   ");
+    printf("│   ");
     for(int j=0;j<t1;j++) {
         if(equipe[j].ne==0) {
             printf("                    ");
         }
-        else {
-            for(int i=0;i<equipe[j].ne;i++){
+        else{
+            for(int i=0;i<equipe[j].ne;i++) {
                 if(i*4<=20) {
                     switch(equipe[j].effets[i].type) {
                         case 1:
@@ -653,39 +595,8 @@ void affichage2(Combattant* equipe,int tmax,int t1,int t2,int aID) {
                             printf("(👟)");
                         break;
                         case 6:
-                            printf("🧤");
+                            printf("(🧤)");
                         break;
-                    }
-
-                    espace=20-(equipe[j].ne*4);
-                    if(espace>0) {
-                        for(int k=0;k<espace;k++) {
-                            printf(" ");
-                        }
-                    }
-                    else {
-                        printf("");
-                    }
-                }
-                else {
-                    printf("");
-                }
-            }
-        }
-        if(j!=4-1){
-            printf("   ");
-        }
-}
-    printf("  │\n");
-    printf("│   ");
-    for(int j=0;j<t1;j++) {
-        if(equipe[j].ne==0) {
-            printf("                    ");
-        }
-        else {
-            for(int i=0;i<equipe[j].ne;i++){
-                if(i*4<=20) {
-                    switch(equipe[j].effets[i].type) {
                         case -1:
                             printf("(💜)");
                         break;
@@ -705,24 +616,27 @@ void affichage2(Combattant* equipe,int tmax,int t1,int t2,int aID) {
                             printf("(🪨)");
                         break;
                     }
-                    espace=20-(equipe[j].ne*4);
-                    if(espace>0) {
-                        for(int k=0;k<espace;k++) {
-                            printf(" ");
-                        }
-                    }
-                    else {
-                        printf("");
-                    }
+
                 }
                 else {
                     printf("");
                 }
             }
+            espace=20-(equipe[j].ne*4);
+            if(espace>0) {
+                for(int k=0;k<espace;k++) {
+                    printf(" ");
+                }
+            }
+            else {
+                printf("");
+            }
         }
+
         if(j!=4-1){
             printf("   ");
         }
+
     }
     printf("  │\n");
     //5eme ligne avec les pv des agents
@@ -795,13 +709,13 @@ void affichage2(Combattant* equipe,int tmax,int t1,int t2,int aID) {
         }
     }
     printf("   │\n");
-        printf("│   ");
-    for(int j=0;j<t1;j++) {
+    printf("│   ");
+    for(int j=t1;j<tmax;j++) {
         if(equipe[j].ne==0) {
             printf("                    ");
         }
-        else {
-            for(int i=0;i<equipe[j].ne;i++){
+        else{
+            for(int i=0;i<equipe[j].ne;i++) {
                 if(i*4<=20) {
                     switch(equipe[j].effets[i].type) {
                         case 1:
@@ -820,39 +734,8 @@ void affichage2(Combattant* equipe,int tmax,int t1,int t2,int aID) {
                             printf("(👟)");
                         break;
                         case 6:
-                            printf("🧤");
+                            printf("(🧤)");
                         break;
-                    }
-
-                    espace=20-(equipe[j].ne*4);
-                    if(espace>0) {
-                        for(int k=0;k<espace;k++) {
-                            printf(" ");
-                        }
-                    }
-                    else {
-                        printf("");
-                    }
-                }
-                else {
-                    printf("");
-                }
-            }
-        }
-        if(j!=4-1){
-            printf("   ");
-        }
-}
-    printf("  │\n");
-    printf("│   ");
-    for(int j=0;j<t1;j++) {
-        if(equipe[j].ne==0) {
-            printf("                    ");
-        }
-        else {
-            for(int i=0;i<equipe[j].ne;i++){
-                if(i*4<=20) {
-                    switch(equipe[j].effets[i].type) {
                         case -1:
                             printf("(💜)");
                         break;
@@ -872,24 +755,29 @@ void affichage2(Combattant* equipe,int tmax,int t1,int t2,int aID) {
                             printf("(🪨)");
                         break;
                     }
-                    espace=20-(equipe[j].ne*4);
-                    if(espace>0) {
-                        for(int k=0;k<espace;k++) {
-                            printf(" ");
-                        }
-                    }
-                    else {
-                        printf("");
-                    }
                 }
                 else {
                     printf("");
                 }
+
             }
+            espace=20-(equipe[j].ne*4);
+            if(espace>0) {
+                for(int k=0;k<espace;k++) {
+                    printf(" ");
+                }
+            }
+            else {
+                printf("");
+            }
+
         }
+
         if(j!=4-1){
             printf("   ");
         }
+
+
     }
     printf("  │\n");
     //5eme ligne avec les pv des agents
@@ -1335,13 +1223,13 @@ void affichagenormal(Combattant* equipe,int tmax,int t1,int t2,int aID) {
         }
     }
     printf("   │\n");
-        printf("│   ");
-    for(int j=0;j<t1;j++) {
+printf("│   ");
+    for(int j=t1;j<tmax;j++) {
         if(equipe[j].ne==0) {
             printf("                    ");
         }
-        else {
-            for(int i=0;i<equipe[j].ne;i++){
+        else{
+            for(int i=0;i<equipe[j].ne;i++) {
                 if(i*4<=20) {
                     switch(equipe[j].effets[i].type) {
                         case 1:
@@ -1360,34 +1248,8 @@ void affichagenormal(Combattant* equipe,int tmax,int t1,int t2,int aID) {
                             printf("(👟)");
                         break;
                         case 6:
-                            printf("🧤");
+                            printf("(🧤)");
                         break;
-                    }
-
-                    espace=20-(equipe[j].ne*4);
-                    for(int k=0;k<espace;k++) {
-                        printf(" ");
-                    }
-                }
-                else {
-                    printf("");
-                }
-            }
-        }
-        if(j!=4-1){
-            printf("   ");
-        }
-}
-    printf("  │\n");
-    printf("│   ");
-    for(int j=0;j<t1;j++) {
-        if(equipe[j].ne==0) {
-            printf("                    ");
-        }
-        else {
-            for(int i=0;i<equipe[j].ne;i++){
-                if(i*4<=20) {
-                    switch(equipe[j].effets[i].type) {
                         case -1:
                             printf("(💜)");
                         break;
@@ -1407,21 +1269,30 @@ void affichagenormal(Combattant* equipe,int tmax,int t1,int t2,int aID) {
                             printf("(🪨)");
                         break;
                     }
-                    espace=20-(equipe[j].ne*4);
-                    for(int k=0;k<espace;k++) {
-                        printf(" ");
-                    }
+
                 }
                 else {
                     printf("");
                 }
             }
+            espace=20-(equipe[j].ne*4);
+            if(espace>0) {
+                for(int k=0;k<espace;k++) {
+                    printf(" ");
+                }
+            }
+            else {
+                printf("");
+            }
         }
-        if(j!=4-1){
+
+        if(j!=7-1){
             printf("   ");
         }
+
     }
     printf("  │\n");
+    
     //5eme ligne avec les pv des agents
     printf("│  ");
     for(int i=t1;i<tmax;i++) {
