@@ -1,10 +1,6 @@
 modification a apporter :
 cahier des charges : 
-- gestion des effets
-- gestion des cooldown
-- code des capacités
-
-
+-choix aléatoire de l'attaquant quand même action
 
 
 
