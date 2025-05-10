@@ -56,8 +56,8 @@ Oméga :
 - agi : 15 
 - dext : 15
   - Capacités:
-5010  - Elan : +100% vit à un autre allié pendant 3 tours. CD=3
-5011  - Soin : Soigne 40 PV à un autre allié. CD=3
+5010  - Elan : +100% vit à un allié pendant 3 tours. CD=3
+5011  - Soin : Soigne 40 PV à un allié. CD=3
 5012  - Ralentissement : -50% vit à un ennemi pendant 3 tours. CD=3
 
   Alpha
@@ -69,7 +69,7 @@ Oméga :
 - dext : 20
     - Capacités:
 5013 - Vampire: Attaque et soigne 100% des dégâts infligés. CD=3
-5014 - Commandement : Tous les autres alliés ont +50% atk pendant 5 tours. CD=3
+5014 - Commandement : Tous les alliés ont +50% atk pendant 5 tours. CD=3
 5015 - Inspiration: +100 vit, +100 agl, +100 dex pendant 1 tour. CD=3
 
   Beta
