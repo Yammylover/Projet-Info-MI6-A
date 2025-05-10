@@ -238,7 +238,7 @@ void action(Combattant* tab, int aID, int* tmax, int* t1, int* t2){
                 exit(6);
             }
             capacite(tab,aID,tab[aID].base.capa[c-1].id,*t1,*t2,*tmax);
-            tab[aID].base.capa[c-1].bl=tab[aID].base.capa[c-1].cd;
+            tab[aID].base.capa[c-1].bl=tab[aID].base.capa[c-1].cd+1;
         break;
     }
     for(int j=0;j<tab[aID].base.ndc;j++){   //diminution des cooldown
