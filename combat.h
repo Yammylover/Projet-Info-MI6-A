@@ -248,7 +248,7 @@ void action(Combattant* tab, int aID, int* tmax, int* t1, int* t2){
     }
 }
 
-void combat(Combattant* e1, Combattant* e2,int t1, int t2){
+int combat(Combattant* e1, Combattant* e2,int t1, int t2){
     srand(time(NULL));
     //vérifications
     if(e1==NULL || e2==NULL){
@@ -322,5 +322,10 @@ void combat(Combattant* e1, Combattant* e2,int t1, int t2){
         }
 
     }
+	if(a=t1){
+		return 2;
+	} else {
+		return 1;
+	}
 }
 #endif
