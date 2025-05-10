@@ -49,6 +49,7 @@ int choixcapa(Combattant perso) {
             	return 0;
             	}
         }
+        break;
 
         case '2':
         if (perso.base.pid == 1002) {
@@ -64,6 +65,7 @@ int choixcapa(Combattant perso) {
             	return 0;
             	}
         }
+        break;
         case '3':
         if (perso.base.pid == 1002) {
             if(perso.base.capa[2].bl==0){
@@ -78,6 +80,7 @@ int choixcapa(Combattant perso) {
             	return 0;
             	}
         }
+        break;
         case '4':
         if (perso.base.pid == 1003) {
             if(perso.base.capa[0].bl==0){
@@ -92,6 +95,7 @@ int choixcapa(Combattant perso) {
             	return 0;
             	}
         }
+        break;
         case '5':
         if (perso.base.pid == 1003) {
             if(perso.base.capa[1].bl==0){
@@ -106,6 +110,7 @@ int choixcapa(Combattant perso) {
             	return 0;
             	}
         }
+        break;
         case '6':
         if (perso.base.pid == 1003) {
             if(perso.base.capa[2].bl==0) {
@@ -121,6 +126,7 @@ int choixcapa(Combattant perso) {
             	return 0;
             	}
         }
+        break;
         case'7':
         if (perso.base.pid == 1001) {
             if(perso.base.capa[0].bl==0){
@@ -135,6 +141,7 @@ int choixcapa(Combattant perso) {
             	return 0;
             	}
         }
+        break;
         case'8':
         if (perso.base.pid == 1001) {
             if(perso.base.capa[1].bl==0) {
@@ -149,6 +156,7 @@ int choixcapa(Combattant perso) {
             	return 0;
             	}
         }
+        break;
     	case'9':
     		if (perso.base.pid == 1004) {
     			if(perso.base.capa[0].bl==0) {
@@ -163,6 +171,7 @@ int choixcapa(Combattant perso) {
     				return 0;
     			}
     		}
+        break;
     	case'10':
     		if (perso.base.pid == 1004) {
     			if(perso.base.capa[1].bl==0) {
@@ -177,6 +186,7 @@ int choixcapa(Combattant perso) {
     				return 0;
     			}
     		}
+        break;
     	case'11':
     		if (perso.base.pid == 1004) {
     			if(perso.base.capa[2].bl==0) {
@@ -191,6 +201,7 @@ int choixcapa(Combattant perso) {
     				return 0;
     			}
     		}
+        break;
     	case'12':
     		if (perso.base.pid == 1005) {
     			if(perso.base.capa[0].bl==0) {
@@ -205,6 +216,7 @@ int choixcapa(Combattant perso) {
     				return 0;
     			}
     		}
+        break;
     	case'13':
     		if (perso.base.pid == 1005) {
     			if(perso.base.capa[1].bl==0) {
@@ -219,6 +231,7 @@ int choixcapa(Combattant perso) {
     				return 0;
     			}
     		}
+        break;
     	case'14':
     		if (perso.base.pid == 1005) {
     			if(perso.base.capa[2].bl==0) {
@@ -233,6 +246,7 @@ int choixcapa(Combattant perso) {
     				return 0;
     			}
     		}
+        break;
     	case'15':
     		if (perso.base.pid == 1006) {
     			if(perso.base.capa[0].bl==0) {
@@ -247,6 +261,7 @@ int choixcapa(Combattant perso) {
     				return 0;
     			}
     		}
+        break;
     	case'16':
     		if (perso.base.pid == 1006) {
     			if(perso.base.capa[1].bl==0) {
@@ -261,6 +276,7 @@ int choixcapa(Combattant perso) {
     				return 0;
     			}
     		}
+        break;
     	case'17':
     		if (perso.base.pid == 1004) {
     			if(perso.base.capa[2].bl==0) {
@@ -275,6 +291,7 @@ int choixcapa(Combattant perso) {
     				return 0;
     			}
     		}
+        break;
     	case'18':
     		if (perso.base.pid == 1001) {
     			if(perso.base.capa[2].bl==0) {
@@ -289,5 +306,6 @@ int choixcapa(Combattant perso) {
     				return 0;
     			}
     		}
+                break; 
     }
 }
