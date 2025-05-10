@@ -188,7 +188,6 @@ void capacite(Combattant* tab, int n, int c, int t1, int t2, int tmax){
             soin(tab,cib,40);
         break;
         case 5012:
-            printf("%s utilise ralentissement!\n",tab[n].base.nom);
             if(tab[n].ID<t1){
                 cib=cible(tab,t1,tmax,n,2,2);
             } else {
