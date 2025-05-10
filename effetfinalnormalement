@@ -1,0 +1,399 @@
+void effet (Combattant patk, Combattant *tab, int t1, int tmax, int *pne,) {
+
+    int tab2[tmax];
+    for(int i=0; i<tmax; i++) {
+        tab2[i]=i;
+    }
+    if(tab == NULL || pne == NULL){
+    printf("erreur tab para");
+    exit(0);
+    }
+    //met les effets dans le tableau d'effet
+    if (choixcapa( patk) == 5004 ){
+        int i = *pne;
+        *pne= *pne+2;
+        patk.effet = (malloc(sizeof(Effet)*ne));
+        int k=0;
+        int c=0;
+        while(k!=2){
+        	if(patk.effet[i].durée==0) {
+        	       patk.effet[i].type=6;
+        	       patk.effet[i].puissance=0.20;
+        	       patk.effet[i].durée=1;
+        	       i=i+1;
+        	       k=k+1;
+        	       c = cible(tab, t1, tmax, patk.ID, 2, 1)-1;
+    	     	   tab[c].effet[i].type=7;
+        	       tab[c].effet[i].puissance=-(tab[c].act);
+    	     	   tab[c].effet[i].durée=1;
+    	     	   i=i+1;
+        	       k=k+1;
+         	}
+         }
+    }
+    else if (choixcapa( patk) == 5005 ) {
+        int i = *pne;
+        *pne= *pne+2;
+        patk.effet = (malloc(sizeof(Effet)*ne));
+        int k=0;
+         while(k!=3){
+            if(patk.effet[i].durée==0) {
+                patk.effet[i].type=2;
+                patk.effet[i].puissance=patk.atk*0.25;
+                patk.effet[i].durée=6;
+                i=i+1;
+                k=k+1;
+                if(patk.effet[i].durée==0) {
+                    patk.effet[i].type=6;
+                    patk.effet[i].puissance=patk.dex;
+                    patk.effet[i].durée=6;
+                    i=i+1;
+                    k=k+1;
+                }
+            }
+         }
+    }
+    else if (choixcapa( patk) == 5006 ) {
+        int i = *pne;
+        *pne= *pne+2;
+        patk.effet = (malloc(sizeof(Effet)*ne));
+        int n=0;
+        int k=0;
+        while(k!=2) {
+
+                if(patk.effet[i].durée==0 ){
+                patk.effet[i].type=4;
+                patk.effet[i].puissance=patk.vit*0.5;
+                patk.effet[i].durée=3;
+                i=i+1;
+                k=k+1;
+            }
+            if(patk.effet[i].durée==0 ){
+                patk.effet[i].type=4;
+                patk.effet[i].puissance=patk.agl;
+                patk.effet[i].durée=3;
+                k=k+1;
+            }
+        }
+    }
+    if (choixcapa( patk) == 5007) {
+        int i=ne;
+        ne=ne+1;
+        patk.effet = (malloc(sizeof(Effet)*ne));
+        if(IDmax(tab2, 6)<3) {
+            int n = cible(tab, t1, tmax, patk.ID,2, 2 )-1;
+                if(tab[n].effet[i].durée==0 ){
+                    tab[n].effet[i].type=2;
+                    tab[n].effet[i].puissance=-(tab[n].atk*0.50=);
+                    tab[n].effet[i].durée=6;
+                }
+        }
+        else if(IDmax(tab2, 6)>=3) {
+            int n = cible(tab, t1, tmax, patk.ID, 2, 1)-1;
+                if(tab[n].effet[i].durée==0 ){
+                    tab[n].effet[i].type=2;
+                    tab[n].effet[i].puissance=-(tab[n].atk*0.50);
+                    tab[n].effet[i].durée=6;
+                }
+        }
+    }
+    else if (choixcapa( patk) == 5008) {
+        int i=*pne;
+        *pne=*pne+1;
+        patk.effet = (malloc(sizeof(Effet)*ne));
+        if(IDmax(tab2, 6)<3) {
+            int n = cible(tab, t1, tmax, patk.ID,2, 1 )-1;
+            if(tab[n].effet[i].durée==0 ){
+                tab[n].effet[i].type=3;
+                tab[n].effet[i].puissance=tab[n].def*2;
+                tab[n].effet[i].durée=3;
+            }
+        }
+        else if(IDmax(tab2, 6)>=3) {
+            int n = cible(tab, t1, tmax, patk.ID, 2, 2)-1;
+            if(tab[n].effet[i].durée==0 ){
+                tab[n].effet[i].type=3;
+                tab[n].effet[i].puissance=tab[n].atk*2;
+                tab[n].effet[i].durée=3;
+            }
+        }
+    }
+    else if (choixcapa( patk) == 5009) {
+        int i=ne;
+        ne=ne+1;
+        patk.effet = (malloc(sizeof(Effet)*ne));
+        if(IDmax(tab2, 6)<3) {
+            for(int n=0;n<t1;n++) {
+                if(tab[n].effet[i].durée==0 ){
+                    tab[n].effet[i].type=1;
+                    tab[n].effet[i].puissance=20;
+                    tab[n].effet[i].durée=1;
+                }
+            }
+        }
+        else if(IDmax(tab2, 6)>=3) {
+            for(int n=t1;n<tmax;n++) {
+                if(tab[n].effet[i].durée==0 ){
+                    tab[n].effet[i].type=1;
+                    tab[n].effet[i].puissance=20;
+                    tab[n].effet[i].durée=1;
+                }
+            }
+        }
+    }    
+    if (choixcapa( patk) == 5001)  {
+
+        int i = *pne;
+        *pne= *pne+1;
+        patk.effet = (malloc(sizeof(Effet)*ne));
+        int k=0;
+        int c=0;
+        while(k!=1){
+            if(patk.effet[i].durée==0) {
+                patk.effet[i].type=2;
+                patk.effet[i].puissance=patk.atk;
+                patk.effet[i].durée=6;
+                i=i+1;
+                k=k+1;
+            }
+        }
+    }
+    else if (choixcapa( patk) == 5002) {
+        int i = *pne;
+        *pne= *pne+1;
+        patk.effet = (malloc(sizeof(Effet)*ne));
+        int k=0;
+        int c=0;
+        while(k!=1){
+            if(patk.effet[i].durée==0) {
+                patk.effet[i].type=3;
+                patk.effet[i].puissance=patk.def;
+                patk.effet[i].durée=6;
+                i=i+1;
+                k=k+1;
+            }
+        }
+    }
+    else if (choixcapa( patk) == 5003) {
+        int i=*pne;
+        int k=0;
+        *pne=*pne+1;
+        patk.effet = (malloc(sizeof(Effet)*ne));
+        patk.effet[i].type=1;
+        patk.effet[i].puissance=50;
+        patk.effet[i].durée=1;
+        i=i+1;
+        k=k+1;
+    }
+    else if (choixcapa( patk) == 5010) {
+        int i=ne;
+        ne=ne+1;
+        patk.effet = (malloc(sizeof(Effet)*ne));
+        if(IDmax(tab2, 6)<3) {
+            int n = cible(tab, t1, tmax, patk.ID,2, 1 )-1;
+            if(tab[n].effet[i].durée==0 ){
+                tab[n].effet[i].type=4;
+                tab[n].effet[i].puissance=tab[n].vit;
+                tab[n].effet[i].durée=3;
+            }
+        }
+        else if(IDmax(tab2, 6)>=3) {
+            int n = cible(tab, t1, tmax, patk.ID, 2, 2)-1;
+            if(tab[n].effet[i].durée==0 ){
+                tab[n].effet[i].type=4;
+                tab[n].effet[i].puissance=tab[n].vit;
+                tab[n].effet[i].durée=3;
+            }
+        }
+    }
+    else if (choixcapa( patk) == 5011) {
+        int i=ne;
+        ne=ne+1;
+        patk.effet = (malloc(sizeof(Effet)*ne));
+        if(IDmax(tab2, 6)<3) {
+            int n = cible(tab, t1, tmax, patk.ID,2, 1 )-1;
+            if(tab[n].effet[i].durée==0 ){
+                tab[n].effet[i].type=1;
+                tab[n].effet[i].puissance=40;
+                tab[n].effet[i].durée=1;
+            }
+        }
+        else if(IDmax(tab2, 6)>=3) {
+            int n = cible(tab, t1, tmax, patk.ID, 2, 2)-1;
+            if(tab[n].effet[i].durée==0 ){
+                tab[n].effet[i].type=1;
+                tab[n].effet[i].puissance=40;
+                tab[n].effet[i].durée=1;
+            }
+        }
+    }
+    else if (choixcapa( patk) == 5012) {
+        int i=ne;
+        ne=ne+1;
+        patk.effet = (malloc(sizeof(Effet)*ne));
+        if(IDmax(tab2, 6)<3) {
+            int n = cible(tab, t1, tmax, patk.ID,2, 1 )-1;
+            if(tab[n].effet[i].durée==0 ){
+                tab[n].effet[i].type=4;
+                tab[n].effet[i].puissance=-(tab[n].vit)*0.5;
+                tab[n].effet[i].durée=3;
+            }
+        }
+        else if(IDmax(tab2, 6)>=3) {
+            int n = cible(tab, t1, tmax, patk.ID, 2, 2)-1;
+            if(tab[n].effet[i].durée==0 ){
+                tab[n].effet[i].type=4;
+                tab[n].effet[i].puissance=-(tab[n].vit)*0.5;
+                tab[n].effet[i].durée=3;
+            }
+        }
+    }
+    if (choixcapa( patk) == 5013 ){
+        int i = *pne;
+        *pne= *pne+2;
+        patk.effet = (malloc(sizeof(Effet)*ne));
+        int k=0;
+        int c=0;
+        while(k!=1){
+            if(patk.effet[i].durée==0) {
+                patk.effet[i].type=1;
+                patk.effet[i].puissance=patk.atk;
+                patk.effet[i].durée=1;
+                i=i+1;
+                k=k+1;
+            }
+            else {
+                i++;
+            }
+        }
+    }
+    else if (choixcapa( patk) == 5014) {
+        int i=ne;
+        ne=ne+1;
+        patk.effet = (malloc(sizeof(Effet)*ne));
+        if(IDmax(tab2, 6)<3) {
+            for(int n=0;n<t1;n++) {
+                if(tab[n].effet[i].durée==0 && patk.ID!=tab[n].ID){
+                    tab[n].effet[i].type=2;
+                    tab[n].effet[i].puissance=tab[n].atk*0.5;
+                    tab[n].effet[i].durée=5;
+                }
+            }
+        }
+        else if(IDmax(tab2, 6)>=3) {
+            for(int n=t1;n<tmax;n++) {
+                if(tab[n].effet[i].durée==0 && patk.ID!=tab[n].ID){
+                    tab[n].effet[i].type=2;
+                    tab[n].effet[i].puissance=tab[n].atk*0.5;
+                    tab[n].effet[i].durée=5;
+                }
+            }
+        }
+    }
+    if (choixcapa( patk) == 5015 ){
+        int i = *pne;
+        *pne= *pne+3;
+        patk.effet = (malloc(sizeof(Effet)*ne));
+        int k=0;
+        while(k!=3){
+            if(patk.effet[i].durée==0) {
+                patk.effet[i].type=4;
+                patk.effet[i].puissance=patk.vit;
+                patk.effet[i].durée=1;
+                i=i+1;
+                k=k+1;
+            }
+                else if(patk.effet[i].durée==0) {
+                   patk.effet[i].type=5;
+                   patk.effet[i].puissance=patk.agl;
+                   patk.effet[i].durée=1;
+                   i=i+1;
+                   k=k+1;
+                }
+                    else if(patk.effet[i].durée==0) {
+                        patk.effet[i].type=6;
+                        patk.effet[i].puissance=patk.dex;
+                        patk.effet[i].durée=1;
+                        i=i+1;
+                        k=k+1;
+                    }
+            else {
+                i++;
+            }
+        }
+    }
+        if (choixcapa( patk) == 5016 ) {
+            int i = *pne;
+            *pne= *pne+1;
+            patk.effet = (malloc(sizeof(Effet)*ne));
+            int k=0;
+            while(k!=1) {
+                if(patk.effet[i].durée==0) {
+                    patk.effet[i].type=2;
+                    patk.effet[i].puissance=patk.atk*0.2;
+                    patk.effet[i].durée=1;
+                    i=i+1;
+                    k=k+1;
+                }
+            }
+        }
+        if (choixcapa( patk) == 5017 ) {
+            int i = *pne;
+            *pne= *pne+2;
+            patk.effet = (malloc(sizeof(Effet)*ne));
+            int k=0;
+            while(k!=2) {
+                if(patk.effet[i].durée==0) {
+                    patk.effet[i].type=1;
+                    patk.effet[i].puissance=30;
+                    patk.effet[i].durée=1;
+                    i=i+1;
+                    k=k+1;
+                }
+                else if(patk.effet[i].durée==0) {
+                    patk.effet[i].type=3;
+                    patk.effet[i].puissance=50;
+                    patk.effet[i].durée=2;
+                    i=i+1;
+                    k=k+1;
+                }
+            }
+        }
+        if (choixcapa( patk) == 5018 ) {
+            int i = *pne;
+            *pne= *pne+1;
+            patk.effet = (malloc(sizeof(Effet)*ne));
+            int k=0;
+            while(k!=1) {
+                if(patk.effet[i].durée==0) {
+                    patk.effet[i].type=2;
+                    patk.effet[i].puissance=-(patk.atk*0.2);
+                    patk.effet[i].durée=1;
+                    i=i+1;
+                    k=k+1;
+                }
+            }
+        }
+
+
+
+    //sert à réduire la taille du tableau d'effet lorsque l'effet est terminé
+    combattant image;
+    for(int i=0; i< *pne; i++) {
+        if( patk.effet[i].durée == 0) {
+            *pne= *pne-1;
+            image.effet = (malloc(sizeof(Effet)*(*pne)));
+            for(int j=0; j<*pne; j++) {
+                if(j!=i) {
+                    image.effet[j] = patk.effet[j] ;
+                }
+            }
+            patk.effet = (malloc(sizeof(Effet)*(*pne)));
+            for(int k=0; k<*pne; k++) {
+                if(k!=i) {
+                    patk.effet[k] = image.effet[k] ;
+                }
+            }
+        }
+    }
+}
