@@ -199,7 +199,7 @@ void action(Combattant* tab, int aID, int* tmax, int* t1, int* t2){
     	    tab[aID].base.capa[j].bl--;
         }
     }
-    //affichage(tab,*tmax,*t1,*t2);
+    affichage(ee,tmax,t1,t2,aID);
     printf("C'est le tour de %s! (ID=%d)\n",tab[aID].base.nom,tab[aID].ID+1);
     int cib,r,m=1,c=0;
     int array[tab[aID].base.ndc+1];
@@ -297,7 +297,7 @@ int combat(Combattant* e1, Combattant* e2,int t1, int t2){
         	tabact[i]=ee[i].act;
         	//displayfighter(ee[i]);
     	}
-    	affichage(ee,tmax,t1,t2);
+	    
     	int j=IDmax(tabact,tmax);
     	if(ee[j].act>=100){   //définition de la c° d'action
         	ee[j].act=0;
