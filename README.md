@@ -1,8 +1,21 @@
-modification a apporter :
-cahier des charges : 
+Projet: CY-fighters
+Principe: un jeu de combat d'équipes tour par tour utilisant le système d'actions de raid shadow legend.
+Compilation : main.c code.c structure.h ciblage.c capacites.c combat.c
+Utilisation : Rentrez des valeurs numériques correspondant aux choix disponibles. Rentrer un caractère non numérique vous éjectera du programme.
+Description: En lançant le programme, le joueur pourra constituer son équipe avec les combattants présents à l'écran, chacun étant attribué à une classe.
+Lorsque 6 combattants auront été choisis (il est possible de choisir des doublons) le combat se lançera automatiquement. La jauge d'actions des personnages se remplit progressivement. Quand elle est pleine le personnage peut agir. Le joueur pourra alors le faire attaquer un combattant dans l'équipe adverse, ou utiliser une capacité spéciale pouvant modifier les statistiques, soigner les alliés, ou autre (notez que le programme vous demandera souvent d'indiquer une cible à cette capacité).
+Lorsque tous les combattants de l'une des équipes sont tombés, la partie est finie, et l'équipe survivante gagne.
+Il est conseillé de jouer à deux joueurs, chacun donnant les instructions aux joueurs de son équipe (reconnaissable avec le numéro à coté d'eux).
+
+
+
+A faire:
+-message de victoire (redémarrage programme?)
+-update la bibli struture.h avec les nouvelles fonctions
+-commentaires
+-Securisation
+-Rapport sous format pdf
 -choix aléatoire de l'attaquant quand même action
-
-
 
 
 liste du descriptif des personnages :
