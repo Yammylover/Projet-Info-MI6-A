@@ -1,12 +1,4 @@
-#ifndef SEL_H
-#define SEL_H
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-#include <string.h>
-#include <math.h>
-#include <unistd.h>
-
+#include "structure.h"
 
 int IDmax(int* tab,int taille){
     int max=0;
@@ -44,4 +36,3 @@ int selection(int* tab,int size, char* phrase){
     } while(b!=1);
     return a;
 }
-#endif
