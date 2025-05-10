@@ -1,9 +1,5 @@
-#ifndef C_H
-#define C_H
 #include "structure.h"
-#include "ciblage.h"
-#include "af2.h"
-#include "capacites.h"
+
 
 
 void updeffect(Combattant* tab, int ID){
@@ -328,4 +324,3 @@ int combat(Combattant* e1, Combattant* e2,int t1, int t2){
 		return 1;
 	}
 }
-#endif
