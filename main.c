@@ -66,7 +66,7 @@ Combattant stat1(int i,int tmax){
 
         // valeur de Combattant
         n.ID=i;
-        n.pv=50;
+        n.pv=100;
         n.atk=30;
         n.def=20;
         n.vit=35;
