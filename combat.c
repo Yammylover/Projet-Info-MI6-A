@@ -326,7 +326,7 @@ int combat(Combattant* e1, Combattant* e2,int t1, int t2){
         }
 
     }
-	if(a=t1){
+	if(a==t1){
 		return 2;
 	} else {
 		return 1;
