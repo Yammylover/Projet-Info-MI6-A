@@ -438,7 +438,7 @@ int main(){
 
     printf("Selection des champions de l'equipe 1\n\n");
     for(int i=0;i<t1;i++) {
-        equipe1[i]=stat2(t1+t2);
+        equipe1[i]=stat2(i,t1+t2);
         equipe1[i].ID=i;
     }
 
