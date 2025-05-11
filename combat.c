@@ -305,12 +305,14 @@ int combat(Combattant* e1, Combattant* e2,int t1, int t2){
         	tabact[i]=ee[i].act;
         	//displayfighter(ee[i]);
     	}
-
+	printf("\n\n");
     	int j=IDmax(tabact,tmax);
     	if(ee[j].act>=100){   //définition de la c° d'action
         	action(ee,j,&tmax,&t1,&t2);
         	ee[j].act=0;
-    	}
+    	} else{
+		affichagenormal(ee,tmax,t1,t2);
+	}
         sleep(1);
         a=0;
         b=0;
