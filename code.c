@@ -444,7 +444,7 @@ switch(equipe[aID].base.pid) {
                     printf(" ");
                 }
             }
-           
+
         }
 
         if(j!=7-1){
