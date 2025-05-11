@@ -120,7 +120,7 @@ void affichage(Combattant* equipe,int tmax,int t1,int t2,int aID) {
 
             }
             else {
-                printf("");
+                printf(" ");
             }
         }
             espace=20-(equipe[j].ne*4);
@@ -130,7 +130,7 @@ void affichage(Combattant* equipe,int tmax,int t1,int t2,int aID) {
                 }
             }
             else {
-                printf("");
+                printf(" ");
             }
     }
 
@@ -201,7 +201,7 @@ switch(equipe[aID].base.pid) {
         printf("│     ◎ Confère un boost de 100٪ d'attaque                                 │\n");
         }
     if(equipe[aID].base.capa[1].bl==0){
-        printf("│ |2| Position Offensive | Durée : 6 tours / Recharge : 3                  │\n");
+        printf("│ |2| Position Defensive | Durée : 6 tours / Recharge : 3                  │\n");
         printf("│     ◎ Confère un boost de 100٪ de defense                                │\n");
     }
     else {
@@ -440,7 +440,7 @@ switch(equipe[aID].base.pid) {
 
                 }
                 else {
-                    printf("");
+                    printf(" ");
                 }
             }
             espace=20-(equipe[j].ne*4);
@@ -450,7 +450,7 @@ switch(equipe[aID].base.pid) {
                 }
             }
             else {
-                printf("");
+                printf(" ");
             }
         }
 
@@ -619,7 +619,7 @@ void affichage2(Combattant* equipe,int tmax,int t1,int t2,int aID) {
 
                 }
                 else {
-                    printf("");
+                    printf(" ");
                 }
             }
             espace=20-(equipe[j].ne*4);
@@ -629,7 +629,7 @@ void affichage2(Combattant* equipe,int tmax,int t1,int t2,int aID) {
                 }
             }
             else {
-                printf("");
+                printf(" ");
             }
         }
 
@@ -757,7 +757,7 @@ void affichage2(Combattant* equipe,int tmax,int t1,int t2,int aID) {
                     }
                 }
                 else {
-                    printf("");
+                    printf(" ");
                 }
 
             }
@@ -768,7 +768,7 @@ void affichage2(Combattant* equipe,int tmax,int t1,int t2,int aID) {
                 }
             }
             else {
-                printf("");
+                printf(" ");
             }
 
         }
@@ -840,7 +840,7 @@ void affichage2(Combattant* equipe,int tmax,int t1,int t2,int aID) {
         printf("│     ◎ Confère un boost de 100٪ d'attaque                                 │\n");
         }
     if(equipe[aID].base.capa[1].bl==0){
-        printf("│ |2| Position Offensive | Durée : 6 tours / Recharge : 3                  │\n");
+        printf("│ |2| Position Defensive | Durée : 6 tours / Recharge : 3                  │\n");
         printf("│     ◎ Confère un boost de 100٪ de defense                                │\n");
     }
     else {
@@ -1095,11 +1095,11 @@ void affichagenormal(Combattant* equipe,int tmax,int t1,int t2,int aID) {
                     }
                 }
                 else {
-                    printf("");
+                    printf(" ");
                 }
             }
             else {
-                printf("");
+                printf(" ");
             }
         }
     }
@@ -1143,11 +1143,11 @@ void affichagenormal(Combattant* equipe,int tmax,int t1,int t2,int aID) {
                         }
                     }
                     else {
-                        printf("");
+                        printf(" ");
                     }
                 }
                 else {
-                    printf("");
+                    printf(" ");
                 }
             }
         }
@@ -1272,7 +1272,7 @@ printf("│   ");
 
                 }
                 else {
-                    printf("");
+                    printf(" ");
                 }
             }
             espace=20-(equipe[j].ne*4);
@@ -1282,7 +1282,7 @@ printf("│   ");
                 }
             }
             else {
-                printf("");
+                printf(" ");
             }
         }
 
@@ -1292,7 +1292,7 @@ printf("│   ");
 
     }
     printf("  │\n");
-
+    
     //5eme ligne avec les pv des agents
     printf("│  ");
     for(int i=t1;i<tmax;i++) {
