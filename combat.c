@@ -57,8 +57,8 @@ void updeffect(Combattant* tab, int ID){
             case 2 :
             case -2 :
                 tab[ID].atk+=tab[ID].effets[i].puissance;
-                if(tab[ID].atk<0){
-                    tab[ID].atk=1;
+                if(tab[ID].atk<=0){
+                    tab[ID].atk=1;	//minimum de atk est 1
                 }
             break;
             case 3 :
@@ -127,7 +127,7 @@ void updeffect(Combattant* tab, int ID){
 
 
 
-int deathcheck(Combattant* tab, int ID){
+int deathcheck(Combattant* tab, int ID){	//vérifie que les pv d'un combattant sont supérieurs à 0
     if(tab==NULL || ID<0){
         printf("Erreur deathcheck\n");
         exit(8);
@@ -138,14 +138,16 @@ int deathcheck(Combattant* tab, int ID){
     }
     return 0;
 }
+
 void appliquedegats(Combattant* tab, int ID, int dg, int t1, int t2, int tmax){
+	//check params
     if(tab==NULL || ID<0 || ID>=tmax || dg<0){
         printf("Erreur application des dégâts\n");
         exit(3);
     }
-    printf("%s|%d| subit %d dégâts!\n",tab[ID].base.nom,tab[ID].ID+1,dg);
+    printf("%s|%d| subit %d dégâts!\n",tab[ID].base.nom,tab[ID].ID+1,dg);	//application des dégâts
 	tab[ID].pv-=dg;
-    if(deathcheck(tab,ID)){
+    if(deathcheck(tab,ID)){	//vérification mort
 		printf("%s|%d| est mort!\n", tab[ID].base.nom,tab[ID].ID+1);
 		//deathmodif(tab,ID,t1,t2,tmax);
 	}
@@ -156,7 +158,7 @@ int calcdegats(int atk, int def,int matk){
         printf("Erreur calcul de dégâts\n");
         exit(78);
     }
-    int at=atk*matk/100;
+    int at=atk*matk/100;	//calcul des dégâts en f° de l'atk, de la puissance d'atk, et de la def
     int dg=(at*(100-def)/100);
     if(dg<=0){
         dg=1;
@@ -164,7 +166,7 @@ int calcdegats(int atk, int def,int matk){
     return dg;
 }
 
-int attaque(Combattant* tab, int IDatk, int IDdef, int mdex){
+int attaque(Combattant* tab, int IDatk, int IDdef, int mdex){	//détermine le résultat de l'attaque: coup critique, simple ou esquive
 	//vérification
 	if(tab==NULL || IDatk<0 || IDdef<0 || mdex <0){
 		printf("erreur opérandes f° attaque\n");
@@ -200,7 +202,7 @@ void action(Combattant* tab, int aID, int* tmax, int* t1, int* t2){
     	    tab[aID].base.capa[j].bl--;
         }
     }
-    //affichage(tab,*tmax,*t1,*t2);
+    //affichage
     printf("\nC'est le tour de %s|%d|!\n",tab[aID].base.nom,tab[aID].ID+1);
     if(tab[aID].ID+1>*t1) {
         affichage2(tab,*tmax,*t1,*t2,aID);
@@ -208,17 +210,18 @@ void action(Combattant* tab, int aID, int* tmax, int* t1, int* t2){
     else {
         affichage(tab,*tmax,*t1,*t2,aID);
     }
+    //locals
     int cib,r,m=1,c=0;
     int array[tab[aID].base.ndc+1];
     array[0]=0;
-    for(int i=0;i<tab[aID].base.ndc;i++){
+    for(int i=0;i<tab[aID].base.ndc;i++){	//détermination capacités utilisables
         if(tab[aID].base.capa[i].bl==0){
             array[m]=i+1;
             m++;
         }
     }
     c=selection(array,m,"Rentrez le nombre de l'action voulue (0 pour attaquer, ou le numéro de la capacité)\n");
-    switch(c){
+    switch(c){	//différent cas d'entrés du joueur: attaque ou capacités
         case 0:
             if(aID<*t1){    //combattant appatient à l'équipe 1
             	cib=cible(tab,*t1,*tmax,aID,2,2);   //2 car cible l'équipe 2
@@ -240,14 +243,14 @@ void action(Combattant* tab, int aID, int* tmax, int* t1, int* t2){
                 break;
             }
         break;
-        default:
+        default:	//cas où une capacité est utilisée
             if(c>=4 || c<=0){
                 printf("Erreur selection action\n");
                 exit(6);
             }
             capacite(tab,aID,tab[aID].base.capa[c-1].id,*t1,*t2,*tmax);
-            tab[aID].base.capa[c-1].bl=tab[aID].base.capa[c-1].cd;
         break;
+	tab[aID].base.capa[c-1].bl=tab[aID].base.capa[c-1].cd;
     }
 }
 
@@ -288,7 +291,7 @@ int combat(Combattant* e1, Combattant* e2,int t1, int t2){
         	if(ee[i].pv>0){
         		ee[i].act+=ee[i].vit;
         	}
-        	if(ee[i].pv<=0){
+        	if(ee[i].pv<=0){	//sécurisation des personnages morts
         	    ee[i].pv=0;
         		ee[i].act=0;
         		ee[i].atk=0;
@@ -316,7 +319,7 @@ int combat(Combattant* e1, Combattant* e2,int t1, int t2){
         sleep(1);
         a=0;
         b=0;
-        for(int i=0;i<t1;i++){
+        for(int i=0;i<t1;i++){	//détermination de la quantité de morts dans chaque équipe
         	if(deathcheck(ee,i)){
         		a++;
         	}
