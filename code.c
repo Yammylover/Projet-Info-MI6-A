@@ -13,12 +13,12 @@ void affichage(Combattant* equipe,int tmax,int t1,int t2,int aID) {
     char actaffichage[6][20];//meme chose que les pv mais pour l'action
     int espace;//entier permettant de determiner les espaces entre les effets de 2 agents
 
-    //debut du code pour l'affichage utilisateur, ici on print sur une echelle de 0 à 10 les pv des champions
+    //debut du code pour l'affichage utilisateur, ici on print sur une echelle de 0 à 20 les pv des champions
     for(int j=0;j<tmax;j++) {
         indice[j]=(equipe[j].pv)*20/(equipe[j].base.pv);//calcul permettant la mise a echelle
         for(int i=0;i<20;i++) {
             if(i<indice[j]){
-                pvaffichage[j][i]='#';
+                pvaffichage[j][i]='#'; //on print le caractère si c'est possible
             }
             else {
                 pvaffichage[j][i]=' ';
@@ -31,7 +31,7 @@ void affichage(Combattant* equipe,int tmax,int t1,int t2,int aID) {
         indiceact[j]=(equipe[j].act)*20/100;
         for(int i=0;i<20;i++) {
             if(i<indiceact[j]) {
-                actaffichage[j][i]='>';
+                actaffichage[j][i]='>'; //on print le caratère si c'est possible
             }
             else {
                 actaffichage[j][i]=' ';
@@ -45,6 +45,8 @@ void affichage(Combattant* equipe,int tmax,int t1,int t2,int aID) {
     printf("┌─[Equipe 1]───────────────────────────────────────────────────────────────┒\n"
                  "│                                                                          │\n");//2 premières lignes de l'interface
     printf("│   ");
+
+    //bloc de code permettant l'affichage du nom
     for (int j=0; j<t1;j++) {
         str=strlen(equipe[j].base.nom);
         if(str<20) {
@@ -72,6 +74,7 @@ void affichage(Combattant* equipe,int tmax,int t1,int t2,int aID) {
     printf("   │\n");
 
     printf("│   ");
+    //bloc de code permettant l'affichage des différents effets qui affecte le perso
     for(int j=0;j<t1;j++) {
         if(equipe[j].ne==0) {
             printf("                    ");
@@ -119,18 +122,12 @@ void affichage(Combattant* equipe,int tmax,int t1,int t2,int aID) {
                 }
 
             }
-            else {
-                printf(" ");
-            }
         }
             espace=20-(equipe[j].ne*4);
             if(espace>0) {
                 for(int k=0;k<espace;k++) {
                     printf(" ");
                 }
-            }
-            else {
-                printf(" ");
             }
     }
 
@@ -188,6 +185,7 @@ void affichage(Combattant* equipe,int tmax,int t1,int t2,int aID) {
         }
     }
         printf("                                                               │\n");
+    //bloc de code intégrant toutes les possibilités pour l'affichage des techniques spéciales
         printf("│ TECHNIQUES SPECIALES                                                     │\n");
 switch(equipe[aID].base.pid) {
         case 1001:
@@ -201,7 +199,7 @@ switch(equipe[aID].base.pid) {
         printf("│     ◎ Confère un boost de 100٪ d'attaque                                 │\n");
         }
     if(equipe[aID].base.capa[1].bl==0){
-        printf("│ |2| Position Defensive | Durée : 6 tours / Recharge : 3                  │\n");
+        printf("│ |2| Position Offensive | Durée : 6 tours / Recharge : 3                  │\n");
         printf("│     ◎ Confère un boost de 100٪ de defense                                │\n");
     }
     else {
@@ -361,7 +359,7 @@ switch(equipe[aID].base.pid) {
     printf("│                                                                          │\n");
     printf("└──────────────────────────────────────────────────────────────────────────┘\n");
 
-
+//bloc de code reprennant le meme principe que celui de l'équipe 1, mis a part que les techniques spéciales ne sont pas affichées
     printf("┌─[Equipe 2]───────────────────────────────────────────────────────────────┒\n"
                      "│                                                                          │\n");//2 premières lignes de l'interface
     printf("│   ");
@@ -439,9 +437,6 @@ switch(equipe[aID].base.pid) {
                     }
 
                 }
-                else {
-                    printf(" ");
-                }
             }
             espace=20-(equipe[j].ne*4);
             if(espace>0) {
@@ -449,9 +444,7 @@ switch(equipe[aID].base.pid) {
                     printf(" ");
                 }
             }
-            else {
-                printf(" ");
-            }
+           
         }
 
         if(j!=7-1){
@@ -503,7 +496,7 @@ switch(equipe[aID].base.pid) {
 
 
 }
-
+//le bloc de code affichage2 reprends le meme principe que affichage 1, sauf que ici c'est l'équipe 2 qui se voit afficher les techniques spéciales
 void affichage2(Combattant* equipe,int tmax,int t1,int t2,int aID) {
     char pvaffichage[6][20];
     int indice[6];//tableau d'indice pour les combattants
@@ -512,7 +505,7 @@ void affichage2(Combattant* equipe,int tmax,int t1,int t2,int aID) {
     char actaffichage[6][20];//meme chose que les pv mais pour l'action
     int espace;
 
-    //debut du code pour l'affichage utilisateur, ici on print sur une echelle de 0 à 10 les pv des champions
+    //debut du code pour l'affichage utilisateur, ici on print sur une echelle de 0 à 20 les pv des champions
     for(int j=0;j<tmax;j++) {
         indice[j]=(equipe[j].pv)*20/(equipe[j].base.pv);//calcul permettant la mise a echelle
         for(int i=0;i<20;i++) {
@@ -618,18 +611,12 @@ void affichage2(Combattant* equipe,int tmax,int t1,int t2,int aID) {
                     }
 
                 }
-                else {
-                    printf(" ");
-                }
             }
             espace=20-(equipe[j].ne*4);
             if(espace>0) {
                 for(int k=0;k<espace;k++) {
                     printf(" ");
                 }
-            }
-            else {
-                printf(" ");
             }
         }
 
@@ -756,9 +743,6 @@ void affichage2(Combattant* equipe,int tmax,int t1,int t2,int aID) {
                         break;
                     }
                 }
-                else {
-                    printf(" ");
-                }
 
             }
             espace=20-(equipe[j].ne*4);
@@ -766,9 +750,6 @@ void affichage2(Combattant* equipe,int tmax,int t1,int t2,int aID) {
                 for(int k=0;k<espace;k++) {
                     printf(" ");
                 }
-            }
-            else {
-                printf(" ");
             }
 
         }
@@ -840,7 +821,7 @@ void affichage2(Combattant* equipe,int tmax,int t1,int t2,int aID) {
         printf("│     ◎ Confère un boost de 100٪ d'attaque                                 │\n");
         }
     if(equipe[aID].base.capa[1].bl==0){
-        printf("│ |2| Position Defensive | Durée : 6 tours / Recharge : 3                  │\n");
+        printf("│ |2| Position Offensive | Durée : 6 tours / Recharge : 3                  │\n");
         printf("│     ◎ Confère un boost de 100٪ de defense                                │\n");
     }
     else {
@@ -1000,8 +981,8 @@ void affichage2(Combattant* equipe,int tmax,int t1,int t2,int aID) {
 
 }
 
-
-void affichagenormal(Combattant* equipe,int tmax,int t1,int t2,int aID) {
+//affichage ne montrant pas les techniques spéciales
+void affichagenormal(Combattant* equipe,int tmax,int t1,int t2) {
     char pvaffichage[6][20];
     int indice[6];//tableau d'indice pour les combattants
     int str;
@@ -1094,12 +1075,6 @@ void affichagenormal(Combattant* equipe,int tmax,int t1,int t2,int aID) {
                         printf(" ");
                     }
                 }
-                else {
-                    printf(" ");
-                }
-            }
-            else {
-                printf(" ");
             }
         }
     }
@@ -1113,10 +1088,28 @@ void affichagenormal(Combattant* equipe,int tmax,int t1,int t2,int aID) {
         if(equipe[j].ne==0) {
             printf("                    ");
         }
-        else {
-            for(int i=0;i<equipe[j].ne;i++){
+        else{
+            for(int i=0;i<equipe[j].ne;i++) {
                 if(i*4<=20) {
                     switch(equipe[j].effets[i].type) {
+                        case 1:
+                            printf("(♥)");
+                        break;
+                        case 2:
+                            printf("(⚔)");
+                        break;
+                        case 3:
+                            printf("(🛡)");
+                        break;
+                        case 4:
+                            printf("(⚡)");
+                        break;
+                        case 5:
+                            printf("(👟)");
+                        break;
+                        case 6:
+                            printf("(🧤)");
+                        break;
                         case -1:
                             printf("(💜)");
                         break;
@@ -1136,26 +1129,24 @@ void affichagenormal(Combattant* equipe,int tmax,int t1,int t2,int aID) {
                             printf("(🪨)");
                         break;
                     }
-                    espace=20-(equipe[j].ne*4);
-                    if(espace>0) {
-                        for(int k=0;k<espace;k++) {
-                            printf(" ");
-                        }
-                    }
-                    else {
-                        printf(" ");
-                    }
+
                 }
-                else {
+            }
+            espace=20-(equipe[j].ne*4);
+            if(espace>0) {
+                for(int k=0;k<espace;k++) {
                     printf(" ");
                 }
             }
         }
+
         if(j!=4-1){
             printf("   ");
         }
+
     }
     printf("  │\n");
+
     //5eme ligne avec les pv des agents
     printf("│  ");
     for(int i=0;i<t1;i++) {
@@ -1196,7 +1187,6 @@ void affichagenormal(Combattant* equipe,int tmax,int t1,int t2,int aID) {
     printf("│                                                                          │\n");
     printf("└──────────────────────────────────────────────────────────────────────────┘\n");
 
-//on sépare les tableaux dans le code ça me donne mal a la tete sinon
 
     printf("┌─[Equipe 2]───────────────────────────────────────────────────────────────┒\n"
                          "│                                                                          │\n");//2 premières lignes de l'interface
@@ -1271,18 +1261,12 @@ printf("│   ");
                     }
 
                 }
-                else {
-                    printf(" ");
-                }
             }
             espace=20-(equipe[j].ne*4);
             if(espace>0) {
                 for(int k=0;k<espace;k++) {
                     printf(" ");
                 }
-            }
-            else {
-                printf(" ");
             }
         }
 
