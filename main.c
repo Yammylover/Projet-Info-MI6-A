@@ -16,7 +16,7 @@ Combattant stat1(int i){
 
     printf("┌─[Selection personnage]─────────────────┒\n"
                  "│                                        │\n"
-                 "│ Lamda│1│    Delta│2│    Omega│3│       │\n"
+                 "│ Lambda│1│    Delta│2│    Omega│3│      │\n"
                  "│ Polyvalent  Attaquant   Soutien        │\n"
                  "│                                        │\n"
                  "│ Epsilon|4|  Alpha|5|    Beta|6|        │\n"
@@ -33,8 +33,8 @@ Combattant stat1(int i){
 
     switch(nb) {
     case 1:
-        printf("Lamda a ete selectionne\n");
-        printf(     "┌─[Lamda]────────────────────────────────────┒\n"
+        printf("Lambda a ete selectionne\n");
+        printf(     "┌─[Lambda]────────────────────────────────────┒\n"
                           "│                                            │\n"
                           "│  Pv:100 Atk:30 Def:20 Vit:35 Agi:10 Dex:10 │\n"
                           "│  Compétences :                             │\n"
@@ -218,7 +218,7 @@ Combattant stat2(int i, int tmax){
     FILE* fichier=NULL;
     printf("┌─[Selection personnage]─────────────────┒\n"
                  "│                                        │\n"
-                 "│ Lamda│1│    Delta│2│    Omega│3│       │\n"
+                 "│ Lambda│1│    Delta│2│    Omega│3│      │\n"
                  "│ Polyvalent  Attaquant   Soutien        │\n"
                  "│                                        │\n"
                  "│ Epsilon|4|  Alpha|5|    Beta|6|        │\n"
