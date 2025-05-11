@@ -8,7 +8,7 @@
 #endif*/
 #define NBFIGHTERS 6    //à augmenter avec d'autres combattants
 
-Combattant stat1(int i){
+Combattant stat1(int i,int tmax){
     Combattant n; //variable utilisé pour ecrire les valeurs de chacuns des combattans
     int nb=0; //nombre entier permettant de choisir quel agent on va selectionner
 
@@ -54,6 +54,11 @@ Combattant stat1(int i){
         n.base.dex=10;
         n.base.ndc=3;
         n.base.pid=1001;
+        n.base.capa=malloc(sizeof(Capacite)*n.base.ndc);	//allocation du tableau de capacités
+        	if(n.base.capa==NULL){
+        		printf("Erreur malloc capacité\n");
+        		exit(8);
+    }
         n.base.capa[0].id=5001;
         n.base.capa[1].id=5002;
         n.base.capa[2].id=5003;
@@ -89,6 +94,11 @@ Combattant stat1(int i){
         n.base.dex=10;
         n.base.ndc=3;
         n.base.pid=1002;
+        n.base.capa=malloc(sizeof(Capacite)*n.base.ndc);	//allocation du tableau de capacités
+        	if(n.base.capa==NULL){
+        		printf("Erreur malloc capacité\n");
+        		exit(8);
+        }
         n.base.capa[0].id=5004;
         n.base.capa[1].id=5005;
         n.base.capa[2].id=5006;
@@ -125,6 +135,11 @@ Combattant stat1(int i){
         n.base.dex=1;
         n.base.ndc=3;
         n.base.pid=1003;
+        n.base.capa=malloc(sizeof(Capacite)*n.base.ndc);	//allocation du tableau de capacités
+        	if(n.base.capa==NULL){
+        		printf("Erreur malloc capacité\n");
+        		exit(8);
+        }
         n.base.capa[0].id=5007;
         n.base.capa[1].id=5008;
         n.base.capa[2].id=5009;
@@ -160,6 +175,11 @@ Combattant stat1(int i){
         n.base.dex=15;
         n.base.ndc=3;
         n.base.pid=1004;
+        n.base.capa=malloc(sizeof(Capacite)*n.base.ndc);	//allocation du tableau de capacités
+        	if(n.base.capa==NULL){
+        		printf("Erreur malloc capacité\n");
+        		exit(8);
+        }
         n.base.capa[0].id=5010;
         n.base.capa[1].id=5011;
         n.base.capa[2].id=5012;
@@ -194,6 +214,11 @@ Combattant stat1(int i){
         n.base.dex=20;
         n.base.ndc=3;
         n.base.pid=1005;
+        n.base.capa=malloc(sizeof(Capacite)*n.base.ndc);	//allocation du tableau de capacités
+        	if(n.base.capa==NULL){
+        		printf("Erreur malloc capacité\n");
+        		exit(8);
+        }
         n.base.capa[0].id=5013;
         n.base.capa[1].id=5014;
         n.base.capa[2].id=5015;
@@ -228,6 +253,11 @@ Combattant stat1(int i){
         n.base.dex=10;
         n.base.ndc=3;
         n.base.pid=1006;
+        n.base.capa=malloc(sizeof(Capacite)*n.base.ndc);	//allocation du tableau de capacités
+        	if(n.base.capa==NULL){
+        		printf("Erreur malloc capacité\n");
+        		exit(8);
+        }
         n.base.capa[0].id=5016;
         n.base.capa[1].id=5017;
         n.base.capa[2].id=5018;
@@ -244,6 +274,7 @@ Combattant stat1(int i){
     }
     n.effets=NULL;
     n.ne=0;
+    
     for(int j=0; j<n.base.ndc;j++){
         n.base.capa[j].cd=3;
         n.base.capa[j].bl=0;
@@ -438,14 +469,14 @@ int main(){
 
     printf("Selection des champions de l'equipe 1\n\n");	//appel de chaque combattant de chaque équipe
     for(int i=0;i<t1;i++) {
-        equipe1[i]=stat2(i,t1+t2);
+        equipe1[i]=stat1(i,t1+t2);
         equipe1[i].ID=i;
     }
 
     printf("Selection des champions de l'equipe 2\n\n");
     for(int i=0;i<t2;i++) {
 
-        equipe2[i]=stat2(i,t1+t2);
+        equipe2[i]=stat1(i,t1+t2);
         equipe2[i].ID=i+t1;
     }
 
