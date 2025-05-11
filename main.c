@@ -391,7 +391,7 @@ Combattant stat2(int i, int tmax){
         	    exit(7);
         	}
         	//printf("ndc=%d\n",n.base.ndc);
-        	n.base.capa=malloc(sizeof(Capacite)*n.base.ndc);
+        	n.base.capa=malloc(sizeof(Capacite)*n.base.ndc);	//allocation du tableau de capacités
         	if(n.base.capa==NULL){
         		printf("Erreur malloc capacité\n");
         		exit(8);
@@ -436,7 +436,7 @@ int main(){
     int t2=3;
     Combattant equipe2[t2];
 
-    printf("Selection des champions de l'equipe 1\n\n");
+    printf("Selection des champions de l'equipe 1\n\n");	//appel de chaque combattant de chaque équipe
     for(int i=0;i<t1;i++) {
         equipe1[i]=stat2(i,t1+t2);
         equipe1[i].ID=i;
