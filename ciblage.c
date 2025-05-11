@@ -64,4 +64,3 @@ int cible(Combattant* tab, int t1, int tmax, int ID, int ecible, int tcible){	//
         return b;
     }
 }
-#endif
