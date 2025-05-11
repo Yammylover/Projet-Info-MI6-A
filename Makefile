@@ -1,5 +1,5 @@
 exec: main.o selection.o combat.o code.o ciblage.o capacites.o
-	gcc main.o selection.o combat.o code.o ciblage.o capacites.o exec
+	gcc main.o selection.o combat.o code.o ciblage.o capacites.o -o exec
 
 main.o: main.c structure.h
 	gcc -c main.c
