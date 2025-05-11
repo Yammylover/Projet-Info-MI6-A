@@ -1,3 +1,4 @@
+
 #include "structure.h"
 
 
@@ -94,7 +95,7 @@ void updeffect(Combattant* tab, int ID){
         //décompte
         tab[ID].effets[i].duree--;
     }
-    
+
 }
 
 /*void deathmodif(Combattant* tab, int ID, int* t1, int* t2, int* tmax){
@@ -199,8 +200,15 @@ void action(Combattant* tab, int aID, int* tmax, int* t1, int* t2){
     	    tab[aID].base.capa[j].bl--;
         }
     }
-    affichage(ee,tmax,t1,t2,aID);
+    //affichage(tab,*tmax,*t1,*t2);
     printf("C'est le tour de %s! (ID=%d)\n",tab[aID].base.nom,tab[aID].ID+1);
+    printf("%d\n",tab[aID].ID);
+    if(tab[aID].ID+1>3) {
+        affichage2(tab,*tmax,*t1,*t2,aID);
+    }
+    else {
+        affichage(tab,*tmax,*t1,*t2,aID);
+    }
     int cib,r,m=1,c=0;
     int array[tab[aID].base.ndc+1];
     array[0]=0;
@@ -297,7 +305,7 @@ int combat(Combattant* e1, Combattant* e2,int t1, int t2){
         	tabact[i]=ee[i].act;
         	//displayfighter(ee[i]);
     	}
-	    
+
     	int j=IDmax(tabact,tmax);
     	if(ee[j].act>=100){   //définition de la c° d'action
         	ee[j].act=0;
