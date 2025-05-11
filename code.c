@@ -773,7 +773,7 @@ void affichage2(Combattant* equipe,int tmax,int t1,int t2,int aID) {
 
         }
 
-        if(j!=4-1){
+        if(j!=7-1){
             printf("   ");
         }
 
@@ -1292,7 +1292,7 @@ printf("│   ");
 
     }
     printf("  │\n");
-    
+
     //5eme ligne avec les pv des agents
     printf("│  ");
     for(int i=t1;i<tmax;i++) {
