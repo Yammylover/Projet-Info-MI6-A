@@ -469,14 +469,14 @@ int main(){
 
     printf("Selection des champions de l'equipe 1\n\n");	//appel de chaque combattant de chaque équipe
     for(int i=0;i<t1;i++) {
-        equipe1[i]=stat1(i,t1+t2);
+        equipe1[i]=stat2(i,t1+t2);
         equipe1[i].ID=i;
     }
 
     printf("Selection des champions de l'equipe 2\n\n");
     for(int i=0;i<t2;i++) {
 
-        equipe2[i]=stat1(i,t1+t2);
+        equipe2[i]=stat2(i,t1+t2);
         equipe2[i].ID=i+t1;
     }
 
