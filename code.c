@@ -199,7 +199,7 @@ switch(equipe[aID].base.pid) {
         printf("│     ◎ Confère un boost de 100٪ d'attaque                                 │\n");
         }
     if(equipe[aID].base.capa[1].bl==0){
-        printf("│ |2| Position Offensive | Durée : 6 tours / Recharge : 3                  │\n");
+        printf("│ |2| Position Defensive | Durée : 6 tours / Recharge : 3                  │\n");
         printf("│     ◎ Confère un boost de 100٪ de defense                                │\n");
     }
     else {
@@ -821,7 +821,7 @@ void affichage2(Combattant* equipe,int tmax,int t1,int t2,int aID) {
         printf("│     ◎ Confère un boost de 100٪ d'attaque                                 │\n");
         }
     if(equipe[aID].base.capa[1].bl==0){
-        printf("│ |2| Position Offensive | Durée : 6 tours / Recharge : 3                  │\n");
+        printf("│ |2| Position Defensive | Durée : 6 tours / Recharge : 3                  │\n");
         printf("│     ◎ Confère un boost de 100٪ de defense                                │\n");
     }
     else {
