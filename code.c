@@ -1292,7 +1292,7 @@ printf("│   ");
 
     }
     printf("  │\n");
-    
+
     //5eme ligne avec les pv des agents
     printf("│  ");
     for(int i=t1;i<tmax;i++) {
