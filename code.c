@@ -81,43 +81,43 @@ void affichage(Combattant* equipe,int tmax,int t1,int t2,int aID) {
         }
         else{
         for(int i=0;i<equipe[j].ne;i++) {
-            if(i*4<=20) {
+            if(i*4<20) {
                 switch(equipe[j].effets[i].type) {
                     case 1:
-                        printf("(♥)");
+                        printf("(♥ )");
                     break;
                     case 2:
-                        printf("(⚔)");
+                        printf("(⚔ )");
                     break;
                     case 3:
-                        printf("(🛡)");
+                        printf("(🛡 )");
                     break;
                     case 4:
-                        printf("(⚡)");
+                        printf("(⚡ )");
                     break;
                     case 5:
-                        printf("(👟)");
+                        printf("(👟 )");
                     break;
                     case 6:
-                        printf("(🧤)");
+                        printf("(🧤 )");
                     break;
                     case -1:
-                        printf("(💜)");
+                        printf("(💜 )");
                     break;
                     case -2:
-                        printf("(🗡)");
+                        printf("(🗡 )");
                     break;
                     case -3:
-                        printf("(💔)");
+                        printf("(💔 )");
                     break;
                     case -4:
-                        printf("(⛓)");
+                        printf("(⛓ )");
                     break;
                     case -5:
-                        printf("(🦴)");
+                        printf("(🦴 )");
                     break;
                     case -6:
-                        printf("(🪨)");
+                        printf("(🪨 )");
                     break;
                 }
 
@@ -199,7 +199,7 @@ switch(equipe[aID].base.pid) {
         printf("│     ◎ Confère un boost de 100٪ d'attaque                                 │\n");
         }
     if(equipe[aID].base.capa[1].bl==0){
-        printf("│ |2| Position Defensive | Durée : 6 tours / Recharge : 3                  │\n");
+        printf("│ |2| Position Offensive | Durée : 6 tours / Recharge : 3                  │\n");
         printf("│     ◎ Confère un boost de 100٪ de defense                                │\n");
     }
     else {
@@ -396,43 +396,43 @@ switch(equipe[aID].base.pid) {
         }
         else{
             for(int i=0;i<equipe[j].ne;i++) {
-                if(i*4<=20) {
+                if(i*4<20) {
                     switch(equipe[j].effets[i].type) {
                         case 1:
-                            printf("(♥)");
+                            printf("(♥ )");
                         break;
                         case 2:
-                            printf("(⚔)");
+                            printf("(⚔ )");
                         break;
                         case 3:
-                            printf("(🛡)");
+                            printf("(🛡 )");
                         break;
                         case 4:
-                            printf("(⚡)");
+                            printf("(⚡ )");
                         break;
                         case 5:
-                            printf("(👟)");
+                            printf("(👟 )");
                         break;
                         case 6:
-                            printf("(🧤)");
+                            printf("(🧤 )");
                         break;
                         case -1:
-                            printf("(💜)");
+                            printf("(💜 )");
                         break;
                         case -2:
-                            printf("(🗡)");
+                            printf("(🗡 )");
                         break;
                         case -3:
-                            printf("(💔)");
+                            printf("(💔 )");
                         break;
                         case -4:
-                            printf("(⛓)");
+                            printf("(⛓ )");
                         break;
                         case -5:
-                            printf("(🦴)");
+                            printf("(🦴 )");
                         break;
                         case -6:
-                            printf("(🪨)");
+                            printf("(🪨 )");
                         break;
                     }
 
@@ -570,43 +570,43 @@ void affichage2(Combattant* equipe,int tmax,int t1,int t2,int aID) {
         }
         else{
             for(int i=0;i<equipe[j].ne;i++) {
-                if(i*4<=20) {
+                if(i*4<20) {
                     switch(equipe[j].effets[i].type) {
                         case 1:
-                            printf("(♥)");
+                            printf("(♥ )");
                         break;
                         case 2:
-                            printf("(⚔)");
+                            printf("(⚔ )");
                         break;
                         case 3:
-                            printf("(🛡)");
+                            printf("(🛡 )");
                         break;
                         case 4:
-                            printf("(⚡)");
+                            printf("(⚡ )");
                         break;
                         case 5:
-                            printf("(👟)");
+                            printf("(👟 )");
                         break;
                         case 6:
-                            printf("(🧤)");
+                            printf("(🧤 )");
                         break;
                         case -1:
-                            printf("(💜)");
+                            printf("(💜 )");
                         break;
                         case -2:
-                            printf("(🗡)");
+                            printf("(🗡 )");
                         break;
                         case -3:
-                            printf("(💔)");
+                            printf("(💔 )");
                         break;
                         case -4:
-                            printf("(⛓)");
+                            printf("(⛓ )");
                         break;
                         case -5:
-                            printf("(🦴)");
+                            printf("(🦴 )");
                         break;
                         case -6:
-                            printf("(🪨)");
+                            printf("(🪨 )");
                         break;
                     }
 
@@ -703,43 +703,43 @@ void affichage2(Combattant* equipe,int tmax,int t1,int t2,int aID) {
         }
         else{
             for(int i=0;i<equipe[j].ne;i++) {
-                if(i*4<=20) {
+                if(i*4<20) {
                     switch(equipe[j].effets[i].type) {
                         case 1:
-                            printf("(♥)");
+                            printf("(♥ )");
                         break;
                         case 2:
-                            printf("(⚔)");
+                            printf("(⚔ )");
                         break;
                         case 3:
-                            printf("(🛡)");
+                            printf("(🛡 )");
                         break;
                         case 4:
-                            printf("(⚡)");
+                            printf("(⚡ )");
                         break;
                         case 5:
-                            printf("(👟)");
+                            printf("(👟 )");
                         break;
                         case 6:
-                            printf("(🧤)");
+                            printf("(🧤 )");
                         break;
                         case -1:
-                            printf("(💜)");
+                            printf("(💜 )");
                         break;
                         case -2:
-                            printf("(🗡)");
+                            printf("(🗡 )");
                         break;
                         case -3:
-                            printf("(💔)");
+                            printf("(💔 )");
                         break;
                         case -4:
-                            printf("(⛓)");
+                            printf("(⛓ )");
                         break;
                         case -5:
-                            printf("(🦴)");
+                            printf("(🦴 )");
                         break;
                         case -6:
-                            printf("(🪨)");
+                            printf("(🪨 )");
                         break;
                     }
                 }
@@ -821,7 +821,7 @@ void affichage2(Combattant* equipe,int tmax,int t1,int t2,int aID) {
         printf("│     ◎ Confère un boost de 100٪ d'attaque                                 │\n");
         }
     if(equipe[aID].base.capa[1].bl==0){
-        printf("│ |2| Position Defensive | Durée : 6 tours / Recharge : 3                  │\n");
+        printf("│ |2| Position Offensive | Durée : 6 tours / Recharge : 3                  │\n");
         printf("│     ◎ Confère un boost de 100٪ de defense                                │\n");
     }
     else {
@@ -1040,49 +1040,6 @@ void affichagenormal(Combattant* equipe,int tmax,int t1,int t2) {
         }
     }
     printf("   │\n");
-        printf("│   ");
-    for(int j=0;j<t1;j++) {
-        if(equipe[j].ne==0) {
-            printf("                    ");
-        }
-        else {
-        for(int i=0;i<equipe[j].ne;i++) {
-            if(i*4<=20) {
-                switch(equipe[j].effets[i].type) {
-                    case 1:
-                        printf("(♥)");
-                    break;
-                    case 2:
-                        printf("(⚔)");
-                    break;
-                    case 3:
-                        printf("(🛡)");
-                    break;
-                    case 4:
-                        printf("(⚡)");
-                    break;
-                    case 5:
-                        printf("(👟)");
-                    break;
-                    case 6:
-                        printf("🧤");
-                    break;
-                }
-
-                espace=20-(equipe[j].ne*4);
-                if(espace>0) {
-                    for(int k=0;k<espace;k++) {
-                        printf(" ");
-                    }
-                }
-            }
-        }
-    }
-        if(j!=4-1){
-            printf("   ");
-        }
-}
-    printf("  │\n");
     printf("│   ");
     for(int j=0;j<t1;j++) {
         if(equipe[j].ne==0) {
@@ -1090,43 +1047,43 @@ void affichagenormal(Combattant* equipe,int tmax,int t1,int t2) {
         }
         else{
             for(int i=0;i<equipe[j].ne;i++) {
-                if(i*4<=20) {
+                if(i*4<20) {
                     switch(equipe[j].effets[i].type) {
                         case 1:
-                            printf("(♥)");
+                            printf("(♥ )");
                         break;
                         case 2:
-                            printf("(⚔)");
+                            printf("(⚔ )");
                         break;
                         case 3:
-                            printf("(🛡)");
+                            printf("(🛡 )");
                         break;
                         case 4:
-                            printf("(⚡)");
+                            printf("(⚡ )");
                         break;
                         case 5:
-                            printf("(👟)");
+                            printf("(👟 )");
                         break;
                         case 6:
-                            printf("(🧤)");
+                            printf("(🧤 )");
                         break;
                         case -1:
-                            printf("(💜)");
+                            printf("(💜 )");
                         break;
                         case -2:
-                            printf("(🗡)");
+                            printf("(🗡 )");
                         break;
                         case -3:
-                            printf("(💔)");
+                            printf("(💔 )");
                         break;
                         case -4:
-                            printf("(⛓)");
+                            printf("(⛓ )");
                         break;
                         case -5:
-                            printf("(🦴)");
+                            printf("(🦴 )");
                         break;
                         case -6:
-                            printf("(🪨)");
+                            printf("(🪨 )");
                         break;
                     }
 
@@ -1220,43 +1177,43 @@ printf("│   ");
         }
         else{
             for(int i=0;i<equipe[j].ne;i++) {
-                if(i*4<=20) {
+                if(i*4<20) {
                     switch(equipe[j].effets[i].type) {
                         case 1:
-                            printf("(♥)");
+                            printf("(♥ )");
                         break;
                         case 2:
-                            printf("(⚔)");
+                            printf("(⚔ )");
                         break;
                         case 3:
-                            printf("(🛡)");
+                            printf("(🛡 )");
                         break;
                         case 4:
-                            printf("(⚡)");
+                            printf("(⚡ )");
                         break;
                         case 5:
-                            printf("(👟)");
+                            printf("(👟 )");
                         break;
                         case 6:
-                            printf("(🧤)");
+                            printf("(🧤 )");
                         break;
                         case -1:
-                            printf("(💜)");
+                            printf("(💜 )");
                         break;
                         case -2:
-                            printf("(🗡)");
+                            printf("(🗡 )");
                         break;
                         case -3:
-                            printf("(💔)");
+                            printf("(💔 )");
                         break;
                         case -4:
-                            printf("(⛓)");
+                            printf("(⛓ )");
                         break;
                         case -5:
-                            printf("(🦴)");
+                            printf("(🦴 )");
                         break;
                         case -6:
-                            printf("(🪨)");
+                            printf("(🪨 )");
                         break;
                     }
 
