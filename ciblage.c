@@ -1,6 +1,6 @@
 #include "structure.h"
 
-int rando(int min, int max){
+int rando(int min, int max){    //fonction random mais en plus pratique
     if (min>max){
         printf("Erreur ciblage3\n");
         exit(3);
@@ -26,7 +26,7 @@ int cible(Combattant* tab, int t1, int tmax, int ID, int ecible, int tcible){	//
                     }while(tab[b].pv<=0 || b<0 || b>=tmax);
                 break;
                 case 2:		//sélection manuelle
-                    for(int i=0;i<t1;i++){
+                    for(int i=0;i<t1;i++){    //crée le tableau contenant les id acceptables comme cibles
                         if(tab[i].pv>0){
                             a++;
                             array[c]=i+1;
