@@ -16,7 +16,7 @@ Combattant stat1(int i){
 
     printf("┌─[Selection personnage]─────────────────┒\n"
                  "│                                        │\n"
-                 "│ Lambda│1│    Delta│2│    Omega│3│      │\n"
+                 "│ Lambda│1│   Delta│2│    Omega│3│       │\n"
                  "│ Polyvalent  Attaquant   Soutien        │\n"
                  "│                                        │\n"
                  "│ Epsilon|4|  Alpha|5|    Beta|6|        │\n"
@@ -34,7 +34,7 @@ Combattant stat1(int i){
     switch(nb) {
     case 1:
         printf("Lambda a ete selectionne\n");
-        printf(     "┌─[Lambda]────────────────────────────────────┒\n"
+        printf(     "┌─[Lambda]───────────────────────────────────┒\n"
                           "│                                            │\n"
                           "│  Pv:100 Atk:30 Def:20 Vit:35 Agi:10 Dex:10 │\n"
                           "│  Compétences :                             │\n"
@@ -71,6 +71,15 @@ Combattant stat1(int i){
     break;
     case 2:
         printf("Delta a ete choisi !\n");
+    	printf(     "┌─[Delta]────────────────────────────────────┒\n"
+						  "│                                            │\n"
+						  "│  Pv:80 Atk:40 Def:10 Vit:42 Agi:20 Dex:10  │\n"
+						  "│  Compétences :                             │\n"
+						  "│       -Percée                              │\n"
+						  "│       -Aiguisage                           │\n"
+						  "│       -Etirement                           │\n"
+						  "│                                            │\n"
+						  "└────────────────────────────────────────────┘\n"); //tableau pour afficher les stats de l'agent choisi
         n.base.nom="Delta";
         n.base.pv=80;
         n.base.atk=40;
@@ -86,7 +95,7 @@ Combattant stat1(int i){
 
 
         n.ID=i;
-        n.pv=0;
+        n.pv=80;
         n.atk=40;
         n.def=10;
         n.vit=42;
@@ -97,6 +106,16 @@ Combattant stat1(int i){
     break;
     case 3:
         printf("Omega a ete choisi !\n");
+    	printf(     "┌─[Omega]────────────────────────────────────┒\n"
+						  "│                                            │\n"
+						  "│  Pv:150 Atk:20 Def:40 Vit:20 Agi:0 Dex:1   │\n"
+						  "│  Compétences :                             │\n"
+						  "│       -Affaiblissement                     │\n"
+						  "│       -Bouclier                            │\n"
+						  "│       -Soin groupé                         │\n"
+						  "│                                            │\n"
+						  "└────────────────────────────────────────────┘\n"); //tableau pour afficher les stats de l'agent choisi
+
         n.base.nom="Omega";
         n.base.pv=150;
         n.base.atk=20;
@@ -122,6 +141,16 @@ Combattant stat1(int i){
     break;
     case 4:
         printf("Epsilon a ete choisi !\n");
+    	printf(     "┌─[Epsilon]──────────────────────────────────┒\n"
+						  "│                                            │\n"
+						  "│  Pv:120 Atk:20 Def:20 Vit:43 Agi:15 Dex:15 │\n"
+						  "│  Compétences :                             │\n"
+						  "│       -Elan                                │\n"
+						  "│       -Soin                                │\n"
+						  "│       -Ralentissement                      │\n"
+						  "│                                            │\n"
+						  "└────────────────────────────────────────────┘\n"); //tableau pour afficher les stats de l'agent choisi
+
         n.base.nom="Epsilon";
         n.base.pv=120;
         n.base.atk=20;
@@ -146,6 +175,16 @@ Combattant stat1(int i){
     break;
     case 5:
     printf("Alpha a ete choisi !\n");
+    	printf( "┌─[Alpha]────────────────────────────────────┒\n"
+					  "│                                            │\n"
+					  "│  Pv:100 Atk:50 Def:7 Vit:30 Agi:5 Dex:20   │\n"
+					  "│  Compétences :                             │\n"
+					  "│       -Vampire                             │\n"
+					  "│       -Commandement                        │\n"
+					  "│       -Inspiration                         │\n"
+					  "│                                            │\n"
+					  "└────────────────────────────────────────────┘\n"); //tableau pour afficher les stats de l'agent choisi
+
         n.base.nom="Alpha";
         n.base.pv=100;
         n.base.atk=50;
@@ -170,6 +209,16 @@ Combattant stat1(int i){
     break;
     case 6:
     printf("Beta a ete choisi !\n");
+    	printf( "┌─[Beta]─────────────────────────────────────┒\n"
+					  "│                                            │\n"
+					  "│  Pv:200 Atk:50 Def:0 Vit:18 Agi:0 Dex:10   │\n"
+					  "│  Compétences :                             │\n"
+					  "│       -Coup violent                        │\n"
+					  "│       -Barricade                           │\n"
+					  "│       -Trépignement                        │\n"
+					  "│                                            │\n"
+					  "└────────────────────────────────────────────┘\n"); //tableau pour afficher les stats de l'agent choisi
+
         n.base.nom="Beta";
         n.base.pv=200;
         n.base.atk=50;
@@ -230,31 +279,90 @@ Combattant stat2(int i, int tmax){
     switch(nb){
         case 1:
         	printf("Lambda a ete selectionne\n");
+    	printf(     "┌─[Lambda]───────────────────────────────────┒\n"
+						  "│                                            │\n"
+						  "│  Pv:100 Atk:30 Def:20 Vit:35 Agi:10 Dex:10 │\n"
+						  "│  Compétences :                             │\n"
+						  "│       -Pose offensive                      │\n"
+						  "│       -Pose deffensive                     │\n"
+						  "│       -Repos                               │\n"
+						  "│                                            │\n"
+						  "└────────────────────────────────────────────┘\n"); //tableau pour afficher les stats de l'agent choisi
 
 		fichier=fopen("Lambda","r");
 	break;
 	case 2:
         	printf("Delta a ete selectionne\n");
+    	printf(     "┌─[Delta]────────────────────────────────────┒\n"
+						  "│                                            │\n"
+						  "│  Pv:80 Atk:40 Def:10 Vit:42 Agi:20 Dex:10  │\n"
+						  "│  Compétences :                             │\n"
+						  "│       -Percée                              │\n"
+						  "│       -Aiguisage                           │\n"
+						  "│       -Etirement                           │\n"
+						  "│                                            │\n"
+						  "└────────────────────────────────────────────┘\n"); //tableau pour afficher les stats de l'agent choisi
+
 
 		fichier=fopen("Delta","r");
 	break;
 	case 3:
         	printf("Omega a ete selectionne\n");
+    	printf(     "┌─[Omega]────────────────────────────────────┒\n"
+						  "│                                            │\n"
+						  "│  Pv:150 Atk:20 Def:40 Vit:20 Agi:0 Dex:1   │\n"
+						  "│  Compétences :                             │\n"
+						  "│       -Affaiblissement                     │\n"
+						  "│       -Bouclier                            │\n"
+						  "│       -Soin groupé                         │\n"
+						  "│                                            │\n"
+						  "└────────────────────────────────────────────┘\n"); //tableau pour afficher les stats de l'agent choisi
+
 
 		fichier=fopen("Omega","r");
 	break;
 	case 4:
         	printf("Epsilon a ete selectionne\n");
+    	printf(     "┌─[Epsilon]──────────────────────────────────┒\n"
+				  "│                                            │\n"
+				  "│  Pv:120 Atk:20 Def:20 Vit:43 Agi:15 Dex:15 │\n"
+				  "│  Compétences :                             │\n"
+				  "│       -Elan                                │\n"
+				  "│       -Soin                                │\n"
+				  "│       -Ralentissement                      │\n"
+				  "│                                            │\n"
+				  "└────────────────────────────────────────────┘\n"); //tableau pour afficher les stats de l'agent choisi
+
 
 		fichier=fopen("Epsilon","r");
 	break;
 	case 5:
         	printf("Alpha a ete selectionne\n");
+    	printf( "┌─[Alpha]────────────────────────────────────┒\n"
+					  "│                                            │\n"
+					  "│  Pv:100 Atk:50 Def:7 Vit:30 Agi:5 Dex:20   │\n"
+					  "│  Compétences :                             │\n"
+					  "│       -Vampire                             │\n"
+					  "│       -Commandement                        │\n"
+					  "│       -Inspiration                         │\n"
+					  "│                                            │\n"
+					  "└────────────────────────────────────────────┘\n"); //tableau pour afficher les stats de l'agent choisi
+
 
 		fichier=fopen("Alpha","r");
 	break;
 	case 6:
         	printf("Beta a ete selectionne\n");
+    	printf( "┌─[Beta]─────────────────────────────────────┒\n"
+					  "│                                            │\n"
+					  "│  Pv:200 Atk:50 Def:0 Vit:18 Agi:0 Dex:10   │\n"
+					  "│  Compétences :                             │\n"
+					  "│       -Coup violent                        │\n"
+					  "│       -Barricade                           │\n"
+					  "│       -Trépignement                        │\n"
+					  "│                                            │\n"
+					  "└────────────────────────────────────────────┘\n"); //tableau pour afficher les stats de l'agent choisi
+
 
 		fichier=fopen("Beta","r");
 	break;
@@ -330,7 +438,7 @@ int main(){
 
     printf("Selection des champions de l'equipe 1\n\n");
     for(int i=0;i<t1;i++) {
-        equipe1[i]=stat2(i,t1+t2);
+        equipe1[i]=stat2(t1+t2);
         equipe1[i].ID=i;
     }
 
@@ -340,7 +448,7 @@ int main(){
         equipe2[i]=stat2(i,t1+t2);
         equipe2[i].ID=i+t1;
     }
-    
+
     if(combat(equipe1,equipe2,t1,t2)==1){
 	    printf("Victoire de l'équipe 1!\n");
     } else {
