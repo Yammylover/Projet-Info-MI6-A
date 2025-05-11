@@ -143,10 +143,10 @@ void appliquedegats(Combattant* tab, int ID, int dg, int t1, int t2, int tmax){
         printf("Erreur application des dégâts\n");
         exit(3);
     }
-    printf("%s|%d| subit %d dégâts!\n",tab[ID].base.nom,tab[ID].ID,dg);
+    printf("%s|%d| subit %d dégâts!\n",tab[ID].base.nom,tab[ID].ID+1,dg);
 	tab[ID].pv-=dg;
     if(deathcheck(tab,ID)){
-		printf("%s|%d| est mort!\n", tab[ID].base.nom,tab[ID].ID);
+		printf("%s|%d| est mort!\n", tab[ID].base.nom,tab[ID].ID+1);
 		//deathmodif(tab,ID,t1,t2,tmax);
 	}
 }
@@ -177,7 +177,7 @@ int attaque(Combattant* tab, int IDatk, int IDdef, int mdex){
 	rd2=rand()%101;
 	//printf("rd1=%d rd2=%d\n",rd1,rd2);
 	if (rd1<=tab[IDdef].agl){
-		printf("%s évite l'attaque !\n",tab[IDdef].base.nom);
+		printf("%s|%d| évite l'attaque !\n",tab[IDdef].base.nom,tab[IDdef].ID+1);
 		return 0;
 	} else if(rd2<=crit){
 		printf("C'est un coup critique!\n");
