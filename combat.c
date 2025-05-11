@@ -143,10 +143,10 @@ void appliquedegats(Combattant* tab, int ID, int dg, int t1, int t2, int tmax){
         printf("Erreur application des dégâts\n");
         exit(3);
     }
-    printf("%s subit %d dégâts!\n",tab[ID].base.nom,dg);
+    printf("%s|%d| subit %d dégâts!\n",tab[ID].base.nom,tab[ID].ID,dg);
 	tab[ID].pv-=dg;
     if(deathcheck(tab,ID)){
-		printf("%s est mort!\n", tab[ID].base.nom);
+		printf("%s|%d| est mort!\n", tab[ID].base.nom,tab[ID].ID);
 		//deathmodif(tab,ID,t1,t2,tmax);
 	}
 }
@@ -170,7 +170,7 @@ int attaque(Combattant* tab, int IDatk, int IDdef, int mdex){
 		printf("erreur opérandes f° attaque\n");
 		exit(1);
 	}
-	printf("%s attaque %s !\n",tab[IDatk].base.nom,tab[IDdef].base.nom);
+	printf("%s|%d| attaque %s|%d| !\n",tab[IDatk].base.nom,tab[IDatk].ID+1,tab[IDdef].base.nom,tab[IDdef].ID+1);
 	int rd1=0,rd2=0;
 	int crit=tab[IDatk].dex+mdex;
 	rd1=rand()%101;
@@ -201,9 +201,8 @@ void action(Combattant* tab, int aID, int* tmax, int* t1, int* t2){
         }
     }
     //affichage(tab,*tmax,*t1,*t2);
-    printf("C'est le tour de %s! (ID=%d)\n",tab[aID].base.nom,tab[aID].ID+1);
-    printf("%d\n",tab[aID].ID);
-    if(tab[aID].ID+1>3) {
+    printf("\nC'est le tour de %s|%d|!\n",tab[aID].base.nom,tab[aID].ID+1);
+    if(tab[aID].ID+1>*t1) {
         affichage2(tab,*tmax,*t1,*t2,aID);
     }
     else {
@@ -253,6 +252,7 @@ void action(Combattant* tab, int aID, int* tmax, int* t1, int* t2){
 }
 
 int combat(Combattant* e1, Combattant* e2,int t1, int t2){
+    printf("Le combat commence !\n\n");
     srand(time(NULL));
     //vérifications
     if(e1==NULL || e2==NULL){
@@ -308,8 +308,8 @@ int combat(Combattant* e1, Combattant* e2,int t1, int t2){
 
     	int j=IDmax(tabact,tmax);
     	if(ee[j].act>=100){   //définition de la c° d'action
-        	ee[j].act=0;
         	action(ee,j,&tmax,&t1,&t2);
+        	ee[j].act=0;
     	}
         sleep(1);
         a=0;
