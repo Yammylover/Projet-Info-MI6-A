@@ -51,7 +51,8 @@ typedef struct {
     int ne; //quantité d'effets subis et taille du tableau effets
 } Combattant;
 
-void affichage(Combattant* equipe,int tmax,int t1,int t2);
+void affichage(Combattant* equipe,int tmax,int t1,int t2,int aID);
+void affichage2(Combattant* equipe,int tmax,int t1,int t2,int aID);
 int deathcheck(Combattant* tab, int ID);
 void appliquedegats(Combattant* tab, int ID, int dg, int t1, int t2, int tmax);
 int calcdegats(int atk, int def,int matk);
